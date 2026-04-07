@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Web Development",
+    "code": "Web Dev 301",
+    "instructor": "Sir Alex Ferguson",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "Computer Science",
+    "code": "CSI-100",
+    "instructor": "Sir Alex Ferguson",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "Mathematics",
+    "code": "Math-202",
+    "instructor": "Sir Alex Ferguson",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "Communication",
+    "code": "COM 400",
+    "instructor": "Sir Alex Ferguson",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "UI/UX Design",
+    "code": "UI/UX-900",
+    "instructor": "Mr Patrick Bamford",
+    "schedule": "Mon, Wed, Fri - 8:00 AM",
+    "students": 260
+  },
+  {
+    "title": "English Language",
+    "code": "ENG-299",
+    "instructor": "Sir Alex Ferguson",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "Cyber Security",
+    "code": "CSS-123",
+    "instructor": "Mr Kweku Bonsam",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "Cyber Security",
+    "code": "CSS-123",
+    "instructor": "Mr Kweku Bonsam",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  },
+  {
+    "title": "Cyber Security",
+    "code": "CSS-123",
+    "instructor": "Mr Kweku Bonsam",
+    "schedule": "Mon, Wed, Fri - 10:00 AM",
+    "students": 260
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Mr. Daniel Mensah",
+    "id": "TCH-001",
+    "className": "Web Dev 301",
+    "gender": "Male",
+    "email": "danielmensah@gmail.com"
+  },
+  {
+    "name": "Ms. Grace Owusu",
+    "id": "TCH-002",
+    "className": "CSI-100",
+    "gender": "Female",
+    "email": "graceowusu@gmail.com"
+  },
+  {
+    "name": "Mrs. Lydia Asante",
+    "id": "TCH-003",
+    "className": "Math-202",
+    "gender": "Female",
+    "email": "lydiaasante@gmail.com"
+  },
+  {
+    "name": "Mr. Michael Darko",
+    "id": "TCH-004",
+    "className": "COM-404",
+    "gender": "Male",
+    "email": "michaeldarko@gmail.com"
+  },
+  {
+    "name": "Mr. Samuel Addae",
+    "id": "TCH-005",
+    "className": "CSI-001",
+    "gender": "Male",
+    "email": "samueladdae@gmail.com"
+  },
+  {
+    "name": "Ms. Evelyn Boateng",
+    "id": "TCH-006",
+    "className": "Web Dev 201",
+    "gender": "Female",
+    "email": "evelynboateng@gmail.com"
+  },
+  {
+    "name": "Mr. Patrick Asare",
+    "id": "TCH-007",
+    "className": "Data-210",
+    "gender": "Male",
+    "email": "patrickasare@gmail.com"
+  },
+  {
+    "name": "Mrs. Anita Bediako",
+    "id": "TCH-008",
+    "className": "UX-115",
+    "gender": "Female",
+    "email": "anitabediako@gmail.com"
+  },
+  {
+    "name": "Mr. Joseph Agyeman",
+    "id": "TCH-009",
+    "className": "Net-220",
+    "gender": "Male",
+    "email": "josephagyeman@gmail.com"
+  },
+  {
+    "name": "Dr. Nana Yeboah",
+    "id": "TCH-010",
+    "className": "AI-320",
+    "gender": "Male",
+    "email": "nanayeboah@gmail.com"
+  }
+]

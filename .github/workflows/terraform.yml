@@ -1,0 +1,70 @@
+name: Deploy Infrastructure
+
+# Triggers for the workflow
+on:
+  workflow_dispatch:
+    inputs:
+      terraform_action:
+        type: choice
+        description: 'Select the Terraform action to perform'
+        required: true
+        options:
+          - plan
+          - apply
+          - destroy
+        default: plan
+  # Runs automatically when code is pushed to the 'main' branch
+  push:
+    branches:
+      - "main"
+      - "releases/**"
+
+# Required permissions for GitHub Actions to use OIDC and read repository content
+permissions:
+  contents: read
+# Needed for OIDC authentication with AWS
+  id-token: write    
+  pull-requests: read
+
+jobs:
+  deploy_infra:
+    runs-on: ubuntu-latest   
+    defaults: 
+      run:
+        working-directory: terraform
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      
+      - uses: aws-actions/configure-aws-credentials@v6.1.0
+        with:
+          aws-region: eu-north-1
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActions
+          role-session-name: github-actions
+      
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "1.14.6"
+      
+      - name: Terraform init
+        run: terraform init
+      
+      - name: Terraform validate
+        run: terraform validate
+      
+      - name: Terraform plan (on push)
+        if: ${{ github.event_name == 'push' }}
+        run: terraform plan
+      
+      - name: Terraform plan (manual dispatch)
+        if: ${{ github.event.inputs.terraform_action == 'plan' || github.event.inputs.terraform_action == '' }}
+        run: terraform plan 
+      
+      - name: Terraform apply
+        if: ${{ github.event.inputs.terraform_action == 'apply' }}
+        run: terraform apply -auto-approve 
+      
+      - name: Terraform destroy
+        if: ${{ github.event.inputs.terraform_action == 'destroy' }}
+        run: terraform destroy -auto-approve

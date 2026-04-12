@@ -178,3 +178,16 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react,node
+
+terraform/.terraform
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/modules/tf-vpc/.terraform
+terraform/modules/tf-vpc/.terraform.lock.hcl
+terraform/modules/tf-vpc/terraform.tfstate
+terraform/modules/tf-vpc/terraform.tfstate.backup
+terraform/modules/tf-ecs/.terraform
+terraform/modules/tf-ecs/.terraform.lock.hcl
+terraform/modules/tf-ecs/terraform.tfstate
+terraform/modules/tf-ecs/terraform.tfstate.backup   

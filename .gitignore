@@ -191,3 +191,8 @@ terraform/modules/tf-ecs/.terraform
 terraform/modules/tf-ecs/.terraform.lock.hcl
 terraform/modules/tf-ecs/terraform.tfstate
 terraform/modules/tf-ecs/terraform.tfstate.backup   
+terraform/vpc.tf
+terraform/ecs.tf
+terraform/oidc.tf
+terraform/ecs.tf
+terraform/ecr.tf

@@ -40,6 +40,10 @@ resource "aws_iam_role" "github_actions_role" {
 }
 
 # IAM Policy — ECR + ECS full access only
+data "aws_region" "current" {}
+data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
+
 resource "aws_iam_role_policy" "github_actions_access_policy" {
   name = "github-actions-access-policy"
   role = aws_iam_role.github_actions_role.id
@@ -83,7 +87,7 @@ resource "aws_iam_role_policy" "github_actions_access_policy" {
           "ecr:StartLifecyclePolicyPreview",
           "ecr:UploadLayerPart"
         ]
-        Resource = "*"
+        Resource = "arn:aws:ecr:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:repository/${var.ecr_name}"
       },
 
       #ECS Full Access 
@@ -131,7 +135,7 @@ resource "aws_iam_role_policy" "github_actions_access_policy" {
           "ecs:UpdateServicePrimaryTaskSet",
           "ecs:UpdateTaskSet"
         ]
-        Resource = "*"
+        Resource = "arn:aws:ecs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:*"
       },
 
       # IAM PassRole (ECS needs this to assign task/execution roles)

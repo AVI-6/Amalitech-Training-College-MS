@@ -1,0 +1,138 @@
+/* .add-student-page {
+  padding: 12px 16px 32px;
+}
+
+.add-student-page .admin-page-header,
+.add-student-page .admin-form-section,
+.add-student-page .admin-form-actions {
+  width: 100%;
+}
+
+.add-student-page .admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.add-student-page .admin-page-header-text h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+.add-student-page .admin-page-header-text p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.add-student-page .admin-back-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.add-student-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.add-student-page .admin-form-section {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.add-student-page .admin-form-section h2 {
+  font-size: 1.5rem;
+}
+
+.add-student-page .admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+.add-student-page .admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-student-page .admin-field-full {
+  grid-column: 1 / -1;
+}
+
+.add-student-page .admin-field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.add-student-page .admin-field input,
+.add-student-page .admin-field select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #b8c0cd;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+  color: #465062;
+  outline: none;
+}
+
+.add-student-page .admin-field input:disabled {
+  background: #d9dde5;
+  color: #525d70;
+}
+
+.add-student-page .admin-form-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+}
+
+.add-student-page .admin-primary-button,
+.add-student-page .admin-secondary-button {
+  min-height: 48px;
+  border-radius: 10px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-student-page .admin-primary-button {
+  border: none;
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.add-student-page .admin-secondary-button {
+  border: 1px solid #8d98aa;
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .add-student-page .admin-page-header {
+    flex-direction: column;
+  }
+
+  .add-student-page .admin-form-grid,
+  .add-student-page .admin-form-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.admin-field{
+  width: 100%;
+} */

@@ -1,0 +1,36 @@
+
+.assessments-page-div{
+  padding: 0 10px;
+}
+
+.assessments-page-header{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 74%;
+  background-color: var(--color-background);
+  padding: 10px;
+}
+
+.assessments-page-header div{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.assessments-page-bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--color-surface);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.assessments-page-bottom-2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 24px;
+  flex-basis: 300px 300px;
+}

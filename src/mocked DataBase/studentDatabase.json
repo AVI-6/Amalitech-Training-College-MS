@@ -2,71 +2,57 @@
   {
     "name": "Ama Owusu",
     "id": "STU-001",
+    "className": "Web-Dev 301",
+    "gender": "Female",
+    "status": "Active",
+    "email": "emma.johnson@gmail.com"
+  },
+  {
+    "name": "Michael Chen",
+    "id": "STU-002",
+    "className": "Data Science 201",
+    "gender": "Male",
+    "status": "Active",
+    "email": "michael.chen@gmail.com"
+  },
+  {
+    "name": "Sarah Williams",
+    "id": "STU-003",
+    "className": "UI/UX Design 101",
+    "gender": "Female",
+    "status": "Active",
+    "email": "sarah.williams@gmail.com"
+  },
+  {
+    "name": "James Anderson",
+    "id": "STU-004",
+    "className": "Mobile Dev 202",
+    "gender": "Male",
+    "status": "Inactive",
+    "email": "james.anderson@gmail.com"
+  },
+  {
+    "name": "Olivia Martinez",
+    "id": "STU-005",
     "className": "Web Dev 301",
     "gender": "Female",
-    "email": "amaowusu@gmail.com"
+    "status": "Active",
+    "email": "olivia.martinez@gmail.com"
   },
   {
-    "name": "Kofi Ayensu",
-    "id": "STU-002",
-    "className": "CSI-100",
-    "gender": "Male",
-    "email": "kofiayensu@gmail.com"
-  },
-  {
-    "name": "Abena Boat",
-    "id": "STU-003",
-    "className": "Math-202",
-    "gender": "Female",
-    "email": "abenaboat@gmail.com"
-  },
-  {
-    "name": "Kwame Darko",
-    "id": "STU-004",
-    "className": "COM-404",
-    "gender": "Male",
-    "email": "kwamedarko@gmail.com"
-  },
-  {
-    "name": "Edem Wayoo",
-    "id": "STU-005",
-    "className": "CSI-001",
-    "gender": "Male",
-    "email": "edemwayoo@gmail.com"
-  },
-  {
-    "name": "Efua Mensah",
+    "name": "David Thompson",
     "id": "STU-006",
-    "className": "Web Dev 201",
-    "gender": "Female",
-    "email": "efuamensah@gmail.com"
+    "className": "Cloud Computing 303",
+    "gender": "Male",
+    "status": "Active",
+    "email": "david.thompson@gmail.com"
   },
   {
-    "name": "Yaw Asare",
+    "name": "Sophia Garcia",
     "id": "STU-007",
-    "className": "Data-210",
-    "gender": "Male",
-    "email": "yawasare@gmail.com"
-  },
-  {
-    "name": "Akosua Addo",
-    "id": "STU-008",
-    "className": "UX-115",
+    "className": "Cybersecurity 205",
     "gender": "Female",
-    "email": "akosuaaddo@gmail.com"
-  },
-  {
-    "name": "Kojo Bediako",
-    "id": "STU-009",
-    "className": "Net-220",
-    "gender": "Male",
-    "email": "kojobediako@gmail.com"
-  },
-  {
-    "name": "Naa Ayele",
-    "id": "STU-010",
-    "className": "AI-320",
-    "gender": "Female",
-    "email": "naaayele@gmail.com"
+    "status": "Active",
+    "email": "sophia.garcia@gmail.com"
   }
 ]

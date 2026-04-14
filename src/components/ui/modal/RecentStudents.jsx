@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import studentDatabaseUrl from '../../../mocked DataBase/studentDatabase.json?url'
+import { Link } from 'react-router-dom'
 
 function RecentStudents() {
   const [students, setStudents] = useState([])
@@ -33,23 +34,32 @@ function RecentStudents() {
               <th>ID</th>
               <th>Class</th>
               <th>Gender</th>
+              <th>Status</th>
               <th>Email</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {students.map((student) => (
-              <tr key={student.id}>
-                <td>{student.name}</td>
-                <td>{student.id}</td>
-                <td>{student.className}</td>
-                <td>{student.gender}</td>
-                <td>{student.email}</td>
-                <td>
-                  <button className='student-view-btn'>View</button>
-                </td>
-              </tr>
-            ))}
+            {students.map((student) => {
+              const statusClass = student.status ? student.status.toLowerCase() : ''
+              return (
+                <tr key={student.id}>
+                  <td>{student.name}</td>
+                  <td>{student.id}</td>
+                  <td>{student.className}</td>
+                  <td>{student.gender}</td>
+                  <td>
+                    <span className={`status-pill ${statusClass}`}>
+                      {student.status}
+                    </span>
+                  </td>
+                  <td>{student.email}</td>
+                  <td>
+                    <Link to={`/admin/students/${student.id}`}><button className='student-view-btn'>View</button></Link>
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>

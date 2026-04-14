@@ -1,0 +1,218 @@
+
+.class-performance-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  background-color: var(--color-background);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 25px;
+}
+
+.performance-div-left-content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
+
+.performance-title{
+  font-weight: var(--font-weight-semibold);
+}
+
+.performance-div-left-content p{
+  color: var(--color-text-secondary);
+}
+
+.performance-stats{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-div-right-content{
+  font-size: var(--font-size-h3);
+}
+
+.improving{
+  color: var(--color-success);
+}
+.declining{
+  color: var(--color-error);
+}
+
+
+
+
+
+
+
+
+
+
+/* top-performance-div */
+.top-performance-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  background-color: var(--color-surface);
+  border-radius: 10px;
+  padding: var(--spacing-3);
+}
+
+.top-performance-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  padding: 10px;
+  border: 1px solid var(--color-text-secondary);
+  border-radius: 10px;
+  gap: var(--spacing-3);
+}
+
+.top-performance-left-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.number-of-performers{
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-success);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-surface);
+  border-radius: 50%;
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+}
+
+.performer-course{
+  color: var(--color-text-secondary);
+}
+
+.top-performance-right-content{
+  background-color: #22c55e33;
+  color: var(--color-success);
+  padding: 4px 10px;
+  border-radius: 50px;
+  border: 1px solid var(--color-success);
+}
+
+
+
+
+
+
+
+/* view-analytics-second-div */
+.view-analytics-page-div{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.view-analytics-second-div{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  background-color: var(--color-surface);
+  padding: 10px 20px;
+}
+
+.view-analytics-third-div h3{
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+}
+
+
+.view-analytics-header-div{
+  width: 74%;
+}
+
+.individual-performance{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  justify-content: space-between;
+}
+
+
+
+
+/* view-analytics-final-div */
+.view-analytics-final-div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+
+
+
+
+
+/* students-at-risk-wrapper */
+
+.students-at-risk-wrapper{
+  display: flex;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+.students-at-risk{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  /* color: var(--color-error); */
+  background-color: #ef444425;
+  width: 100%;
+  padding: 17px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.student-risk-top-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.student-risk-top-content p{
+  color: var(--color-text-secondary);
+}
+
+.right{
+  border: 1px solid var(--color-error);
+  background-color: #ef444425;
+  border-radius: 30px;
+  padding: 5px 10px;
+  color: var(--color-error);
+}
+
+.student-risk-middle-content{
+  display: flex;
+  color: var(--color-text-secondary);
+  gap: var(--spacing-3);
+}
+
+.student-risk-middle-content h3, .grade h3{
+  color: var(--color-error);
+}
+
+
+
+
+
+
+
+
+
+
+
+

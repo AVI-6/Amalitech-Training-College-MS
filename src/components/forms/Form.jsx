@@ -2,13 +2,37 @@ import React, { useState } from 'react'
 import Button from '../buttons/Button'
 import { FaEyeSlash } from "react-icons/fa"
 import { MdKey } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 
 function Form({ title, titleDesc, logo }) {
   const [isLoading, setIsLoading] = useState(false)
+  const [form, setForm] = useState({
+    email:'',
+    password:''
+  })
+  const [errorMessage, setErrorMessage] = useState('')
+  const [isChecked, setIsChecked] = useState(false)
+  const navigate = useNavigate()
 
-  function handleSubmit(){
-    setIsLoading(true)
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+  function handleRemember(e) {
+    setIsChecked({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    setIsLoading(false);
+    if(!form.email && form.password <6){
+      setErrorMessage('Enter valid email and password')
+    }
+    if(form.email === 'admin@school.com' && form.password === 'admin@2026'){
+      navigate('/admin/dashboard')
+      setIsLoading(false)
+    }
+    setErrorMessage("");
   }
 
   const BtnStyles = {
@@ -19,7 +43,7 @@ function Form({ title, titleDesc, logo }) {
   return (
     <div className="right-side">
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='login-form'>
         <div className="title-div">
           <h1>{ title }</h1>
           <small>{titleDesc}</small>
@@ -31,18 +55,19 @@ function Form({ title, titleDesc, logo }) {
           <label htmlFor="email">
             Email
           </label>
-          <input type="email" name="email" id="email" required/>
+          <input type="email" name="email" id="email" required value={form.email} onChange={handleChange}/>
         </div>
         <div className="password-div">
           <label htmlFor="password">
             Password
           </label>
-          <input type="password" name="password" id="password" required/>
+          <input type="password" name="password" id="password" required value={form.password} onChange={handleChange}/>
           <FaEyeSlash id="show-password"/>
         </div>
+        {errorMessage && <p className="form-error-message">{errorMessage}</p>}
         <div className="remember-and-forgot-div">
           <div className="remember-me-div">
-            <input type="checkbox" name="remember" id="remember-me" checked />
+            <input type="checkbox" name="remember" id="remember-me" value={isChecked} onChange={handleRemember}/>
             <label htmlFor="remember-me">Remeember me</label>
           </div>
           <div className="forgot-password-div">

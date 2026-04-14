@@ -1,0 +1,179 @@
+
+
+.create-assessment{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  background-color: var(--color-surface);
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 70px;
+}
+
+.assessment-type-div{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.assessment-types-div{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assessment-type{
+  border: 1px solid var(--color-text-secondary);
+  border-radius: 10px;
+  padding: var(--spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 48%;
+  cursor: pointer;
+}
+
+.assessment-type-title{
+  color: var(--color-text-secondary);
+}
+
+.marked-assessment{
+  width: 13px;
+  height: 13px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.assessment-title{
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.assessment-desc{
+  color: var(--color-text-secondary);
+}
+
+
+
+/* Extra CSS */
+
+.change-bg{
+  background-color: #3b83f62a;
+}
+
+.clicked-change{
+  background-color: var(--color-warning);
+}
+
+
+
+
+.assessment-title-div, .assessment-desc-div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assessment-title{
+  font-weight: var(--font-weight-semibold);
+}
+
+.assessment-title-input input{
+  height: 52px;
+  border: 1px solid var(--color-text-secondary);
+  padding: 15px 10px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: var(--font-size-h3);
+}
+
+.assessment-desc-head{
+  font-weight: var(--font-weight-semibold);
+}
+
+.assessment-desc-input textarea{
+  height: 156px;
+  border: 1px solid var(--color-text-secondary);
+  padding: 15px 10px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: var(--font-size-h3);
+}
+
+
+
+
+/* assessment-date-&-time-div styles */
+.assessment-date-and-time-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.assessment-date-div, .assessment-time-div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 48%;
+  font-size: var(--font-size-h3);
+}
+
+.assessment-date-title, .assessment-time-title{
+  font-weight: var(--font-weight-semibold);
+}
+
+.assessment-time input, .assessment-date input{
+  width: 100%;
+  border: 1px solid var(--color-text-primary);
+  border-radius: 15px;
+  padding: 6px 10px;
+  height: 52px;
+  font-size: var(--font-size-h3);
+}
+
+
+
+/* assessment-header-div */
+.assessment-header-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-background);
+  padding: 10px;
+  position: fixed;
+  width: 74%;
+}
+
+.assessment-header-div a{
+  text-decoration: none;
+}
+
+.assessment-header-div p{
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+/* Save Changes Styles */
+.cancel-create-assessment {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.save-assessment-div{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.save-assessment-div{
+  padding: 0 10px;
+}

@@ -42,7 +42,6 @@ resource "aws_iam_role" "github_actions_role" {
 # IAM Policy — ECR + ECS full access only
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
-data "aws_region" "current" {}
 
 resource "aws_iam_role_policy" "github_actions_access_policy" {
   name = "github-actions-access-policy"

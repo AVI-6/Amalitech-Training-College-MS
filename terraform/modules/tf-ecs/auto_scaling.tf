@@ -17,7 +17,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   }
   alarm_actions = [
     aws_appautoscaling_policy.cpu_scale_up.arn,
-    aws_sns_topic.slack_notifications.arn
+    aws_sns_topic.mail_notifications.arn
   ]
 }
 
@@ -40,7 +40,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_low" {
   }
   alarm_actions = [
     aws_appautoscaling_policy.cpu_scale_down.arn,
-    aws_sns_topic.slack_notifications.arn
+    aws_sns_topic.mail_notifications.arn
   ]
 }
 
@@ -117,7 +117,7 @@ resource "aws_cloudwatch_metric_alarm" "memory_high" {
 
   alarm_actions = [
     aws_appautoscaling_policy.memory_scale_up.arn,
-    aws_sns_topic.slack_notifications.arn
+    aws_sns_topic.mail_notifications.arn
   ]
 }
 
@@ -141,7 +141,7 @@ resource "aws_cloudwatch_metric_alarm" "memory_low" {
 
   alarm_actions = [
     aws_appautoscaling_policy.memory_scale_down.arn,
-    aws_sns_topic.slack_notifications.arn
+    aws_sns_topic.mail_notifications.arn
   ]
 }
 

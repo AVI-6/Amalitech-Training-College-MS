@@ -148,11 +148,47 @@ resource "aws_iam_role_policy" "github_actions_access_policy" {
             "iam:PassedToService" = "ecs-tasks.amazonaws.com"
           }
         }
+      },
+
+      # S3 Terraform state bucket access
+      {
+        Sid      = "TfStateBucketList"
+        Effect   = "Allow"
+        Action   = ["s3:ListBucket"]
+        Resource = "arn:aws:s3:::avi-tf-file"
+
+        Condition = {
+          StringLike = {
+            "s3:prefix" = [
+              "avi/school-ms/ecr/*"
+            ]
+          }
+        }
+      },
+      {
+        Sid    = "TfStateObjectAccess"
+        Effect = "Allow"
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject"
+        ]
+        Resource = [
+          "arn:aws:s3:::avi-tf-file/avi/school-ms/ecr/terraform.tfstate",
+          "arn:aws:s3:::avi-tf-file/avi/school-ms/ecr/terraform.tfstate.tflock"
+        ]
       }
+
     ]
   })
 
   lifecycle {
     prevent_destroy = false
   }
+}
+
+#readonly access to all AWS services (for safety, in case we missed something in the above policy)
+resource "aws_iam_role_policy_attachment" "readonly" {
+  role       = aws_iam_role.github_actions_role.name
+  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }

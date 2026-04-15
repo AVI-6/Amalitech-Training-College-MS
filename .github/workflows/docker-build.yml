@@ -49,7 +49,6 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@6b89923a897d41e9ad789181d8865b532ecf973c
         with:
-          task-definition: task-definition.json
           container-name: avi-school-ms
           image: ${{ steps.build-image.outputs.image }}
 

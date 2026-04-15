@@ -69,7 +69,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@6b89923a897d41e9ad789181d8865b532ecf973c
         with:
           task-definition: cleaned-task-definition.json
-          container-name: "avi-school-ms"
+          container-name: "avi-school-ecs-container"
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition

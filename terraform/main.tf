@@ -27,7 +27,7 @@ module "ecs" {
   aws_region         = "eu-north-1"
   container_cpu      = 1024
   container_memory   = 2048
-  container_name     = "lesliekofi-ecs-container"
+  container_name     = "avi-school-ecs-container"
   health_check_path  = "/"
   image              = "chriscloudaz/netflix:latest"
   name               = var.name

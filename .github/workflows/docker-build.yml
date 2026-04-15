@@ -6,8 +6,15 @@ on:
       - "releases/**"
   pull_request:
     types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  id-token: write
 jobs:
-  push-image-to-ecr:
+  build_and_deploy_to_ecs:
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

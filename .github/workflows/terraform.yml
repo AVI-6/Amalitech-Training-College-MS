@@ -18,17 +18,23 @@ on:
     branches:
       - "main"
       - "releases/**"
+      - "feature/**"
 
 # Required permissions for GitHub Actions to use OIDC and read repository content
 permissions:
   contents: read
   # Needed for OIDC authentication with AWS
   id-token: write
-  pull-requests: read
+  # pull-requests: read
 
 jobs:
   deploy_infra:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+  # Needed for OIDC authentication with AWS
+      id-token: write
+      pull-requests: read
     defaults:
       run:
         working-directory: terraform

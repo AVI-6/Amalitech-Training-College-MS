@@ -45,11 +45,30 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
+      - name: Download task definition
+        run: |
+          aws ecs describe-task-definition
+          --task-definition avi-ecs-task
+          --query taskDefinition > task-definition.json
+
+      - name: Clean task definition file
+        run: |
+          cat task-definition.json | jq 'del(
+          .taskDefinitionArn,
+          .revision,
+          .status,
+          .requiresAttributes,
+          .compatibilities,
+          .registeredAt,
+          .registeredBy
+          )' > cleaned-task-definition.json
+
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@6b89923a897d41e9ad789181d8865b532ecf973c
         with:
-          container-name: avi-school-ms
+          task-definition: cleaned-task-definition.json
+          container-name: "avi-school-ms"
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition

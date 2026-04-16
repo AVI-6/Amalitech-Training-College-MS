@@ -17,8 +17,8 @@ on:
   push:
     branches:
       - "main"
-      - "releases/**"
-      - "feature/**"
+      # - "releases/**"
+      # - "feature/**"
 
 # Required permissions for GitHub Actions to use OIDC and read repository content
 permissions:

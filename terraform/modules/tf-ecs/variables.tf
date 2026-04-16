@@ -2,9 +2,9 @@ variable "name" {
   description = "Prefix used for naming all resources for unique identification."
 }
 
-variable "account_id" {
-  description = "The AWS account where the resources will be created"
-}
+# variable "account_id" {
+#   description = "The AWS account where the resources will be created"
+# }
 
 variable "account_name" {
   description = "The name of the AWS account where the code is being deployed"
@@ -33,9 +33,9 @@ variable "private_subnet_ids" {
 }
 
 
-variable "zone_id" {
-  description = "The ID of the DNS zone where the DNS record for the service will be created."
-}
+# variable "zone_id" {
+#   description = "The ID of the DNS zone where the DNS record for the service will be created."
+# }
 
 
 

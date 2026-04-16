@@ -1,13 +1,13 @@
-module "vpc" {
-  source          = "./modules/tf-vpc"
-  region          = var.region
-  short_region    = var.short_region
-  cidr            = var.vpc_ip_cidr
-  account_name    = var.name
-  private_subnets = flatten([for name, subnet in var.vpc_subnets_map["private"] : keys(subnet) if name == "general"])
-  public_subnets  = flatten([for name, subnet in var.vpc_subnets_map["public"] : keys(subnet) if name == "general"])
-  tags            = var.tags
-}
+# module "vpc" {
+#   source          = "./modules/tf-vpc"
+#   region          = var.region
+#   short_region    = var.short_region
+#   cidr            = var.vpc_ip_cidr
+#   account_name    = var.name
+#   private_subnets = flatten([for name, subnet in var.vpc_subnets_map["private"] : keys(subnet) if name == "general"])
+#   public_subnets  = flatten([for name, subnet in var.vpc_subnets_map["public"] : keys(subnet) if name == "general"])
+#   tags            = var.tags
+# }
 
 #----------------------------------------------------------------
 

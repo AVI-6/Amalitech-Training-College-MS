@@ -1,0 +1,208 @@
+.student-performance-page {
+  padding: 12px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.student-performance-page .admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.student-performance-page .admin-page-header-text h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.student-performance-page .admin-page-header-text p {
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+}
+
+.student-performance-page .admin-back-link {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.student-performance-summary,
+.student-performance-breakdown,
+.attendance-log-card,
+.class-summary-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+}
+
+.student-performance-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 18px;
+}
+
+.student-performance-identity h2 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.student-performance-identity p {
+  color: var(--color-text-secondary);
+}
+
+.student-performance-metrics {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.student-performance-metrics div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.student-performance-metrics strong {
+  font-size: 2rem;
+}
+
+.student-performance-metrics span {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+}
+
+.student-performance-metrics .metric-attendance strong {
+  color: var(--color-accent);
+}
+
+.student-performance-metrics .metric-grade strong {
+  color: var(--color-success);
+}
+
+.student-performance-breakdown {
+  padding: 14px 12px 18px;
+}
+
+.student-performance-breakdown h3,
+.attendance-log-card h3,
+.class-summary-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.student-performance-table-wrapper {
+  overflow-x: auto;
+}
+
+.student-performance-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  min-width: 720px;
+}
+
+.student-performance-table th {
+  background: #f5f5f5;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.student-performance-table th:first-child,
+.student-performance-table td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.student-performance-table th:last-child,
+.student-performance-table td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.student-performance-table td {
+  background: #f7f7f7;
+  padding: 14px;
+}
+
+.student-performance-page .admin-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-performance-page .admin-progress-track {
+  width: 74px;
+  height: 3px;
+  background: #d6deea;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.student-performance-page .admin-progress-fill {
+  height: 100%;
+  background: #3b82f6;
+}
+
+.student-performance-bottom {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(280px, 1fr);
+  gap: 18px;
+}
+
+.attendance-log-card,
+.class-summary-card {
+  padding: 14px 12px;
+}
+
+.attendance-log-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.attendance-log-stats div,
+.class-summary-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.attendance-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.class-summary-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 18px;
+}
+
+.class-summary-card input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #aab4c2;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #f8fafc;
+}
+
+@media (max-width: 900px) {
+  .student-performance-summary,
+  .student-performance-page .admin-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-performance-metrics {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .student-performance-bottom {
+    grid-template-columns: 1fr;
+  }
+}

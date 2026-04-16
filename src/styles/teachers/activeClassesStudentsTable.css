@@ -1,0 +1,141 @@
+.active-classes-students-card{
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.active-classes-students-tabs{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+  margin-bottom: 10px;
+}
+
+.students-tab-button{
+  border: none;
+  background: transparent;
+  color: #7c8595;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.students-tab-button.active{
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #ffffff;
+}
+
+.students-tab-button:not(.active):hover{
+  background-color: rgba(148, 163, 184, 0.12);
+  color: var(--color-text-primary);
+}
+
+.active-classes-student-tables-div{
+  width: 100%;
+}
+
+.active-classes-student-tables-wrapper{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.active-classes-student-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.active-classes-student-table th,
+.active-classes-student-table td{
+  text-align: left;
+  padding: 16px 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 13px;
+}
+
+.active-classes-student-table th{
+  color: #111827;
+  font-weight: 600;
+}
+
+.active-classes-student-table td{
+  color: #6b7280;
+}
+
+.active-classes-student-table tbody tr:hover{
+  background-color: rgba(249, 250, 251, 0.9);
+}
+
+.performance-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.performance-pill.success{
+  background-color: rgba(34, 197, 94, 0.14);
+  color: #22a35a;
+}
+
+.performance-pill.warning{
+  background-color: rgba(249, 115, 22, 0.16);
+  color: #f97316;
+}
+
+.performance-pill.info{
+  background-color: rgba(59, 130, 246, 0.14);
+  color: #3b82f6;
+}
+
+.students-view-button{
+  border: 1px solid #94a3b8;
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.students-view-button:hover{
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(219, 234, 254, 0.45);
+}
+
+.active-classes-table-state{
+  text-align: center !important;
+  color: #64748b;
+  padding: 24px 10px;
+}
+
+@media (max-width: 768px){
+  .active-classes-students-card{
+    padding: 14px;
+  }
+
+  .active-classes-students-tabs{
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+
+  .active-classes-student-table th,
+  .active-classes-student-table td{
+    padding: 14px 8px;
+  }
+}

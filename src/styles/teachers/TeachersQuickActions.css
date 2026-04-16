@@ -1,0 +1,66 @@
+.second-teachers-dashboard-content-actions-div{
+  border: 1px solid var(--color-text-secondary);
+  border-radius: 10px;
+  width: 30%;
+  height: 116px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-3);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.teachers-action-icon{
+  width: 48px;
+  height: 48px;
+  background-color: #8B5CF61A;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.violet{
+  background-color: hsl(271, 76%, 93%);
+  color: blueviolet;
+  font-size: var(--font-size-h2);
+}
+.orange{
+  background-color: hsla(18, 81%, 54%, 0.102);
+  color: #e8632a;
+  font-size: var(--font-size-h2);
+}
+.accent{
+  background-color: hsl(219, 48%, 90%);
+  color: var(--color-primary);
+  font-size: var(--font-size-h2);
+}
+.blue{
+  background-color: hsla(217, 92%, 60%, 0.116);
+  color: #3b83f6fd;
+  font-size: var(--font-size-h2);
+}
+.navy{
+  background-color: #F59E0B1A;
+  color: #f59f0bfd;
+  font-size: var(--font-size-h2);
+}
+.green{
+  background-color: #22C55E1A;
+  color: #22c55e;
+  font-size: var(--font-size-h2);
+}
+
+.second-teachers-dashboard-content-actions-div p{
+  text-decoration: none;
+  color: var(--color-text-primary);
+
+}
+
+.modal{
+  display: none;
+}
+
+.second-teachers-dashboard-content-actions-div:hover .modal{
+  display: flex;
+}

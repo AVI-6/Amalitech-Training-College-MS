@@ -1,0 +1,22 @@
+
+.my-courses-page-div{
+  padding: 0 10px;
+  position: relative;
+}
+
+.my-course-page-top-content{
+  width: 74%;
+  background-color: var(--color-background);
+  position: fixed;
+  top: 0;
+  padding: 10px;
+}
+
+.my-course-page-top-content .page-header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+

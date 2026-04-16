@@ -1,0 +1,80 @@
+
+
+.course-page-bottom-content-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  background-color: var(--color-surface);
+  padding: 17px;
+  border-radius: 10px;
+  margin-top: 70px;
+}
+
+.course-page-bottom-content-1{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.course-page-bottom-content-1 p{
+  color: var(--color-text-secondary);
+}
+
+.course-title, .course-takers, .course-schedule, .course-venue{
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-title-left-side h2{
+  font-size: var(--font-size-h2);
+}
+
+.course-title-right-side p{
+  color: green;
+  background-color: hsl(120, 100%, 85%);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+/* Course progress */
+.course-progress-title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.teachers-course-progress-div{
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-text-secondary);
+  border-radius: 20px;
+}
+
+.teachers-progress{
+  width: 65%;
+  background-color: var(--color-primary);
+  height: inherit;
+  border-radius: 20px;
+}
+
+
+
+
+.course-details{
+  width: 30%;
+}
+
+.course-details button{
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.course-details button:hover{
+  background-color: hsl(219, 48%, 90%);
+}

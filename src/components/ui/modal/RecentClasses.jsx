@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
 import { BsPeople } from "react-icons/bs";
 import classDataBaseUrl from "../../../mocked DataBase/classDataBase.json?url";
+import { Link } from "react-router-dom";
 
 function RecentClasses() {
   const [classes, setClasses] = useState([]);
@@ -55,9 +56,9 @@ function RecentClasses() {
             </div>
           </div>
           <div className="recent-class-btn">
-            <a href="">
+            <Link to={`/admin/classes/${classItem.code}`}>
               View Class <FaArrowRight />
-            </a>
+            </Link>
           </div>
         </div>
       ))}

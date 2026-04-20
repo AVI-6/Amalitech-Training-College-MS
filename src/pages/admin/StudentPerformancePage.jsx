@@ -1,8 +1,9 @@
 import React from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import AdminPageHeader from '../../components/admin/AdminPageHeader';
 import ProgressBar from '../../components/admin/ProgressBar';
 import '../../styles/studentPerformancePage.css';
+import ReusableInfoForm from '../../components/forms/ReusableInfoForm'
 
 const performanceDataByStudent = {
   'STU-001': {
@@ -41,6 +42,32 @@ function StudentPerformancePage() {
   const studentPerformance = performanceDataByStudent[studentId] ?? performanceDataByStudent['STU-001'];
   const studentName = searchParams.get('name') || studentPerformance.name;
   const className = searchParams.get('class') || studentPerformance.className;
+  const navigate = useNavigate()
+  const [form, setForm] = React.useState([{
+    firstName: '',
+    lastName: '', 
+    dateofBirth: '',
+    gender: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    country: '',
+    subSpecialization: '',
+    enrolledDate: '', 
+    highestQualification: '',
+    yearofExperience: '',
+    assignedCLass: ''
+  }])
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  function handleCancel(){
+    navigate('/admin/classes')
+  }
 
   return (
     <div className="student-performance-page">
@@ -123,7 +150,7 @@ function StudentPerformancePage() {
         </section>
 
         <section className="class-summary-card">
-          <h3>{studentPerformance.classSummary.title}</h3>
+          {/* <h3>{studentPerformance.classSummary.title}</h3>
           <p>{studentPerformance.classSummary.subtitle}</p>
           <div className="class-summary-meta">
             <span>Teacher</span>
@@ -136,7 +163,8 @@ function StudentPerformancePage() {
           <div className="class-summary-meta">
             <span>Search</span>
             <input type="text" placeholder="Search Students" readOnly />
-          </div>
+          </div> */}
+          <ReusableInfoForm form={form} name={'Save Changes'} handleCancel={handleCancel} handleChange={handleChange} />
         </section>
       </div>
     </div>

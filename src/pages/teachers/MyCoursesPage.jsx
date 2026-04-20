@@ -16,10 +16,10 @@ function MyCoursesPage() {
         <PageHeader userName={'Hi Sarah Mitchell,'} />
       </div>
       <div className="my-course-page-bottom-content">
-        <TeachersCourse onClick={handleNavigate} progress={65}/>
-        <TeachersCourse onClick={handleNavigate} progress={45}/>
-        <TeachersCourse onClick={handleNavigate} progress={90}/>
-        <TeachersCourse onClick={handleNavigate} progress={55}/>
+        <TeachersCourse active={'Active'} onClick={handleNavigate} progress={65}/>
+        <TeachersCourse active={'Active'} onClick={handleNavigate} progress={45}/>
+        <TeachersCourse active={'Active'} onClick={handleNavigate} progress={90}/>
+        <TeachersCourse active={'Active'} onClick={handleNavigate} progress={55}/>
       </div>
     </div>
   )

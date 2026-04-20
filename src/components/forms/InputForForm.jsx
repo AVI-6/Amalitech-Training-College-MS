@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import '../../styles/teachers/CreateAssessment.css'
 
-function InputForForm({ title, placeholder }) {
-  const [text, setText] = useState('')
+function InputForForm({ handleText, title, placeholder, text }) {
+  // const [text, setText] = useState('')
   
-    function handleText(e){
-      setText(e.target.value)
-    }
+  //   function handleText(e){
+  //     setText(e.target.value)
+  //   }
   return (
     <div>
       <div className="assessment-title">{title} *</div>

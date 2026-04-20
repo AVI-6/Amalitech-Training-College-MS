@@ -8,18 +8,21 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { LuClipboardCheck, LuClock3, LuFileText } from "react-icons/lu";
 import { RiHomeGearLine } from "react-icons/ri";
 import PageHeader from '../../components/ui/modal/teachers/PageHeader';
-import TeachersQuickActions from '../../components/ui/modal/teachers/teachersQuickActions';
+import TeachersQuickActions from '../../components/ui/modal/teachers/TeachersQuickActions';
 import { FiMessageSquare } from 'react-icons/fi';
 import { VscGraph } from 'react-icons/vsc';
 import QuickActionPopup from '../../components/ui/modal/teachers/QuickActionPopup';
 import { useState } from 'react';
 import MyCLasses from '../../components/ui/modal/teachers/MyCLasses';
 import { useNavigate } from 'react-router-dom';
+import QuickActionPopupAttendance from '../../features/attendance/components/QuickActionPopupAttendance';
 
 
 
 function TeachersDashboardPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalAOpen, setModalAOpen] = useState(false);
+  const [modalGOpen, setModalGOpen] = useState(false);
   const navigate = useNavigate()
 
   function handleView(){
@@ -48,9 +51,9 @@ function TeachersDashboardPage() {
         <div className="second-teachers-dashboard-content-actions">
           <TeachersQuickActions actionText={'Create Assessment'} color={'violet'} icon={<FaRegFilePdf />} handleclick={(e) => { e.preventDefault(); setModalOpen(true); }} />
 
-          <TeachersQuickActions actionText={'Take Attendance'} color={'orange'} icon={<LuClipboardCheck/>} handleclick={(e) => { e.preventDefault(); setModalOpen(true); }} />
+          <TeachersQuickActions actionText={'Take Attendance'} color={'orange'} icon={<LuClipboardCheck/>} handleclick={(e) => { e.preventDefault(); setModalAOpen(true); }} />
 
-          <TeachersQuickActions actionText={'Enter Grades'} color={'accent'} icon={<LuFileText />} handleclick={(e) => { e.preventDefault(); setModalOpen(true); }} />
+          <TeachersQuickActions actionText={'Enter Grades'} color={'accent'} icon={<LuFileText />} handleclick={(e) => { e.preventDefault(); setModalGOpen(true); }} />
 
           <TeachersQuickActions actionText={'Post Announcement'} color={'blue'} icon={<FiMessageSquare  />}handleclick={(e) => { e.preventDefault(); setModalOpen(true); }} />
 
@@ -132,6 +135,8 @@ function TeachersDashboardPage() {
         </div>
       </div>
       <QuickActionPopup isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <QuickActionPopupAttendance isOpenAttendance={modalAOpen} onCloseAttendance={() => setModalAOpen(false)} />
+      <QuickActionPopupAttendance isOpenAttendance={modalAOpen} onCloseAttendance={() => setModalAOpen(false)} />
     </div>
   )
 }

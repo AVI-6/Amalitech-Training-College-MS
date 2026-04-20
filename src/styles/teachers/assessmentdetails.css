@@ -12,10 +12,8 @@
 
 .card {
   background: var(--color-surface);
-  border-radius: 8px;
-  padding: var(--spacing-3);
+  border-radius: var(--spacing-1);
   margin-bottom: var(--spacing-3);
-  border: 1px solid #e5e7eb;
 }
 
 .flex-between {
@@ -70,11 +68,102 @@
 }
 
 .student-row {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 80px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-2) 0;
-  border-top: 1px solid #e5e7eb;
+  gap: 16px;
+  padding: 14px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: var(--color-surface);
+  margin-top: 12px;
+}
+
+.student-row-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.student-row-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.student-row-title h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.student-row-id {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #8b93a7;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.student-row-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.student-row-submitted {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.student-row-score {
+  min-width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--color-success);
+}
+
+.student-row-score strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.student-row-score span {
+  color: #8b93a7;
+  font-size: 0.75rem;
+}
+
+.student-row-score.pending {
+  color: var(--color-text-secondary);
+}
+
+.student-row-review-button {
+  min-width: 98px;
+  height: 42px;
+  border: 1px solid #2b4264;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f3553;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.student-row-review-button:hover {
+  background: #f5f9ff;
+  border-color: #1a2b4a;
 }
 
 .section-title {
@@ -107,4 +196,19 @@
 .spaced{
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .student-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-row-score {
+    align-items: flex-start;
+  }
+
+  .student-row-review-button {
+    width: 100%;
+  }
 }

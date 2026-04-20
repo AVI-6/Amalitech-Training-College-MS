@@ -5,7 +5,9 @@
     "className": "Web-Dev 301",
     "gender": "Female",
     "status": "Active",
-    "email": "emma.johnson@gmail.com"
+    "email": "emma.johnson@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
   },
   {
     "name": "Michael Chen",
@@ -13,7 +15,9 @@
     "className": "Data Science 201",
     "gender": "Male",
     "status": "Active",
-    "email": "michael.chen@gmail.com"
+    "email": "michael.chen@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
   },
   {
     "name": "Sarah Williams",
@@ -21,7 +25,9 @@
     "className": "UI/UX Design 101",
     "gender": "Female",
     "status": "Active",
-    "email": "sarah.williams@gmail.com"
+    "email": "sarah.williams@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
   },
   {
     "name": "James Anderson",
@@ -29,7 +35,9 @@
     "className": "Mobile Dev 202",
     "gender": "Male",
     "status": "Inactive",
-    "email": "james.anderson@gmail.com"
+    "email": "james.anderson@gmail.com",
+    "attendance": 80,
+    "gpa": 3.5
   },
   {
     "name": "Olivia Martinez",
@@ -37,7 +45,9 @@
     "className": "Web Dev 301",
     "gender": "Female",
     "status": "Active",
-    "email": "olivia.martinez@gmail.com"
+    "email": "olivia.martinez@gmail.com",
+    "attendance": 65,
+    "gpa": 3.5
   },
   {
     "name": "David Thompson",
@@ -45,7 +55,9 @@
     "className": "Cloud Computing 303",
     "gender": "Male",
     "status": "Active",
-    "email": "david.thompson@gmail.com"
+    "email": "david.thompson@gmail.com",
+    "attendance": 90,
+    "gpa": 3.5
   },
   {
     "name": "Sophia Garcia",
@@ -53,6 +65,8 @@
     "className": "Cybersecurity 205",
     "gender": "Female",
     "status": "Active",
-    "email": "sophia.garcia@gmail.com"
+    "email": "sophia.garcia@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
   }
 ]

@@ -1,6 +1,10 @@
 import React from 'react';
 import Button from '../../components/buttons/Button';
 import SignOut from '../../components/ui/modal/SignOut';
+import { useNavigate } from 'react-router-dom';
+import HeaderWithButton from '../../components/navigation/HeaderWithButton';
+import { BsPersonGear } from 'react-icons/bs';
+import { HiOutlineUserCircle } from 'react-icons/hi';
 
 function AdminSettingsPage() {
   const [settings, setSettings] = React.useState({
@@ -24,9 +28,16 @@ function AdminSettingsPage() {
     event.preventDefault();
   };
 
+  const navigate =useNavigate()
+
+  function handleSignOutNavigate(){
+    navigate('/login')
+  }
+
   return (
     <div className="admin-settings-page">
       <div className="admin-settings-header">
+        <HeaderWithButton headerText={'Settings'} headerDesc={'System and account configuration'} styles={{backgroundColor: 'transparent'}}/>
         <h1>Settings</h1>
         <p>System and account configuration</p>
       </div>
@@ -36,7 +47,7 @@ function AdminSettingsPage() {
           <h2>Admin Profile</h2>
           <div className="settings-grid admin-settings-profile-grid">
             <div className="admin-profile-card">
-              <div className="admin-avatar">AM</div>
+              <div className="admin-avatar"><HiOutlineUserCircle className='admin-avatar-icon'/></div>
               <div className="admin-profile-actions">
                 <div>
                   <div className="admin-profile-name">Andy Mensah</div>
@@ -117,7 +128,7 @@ function AdminSettingsPage() {
         </div>
       </form>
       <div className="admin-signout-div">
-        <SignOut />
+        <SignOut onClick={handleSignOutNavigate}/>
       </div>
     </div>
   );

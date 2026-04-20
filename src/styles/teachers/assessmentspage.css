@@ -1,6 +1,9 @@
 
 .assessments-page-div{
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
 }
 
 .assessments-page-header{

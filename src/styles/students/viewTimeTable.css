@@ -1,0 +1,83 @@
+
+
+.view-time-table-bottom-content {
+  display: flex;
+  justify-content: space-between; 
+  width: 100%;
+}
+
+.view-time-table-top-content h3{
+  border-bottom: 1px solid var(--color-text-secondary);
+  margin-bottom: var(--spacing-1);
+}
+
+.todays-classes{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.class1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e8632a0c; 
+  width: 100%;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.schedule-location{
+  display: flex;
+  gap: 10px;
+}
+
+.class1-left{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assigned-lecturer{
+  color: var(--color-text-secondary);
+}
+
+
+
+
+
+/* student-view-time-table */
+.student-view-time-table {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+.student-view-time-table .student-view-time-table-bottom{
+  padding: 20px;
+  background-color: var(--color-surface);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.student-view-time-table-top{
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+
+.weekly-table{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+
+
+

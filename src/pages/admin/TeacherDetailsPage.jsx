@@ -5,6 +5,7 @@ import AdminFormSection from '../../components/admin/AdminFormSection'
 import AdminField from '../../components/admin/AdminField'
 import SuccessToast from '../../components/ui/feedback/SuccessToast'
 import teacherDatabase from '../../mocked DataBase/teacherDataBase.json'
+import ReusableInfoForm from '../../components/forms/ReusableInfoForm'
 
 function TeacherDetailsPage() {
   const { id } = useParams()
@@ -38,6 +39,7 @@ function TeacherDetailsPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    navigate('/admin/teachers')
     setShowToast(true)
     window.setTimeout(() => setShowToast(false), 2500)
   }
@@ -88,7 +90,15 @@ function TeacherDetailsPage() {
           </div>
         </div>
 
-        <form className="teacher-details-form" onSubmit={handleSubmit}>
+        <ReusableInfoForm 
+          handleChange={handleChange} 
+          handleSubmit={handleSubmit}
+          form={formData}
+          handleDelete = {handleDelete}
+          name ={'Save Changes'}
+        />
+
+        {/* <form className="teacher-details-form" onSubmit={handleSubmit}>
           <AdminFormSection title="Personal Information">
             <AdminField id="firstName" label="First name" name="firstName" value={formData.firstName} onChange={handleChange} />
             <AdminField id="lastName" label="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} />
@@ -120,6 +130,7 @@ function TeacherDetailsPage() {
             <button className="admin-secondary-button" type="button" onClick={() => navigate('/admin/teachers')}>Cancel</button>
           </div>
 
+          </form> */}
           <div className="teacher-delete-card">
             <div>
               <h3>Delete Teacher Profile</h3>
@@ -127,7 +138,6 @@ function TeacherDetailsPage() {
             </div>
             <button type="button" className="delete-button" onClick={handleDelete}>Delete</button>
           </div>
-        </form>
       </div>
     </div>
   )

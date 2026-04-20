@@ -1,0 +1,62 @@
+.attendance-page-div{
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding: 0 var(--spacing-2);
+}
+
+.attendance-bottom-top{
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.attnedance-page-bottom{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.attendance-bottom-down{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  background-color: var(--color-surface);
+  padding: var(--spacing-2);
+  border-radius: var(--spacing-2);
+}
+
+
+
+/* current-attendance */
+.student-attendance-component-div{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+.current-attendance{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-text-secondary);
+  padding: var(--spacing-2);
+  border-radius: var(--spacing-1);
+}
+
+.current-attendance-right{
+  display: flex;
+  gap: var(--spacing-1);
+  width: 40%;
+  height: 10dvh;
+  align-items: center;
+}
+
+.present{
+  background-color: rgba(0, 128, 0, 0.164);
+}
+.late{
+  background-color: rgba(255, 174, 69, 0.432);
+}
+.absent{
+  background-color: rgba(247, 80, 58, 0.219);
+}

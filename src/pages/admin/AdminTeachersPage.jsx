@@ -4,12 +4,17 @@ import { PiPlus } from 'react-icons/pi'
 import { BiArrowToBottom } from 'react-icons/bi'
 import RecentTeachers from '../../components/ui/modal/RecentTeachers'
 import BottomNavBar from '../../components/navigation/BottomNavBar'
+import { useNavigate } from 'react-router-dom'
 
 function AdminTeachersPage() {
   const [searchTerm, setSearchTerm] = React.useState('')
+  const navigate = useNavigate()
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value)
+  }
+  function handleNewTeacher(){
+    navigate('/admin/teachers/new-teacher')
   }
   return (
     <div className='admin-student-page-div'>
@@ -24,6 +29,7 @@ function AdminTeachersPage() {
           <ButtonWithIcon 
             name={"Add Teachers"} 
             buttonIcon={<PiPlus />}
+            onClick={handleNewTeacher}
           />
         </div>
       </div>

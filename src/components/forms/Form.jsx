@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '../buttons/Button'
 import { FaEyeSlash } from "react-icons/fa"
 import { MdKey } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Form({ title, titleDesc, logo }) {
@@ -30,6 +30,14 @@ function Form({ title, titleDesc, logo }) {
     }
     if(form.email === 'admin@school.com' && form.password === 'admin@2026'){
       navigate('/admin/dashboard')
+      setIsLoading(false)
+    }
+    if(form.email === 'teacher@school.com' && form.password === 'teacher@2026'){
+      navigate('/teachers/dashboard')
+      setIsLoading(false)
+    }
+    if(form.email === 'student@school.com' && form.password === 'student@2026'){
+      navigate('/students/dashboard')
       setIsLoading(false)
     }
     setErrorMessage("");
@@ -68,7 +76,7 @@ function Form({ title, titleDesc, logo }) {
         <div className="remember-and-forgot-div">
           <div className="remember-me-div">
             <input type="checkbox" name="remember" id="remember-me" value={isChecked} onChange={handleRemember}/>
-            <label htmlFor="remember-me">Remeember me</label>
+            <label htmlFor="remember-me">Remember me</label>
           </div>
           <div className="forgot-password-div">
             <a href=''>Forgot Password </a>
@@ -82,7 +90,7 @@ function Form({ title, titleDesc, logo }) {
           />
         </div>
         <div className="first-time-activation-div">
-          <a to={"/"} href='' className='first-time-activation'><MdKey/> First time activation</a>
+          <Link to={"/sign-up"} className='first-time-activation'><MdKey/> First time activation</Link>
         </div>
       </form>
     </div>

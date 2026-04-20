@@ -1,31 +1,41 @@
 import '../../../../styles/teachers/teachersCourses.css'
 import ButtonWithIconAfter from '../../../buttons/ButtonWithIconAfter'
 
-function TeachersCourse({progress, onClick}) {
+function TeachersCourse({
+  active,
+  progress,
+  onClick,
+  title = 'Web Development',
+  code = 'Web-dev 301',
+  students = '28',
+  schedule = 'Mon, Tue, Fri - 10:00 AM',
+  room = 'Lab A',
+  buttonText = 'View Details',
+}) {
   return (
     <div className="course-page-bottom-content-wrapper">
       <div className="course-page-bottom-content-top-div">
         <div className="course-page-bottom-content-1">
           <div className="course-title">
             <div className="course-title-left-side">
-              <h2>Web Development</h2>
-              <p>Web-dev 301</p>
+              <h2>{title}</h2>
+              <p>{code}</p>
             </div>
             <div className="course-title-right-side">
-              <p>Active</p>
+              <p>{active}</p>
             </div>
           </div>
           <div className="course-takers">
             <p>Students</p>
-            <p>28</p>
+            <p>{students}</p>
           </div>
           <div className="course-schedule">
             <p>Schedule</p>
-            <p>Mon, Tue, Fri - 10:00 AM</p>
+            <p>{schedule}</p>
           </div>
           <div className="course-venue">
             <p>Room</p>
-            <p>Lab A</p>
+            <p>{room}</p>
           </div>
           <div className="course-progress">
             <div className="course-progress-title">
@@ -37,7 +47,7 @@ function TeachersCourse({progress, onClick}) {
             </div>
           </div>
           <div className="course-details">
-            <ButtonWithIconAfter onClick={onClick} className='course-details-btn' buttonIcon={'>'} name={'View Details'} />
+            <ButtonWithIconAfter onClick={onClick} className='course-details-btn' buttonIcon={'>'} name={buttonText} />
           </div>
         </div>
         <div className="course-page-bottom-content-2"></div>

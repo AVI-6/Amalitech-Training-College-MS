@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AdminPageHeader from '../../components/admin/AdminPageHeader';
 import AdminFormSection from '../../components/admin/AdminFormSection';
 import AdminField from '../../components/admin/AdminField';
-import '../styles/addNewClassPage.css';
+import '../../styles/admin/addNewClassPage.css';
 
 const yearOptions = [
   { value: '', label: 'Select Year' },

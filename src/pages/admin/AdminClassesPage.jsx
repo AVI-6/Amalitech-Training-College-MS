@@ -30,7 +30,7 @@ function AdminClassesPage() {
           <ButtonWithIcon 
             name={"Add CLasses"} 
             buttonIcon={<PiPlus />}
-            onClick={() => navigate('/admin/classes/new')}
+            onClick={() => navigate('/admin/classes/new-class')}
           />
         </div>
       </div>

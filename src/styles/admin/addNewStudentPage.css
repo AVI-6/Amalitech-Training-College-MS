@@ -1,20 +1,25 @@
 .add-new-student-page-div{
   display: flex;
   flex-direction: column;
+  padding: 0 15px;
+  gap: var(--spacing-3);
 }
 
 .personal-info-div{
   border: none;
-  background-color: var(--color-surface);
-  padding: 17px 10px;
-  margin-top: 100px;
-  border-radius: 10px;
 }
 
-.personal-info{
+.margin{
+  margin-top: 100px;
+}
+
+.personal-info, .academic-info{
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3);
+  gap: var(--spacing-2);
+  background-color: var(--color-surface);
+  padding: 17px 10px;
+  border-radius: 10px;
 }
 
 .info-content{
@@ -33,6 +38,12 @@
 
 
 /* form-input */
+.student-form-content form{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
 .form-input{
   display: flex;
   flex-direction: column;
@@ -64,4 +75,24 @@
 .select-info label, .form-input label{
   font-weight: var(--font-weight-semibold);
 }
+
+
+.info-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#student-id{
+  background-color: rgba(212, 212, 212, 0.555);
+}
+
+.save-new-student{
+  width: 50%;
+  display: flex;
+  gap: var(--spacing-3);
+  padding: 0 10px;
+}
+
+
+
 

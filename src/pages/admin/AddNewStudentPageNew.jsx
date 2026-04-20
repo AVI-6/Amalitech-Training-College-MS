@@ -28,7 +28,7 @@ function AddNewStudentPage() {
       <div className="student-form-content">
         <form action="">
 
-          <div className="personal-info-div">
+          <div className="personal-info-div margin">
             <h3>Personal Information</h3>
               <div className="personal-info">
                 <div className="info-content">
@@ -40,7 +40,7 @@ function AddNewStudentPage() {
                   <div className="select-info">
 
                     <label htmlFor="select-class">
-                      Assign Class
+                      Gender
                     </label>
                     <select name="" id="select-class">
                       <option value="" inert>select</option>
@@ -81,7 +81,7 @@ function AddNewStudentPage() {
                     </select>
                   </div>
                   <FormInput type={'text'}  placeholder={'Enter last name...'} inputID={'date-enrolled'} label={'Enrollment Date'}/>
-                  <FormInput type={'text'} inert={true} placeholder={'Auto-generated'} inputID={'first-name'} label={'Student ID'} />
+                  <FormInput type={'text'} inert={true} placeholder={'Auto-generated'} inputID={'student-id'} label={'Student ID'} />
                 </div>
               </div>
           </div>
@@ -89,7 +89,7 @@ function AddNewStudentPage() {
       </div>
       <div className="save-new-student">
         <Button name={'Add Student'} />
-        <WhiteButton name={'Cancel'} />
+        <WhiteButton name={'Cancel'} onClick={handleAddStudent}/>
       </div>
     </div>
   )

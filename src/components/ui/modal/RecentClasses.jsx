@@ -56,7 +56,7 @@ function RecentClasses() {
             </div>
           </div>
           <div className="recent-class-btn">
-            <Link to={`/admin/classes/${classItem.code}`}>
+            <Link to={`/admin/classes/view-class-details`}>
               View Class <FaArrowRight />
             </Link>
           </div>

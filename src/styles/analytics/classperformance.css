@@ -112,16 +112,17 @@
 .view-analytics-page-div{
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3);
+  gap: 70px;
+  padding: 0 var(--spacing-3);
 }
 
 .view-analytics-second-div{
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6);
+  gap: var(--spacing-3);
   background-color: var(--color-surface);
   padding: 10px 20px;
+  border-radius: var(--spacing-3);
 }
 
 .view-analytics-third-div h3{
@@ -187,11 +188,14 @@
   color: var(--color-text-secondary);
 }
 
-.right{
+.right {
   border: 1px solid var(--color-error);
   background-color: #ef444425;
   border-radius: 30px;
   padding: 5px 10px;
+  color: var(--color-error);
+}
+.right p{
   color: var(--color-error);
 }
 

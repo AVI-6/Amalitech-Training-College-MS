@@ -55,59 +55,61 @@ function CreateAssessment() {
   }
 
   return (
-    <>
+    <div className='create-assessment-page-div'>
       <div className="create-assessment-header">
         <AssessmentHeader setPath={'/teachers/:'} assessmentTitle={'Create Assessment'}/>
       </div>
-      <div className='create-assessment'>
-        <div className="create-assessment-header">
-          <h2>Assessment Details</h2>
-        </div>
-        <div className="assessment-type-div">
-          <div className="assessment-type-title">Assessment Type</div>
-          <div className="assessment-types-div">
+      <div className="create-assessment-bottom">
 
-            <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
-            <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
-            <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
-            <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
-            <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
-            <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
+        <div className='create-assessment'>
+          <div className="create-assessment-header">
+            <h2>Assessment Details</h2>
           </div>
-        </div>
-        <div className="assessment-title-div">
-          <InputForForm placeholder={'e.g., Week 5 - React Components Assignment'} title={'Title'}/>
-        </div>
-        <div className="assessment-desc-div">
-          <TextAreaForForm assessmentDesc={'Description of Assessment'} placeholder={'e.g., Week 5 - React Components Assignment'} />
-        </div>
-        <div className="assessment-date-and-time-div">
-          <div className="assessment-date-div">
-            <div className="assessment-date-title">Due Date *</div>
-            <div className="assessment-date">
-              <input type="date" name="" id="" value={date} onChange={handleDateChange} />
+          <div className="assessment-type-div">
+            <div className="assessment-type-title">Assessment Type</div>
+            <div className="assessment-types-div">
+
+              <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
+              <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
+              <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
+              <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
+              <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
+              <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
             </div>
           </div>
-          <div className="assessment-time-div">
-            <div className="assessment-time-title">Due Time *</div>
-            <div className="assessment-time">
-              <input type="time" name="" id="" value={time} onChange={handleTimeChange} />
+          <div className="assessment-title-div">
+            <InputForForm placeholder={'e.g., Week 5 - React Components Assignment'} title={'Title'}/>
+          </div>
+          <div className="assessment-desc-div">
+            <TextAreaForForm assessmentDesc={'Description of Assessment'} placeholder={'e.g., Week 5 - React Components Assignment'} />
+          </div>
+          <div className="assessment-date-and-time-div">
+            <div className="assessment-date-div">
+              <div className="assessment-date-title">Due Date *</div>
+              <div className="assessment-date">
+                <input type="date" name="" id="" value={date} onChange={handleDateChange} />
+              </div>
+            </div>
+            <div className="assessment-time-div">
+              <div className="assessment-time-title">Due Time *</div>
+              <div className="assessment-time">
+                <input type="time" name="" id="" value={time} onChange={handleTimeChange} />
+              </div>
             </div>
           </div>
+          <div className="total-mark-div">
+            <InputForForm placeholder={'e.g.100'} title={'Total Mark/Score'}/>
+          </div>
+          <div className="instruction-div">
+            <TextAreaForForm assessmentDesc={'Instructions *'} placeholder={'e.g., Week 5 - React Components Assignment'} />
+          </div>
         </div>
-        <div className="total-mark-div">
-          <InputForForm placeholder={'e.g.100'} title={'Total Mark/Score'}/>
-        </div>
-        <div className="instruction-div">
-          <TextAreaForForm assessmentDesc={'Instructions *'} placeholder={'e.g., Week 5 - React Components Assignment'} />
+        <div className="save-assessment-div">
+          <Button name={'Save Changes'} onClick={handleSave}/>
+          <WhiteButton onClick={handleNavigate} className='cancel-create-assessment' name={'Cancel'} />
         </div>
       </div>
-      <div className="save-assessment-div">
-        <Button name={'Save Changes'} onClick={handleSave}/>
-        <WhiteButton onClick={handleNavigate} className='cancel-create-assessment' name={'Cancel'} />
-        <Error message={"Eoiiii"} />
-      </div>
-    </>
+    </div>
   )
 }
 

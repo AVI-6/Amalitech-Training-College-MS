@@ -3,23 +3,18 @@
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  gap: 70px;
 }
 
 .assessments-page-header{
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  width: 74%;
   background-color: var(--color-background);
-  padding: 10px;
 }
 
-.assessments-page-header div{
+/* .assessments-page-header div{
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
+} */
 
 .assessments-page-bottom{
   display: flex;

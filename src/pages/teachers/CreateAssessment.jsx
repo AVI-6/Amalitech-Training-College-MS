@@ -7,12 +7,10 @@ import Button from '../../components/buttons/Button'
 import WhiteButton from '../../components/buttons/WhiteButton'
 import Error from '../../components/ui/feedback/Error'
 import SuccessToast from '../../components/ui/feedback/SuccessToast'
-import { useNavigate } from 'react-router-dom'
 
 function CreateAssessment() {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
-  const navigate = useNavigate()
 
   function handleDateChange(e){
     setDate(e.target.value)
@@ -50,14 +48,12 @@ function CreateAssessment() {
     }
   }
 
-  function handleNavigate(){
-    navigate('/teachers/assessments')
-  }
+  
 
   return (
     <div className='create-assessment-page-div'>
       <div className="create-assessment-header">
-        <AssessmentHeader setPath={'/teachers/:'} assessmentTitle={'Create Assessment'}/>
+        <AssessmentHeader setPath={'/teachers/assessments'} assessmentTitle={'Create Assessment'}/>
       </div>
       <div className="create-assessment-bottom">
 
@@ -106,7 +102,7 @@ function CreateAssessment() {
         </div>
         <div className="save-assessment-div">
           <Button name={'Save Changes'} onClick={handleSave}/>
-          <WhiteButton onClick={handleNavigate} className='cancel-create-assessment' name={'Cancel'} />
+          <WhiteButton onClick={()=>window.history.back()} className='cancel-create-assessment' name={'Cancel'} />
         </div>
       </div>
     </div>

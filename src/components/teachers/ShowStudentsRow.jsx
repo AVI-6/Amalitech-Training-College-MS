@@ -15,15 +15,17 @@ export default function StudentRow({ student, onReview }) {
         </div>
         <p className="student-row-submitted">Submitted: {student.submittedAt}</p>
       </div>
+      <div className="show-row-right">
+        <div className={`student-row-score ${student.score === null ? 'pending' : ''}`}>
+          <strong>{student.score === null ? '-' : student.score}</strong>
+          <span>{student.score === null ? '' : '/ 100'}</span>
+        </div>
 
-      <div className={`student-row-score ${student.score === null ? 'pending' : ''}`}>
-        <strong>{student.score === null ? '-' : student.score}</strong>
-        <span>{student.score === null ? '' : '/ 100'}</span>
+        <button className="student-row-review-button" type="button" onClick={() => onReview?.(student)}>
+          Review
+        </button>
       </div>
 
-      <button className="student-row-review-button" type="button" onClick={() => onReview?.(student)}>
-        Review
-      </button>
     </div>
   );
 }

@@ -55,7 +55,7 @@
 .student-courses-page .course-schedule p,
 .student-courses-page .course-venue p,
 .student-courses-page .course-progress-title p {
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-small);
 }
 
 .student-courses-page .course-title-right-side p {

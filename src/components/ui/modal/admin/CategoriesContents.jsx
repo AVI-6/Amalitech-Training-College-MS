@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CategoriesContents({none1, none2, none3}) {
+function CategoriesContents({none1, none2, none3, Search='Search', Students='Students', Status='Status'} ) {
   const [searchTerm, setSearchTerm] = React.useState('')
 
   const handleSearchChange = (event) => {
@@ -9,11 +9,11 @@ function CategoriesContents({none1, none2, none3}) {
   return (
     <div className={`categories-content ${none1}`}>
       <div className="filter-div">
-        <label htmlFor="search">Search </label>
+        <label htmlFor="search">{Search} </label>
         <input type="text" id='search' value={searchTerm} onChange={handleSearchChange} placeholder="Search students..." />
       </div>
       <div className={`sort-div ${none2}`}>
-        <label htmlFor="sort">Students </label>
+        <label htmlFor="sort">{Students} </label>
         <select id="sort" name="sort">
           <option value="All Students">All Students</option>
           <option value="name">Name</option>
@@ -23,7 +23,7 @@ function CategoriesContents({none1, none2, none3}) {
         </select>
       </div>
       <div className={`status-div ${none3}`}>
-        <label htmlFor="status">Status </label>
+        <label htmlFor="status">{Status} </label>
         <select id="status" name="status">
           <option value="all">Status: All</option>
           <option value="active">Active</option>

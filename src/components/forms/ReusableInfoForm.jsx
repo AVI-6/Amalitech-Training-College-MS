@@ -5,31 +5,6 @@ import Button from '../buttons/Button'
 import WhiteButton from '../buttons/WhiteButton'
 
 function ReusableInfoForm({form, handleCancel, handleChange, handleSubmit, name}) {
-  // const navigate = useNavigate()
-  // const [form, setForm] = React.useState([{
-  //   firstName: '',
-  //   lastName: '', 
-  //   dateofBirth: '',
-  //   gender: '',
-  //   email: '',
-  //   phone: '',
-  //   address: '',
-  //   city: '',
-  //   country: '',
-  //   subSpecialization: '',
-  //   enrolledDate: '', 
-  //   highestQualification: '',
-  //   yearofExperience: '',
-  //   assignedCLass: ''
-  // }])
-
-  // function handleAddTeacher(){
-  //   navigate('/admin/Teachers/')
-  // }
-
-  // function handleSubmit(e){
-  //   e.preventDefault()
-  // }
   return (
     <div className='reusable-form-div'>
       <div className="student-form-content">
@@ -148,15 +123,6 @@ function ReusableInfoForm({form, handleCancel, handleChange, handleSubmit, name}
                       <option value="Web 200">IT 700</option>
                     </select>
                   </div>
-                  {/* <FormInput 
-                    type={'text'}  
-                    placeholder={'Enter date...'} 
-                    inputID={'date-enrolled'} 
-                    label={'Enrollment Date'}
-                    value={form.yearsOfExperience}
-                    onChange={handleChange}
-                    className={'none'}
-                  /> */}
                   <FormInput 
                     type={'text'} 
                     placeholder={'Enter qualification'} 

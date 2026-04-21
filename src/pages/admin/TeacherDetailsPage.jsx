@@ -51,11 +51,14 @@ function TeacherDetailsPage() {
   return (
     <div className="teacher-details-page">
       {showToast && <SuccessToast message="Changes saved successfully." />}
-      <AdminPageHeader
-        title={`${teacher.firstName} ${teacher.lastName}`}
-        subtitle={`View activities of ${teacher.firstName} ${teacher.lastName}`}
-        backTo="/admin/teachers"
-      />
+      <div className="admin-details-page-header">
+        <AdminPageHeader
+          title={`${teacher.firstName} ${teacher.lastName}`}
+          subtitle={`View activities of ${teacher.firstName} ${teacher.lastName}`}
+          backTo="/admin/teachers"
+        />
+
+      </div>
 
       <div className="teacher-summary-grid">
         <div className="teacher-overview-card">
@@ -98,39 +101,7 @@ function TeacherDetailsPage() {
           name ={'Save Changes'}
         />
 
-        {/* <form className="teacher-details-form" onSubmit={handleSubmit}>
-          <AdminFormSection title="Personal Information">
-            <AdminField id="firstName" label="First name" name="firstName" value={formData.firstName} onChange={handleChange} />
-            <AdminField id="lastName" label="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} />
-            <AdminField id="email" label="Email" type="email" value={formData.email} name="email" onChange={handleChange} />
-            <AdminField id="phoneNumber" label="Phone Number" type="tel" value={formData.phoneNumber} name="phoneNumber" onChange={handleChange} />
-            <AdminField id="dateOfBirth" label="Date of Birth" type="date" value={formData.dateOfBirth} name="dateOfBirth" onChange={handleChange} />
-            <AdminField id="hireDate" label="Hire Date" type="date" value={formData.hireDate} name="hireDate" onChange={handleChange} />
-          </AdminFormSection>
-
-          <AdminFormSection title="Contact Information">
-            <AdminField id="address" label="Address" value={formData.address} name="address" onChange={handleChange} />
-            <AdminField id="city" label="City" value={formData.city} name="city" onChange={handleChange} />
-            <AdminField id="country" label="Country" value={formData.country} name="country" onChange={handleChange} />
-          </AdminFormSection>
-
-          <AdminFormSection title="Professional Information">
-            <AdminField id="subjectSpecialization" label="Subject Specialization" type="select" value={formData.subjectSpecialization} name="subjectSpecialization" onChange={handleChange} options={[
-              { value: teacher.subject, label: teacher.subject },
-              { value: 'Web Development', label: 'Web Development' },
-              { value: 'Data Science', label: 'Data Science' },
-            ]} />
-            <AdminField id="highestQualification" label="Highest Qualification" value={formData.highestQualification} name="highestQualification" onChange={handleChange} />
-            <AdminField id="yearsOfExperience" label="Years of Experience" value={formData.yearsOfExperience} name="yearsOfExperience" onChange={handleChange} />
-            <AdminField id="assignClass" label="Assign Class" type="select" value={formData.assignClass} name="assignClass" onChange={handleChange} options={teacher.classesTaught.map((c) => ({ value: c.title, label: c.title }))} />
-          </AdminFormSection>
-
-          <div className="teacher-details-actions">
-            <button className="admin-primary-button" type="submit">Save Changes</button>
-            <button className="admin-secondary-button" type="button" onClick={() => navigate('/admin/teachers')}>Cancel</button>
-          </div>
-
-          </form> */}
+        
           <div className="teacher-delete-card">
             <div>
               <h3>Delete Teacher Profile</h3>

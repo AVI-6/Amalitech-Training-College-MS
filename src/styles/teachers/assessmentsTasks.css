@@ -1,12 +1,21 @@
 
-.assessments-task-wrapper{
+.assessments-task-wrapper-div{
+  display: flex;
+  gap: var(--spacing-2);
+  border-radius: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.assessments-tasks-wrapper{
   display: flex;
   flex-direction: column;
   gap: 10px;
   border: 1px solid #E5E7EB;
   padding: 17px;
   border-radius: 10px;
-  width: 45%;
+  width: 49%;
+  justify-content: space-between;
 }
 
 .assessments-task-wrapper p{
@@ -48,6 +57,12 @@
   align-items: center;
 }
 
+.assessments-task-5{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .assessments-task-6{
   width: 100%;
   height: 5px;
@@ -58,7 +73,7 @@
 .assessments-task-6 .due-date-progress{
   width: 60%;
   height: 10px;
-  background-color: #8B5CF6;
+  background-color: var(--color-primary);
   border-radius: 20px;
 }
 
@@ -78,8 +93,8 @@
   width: 100%;
   background-color: transparent;
   cursor: pointer;
-  color: #8B5CF6;
-  background-color: #8a5cf631;
+  color: #1A2B4A;
+  background-color: #1a2b4a33;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +102,7 @@
 }
 
 .assessments-task-7 button:hover{
-  background-color: #8a5cf67a;
+  background-color: #1a2b4a98;
 }
 
 .assessments-task-7-2{
@@ -106,4 +121,38 @@
   color: var(--color-error);
   cursor: pointer;
   font-size: var(--font-size-h3);
+}
+
+.assessments-task-1 .assignement, .assessments-task-1 .upcoming{
+  background-color: #3B82F633;
+  color: #3b83f6;
+}
+
+.assessments-task-1 .active, .assessments-task-1 .project{
+  background-color: #22C55E33;
+  color: #22c55e;
+}
+
+.assessments-task-1 .quiz{
+  background-color: #F59E0B33;
+  color: #f59f0b;
+}
+
+.assessments-task-1 .midterm{
+  background-color: #EF444433;
+  color: #ef4444;
+}
+
+.assessments-task-1 .lab, .assessments-task-1 .closed{
+  background-color: #e5e7eb7e;
+  color: var(--color-text-secondary);
+}
+
+
+
+
+@media (max-width: 900px){
+  .assessments-tasks-wrapper{
+    width: 100%;
+  }
 }

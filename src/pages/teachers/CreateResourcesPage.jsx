@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import AdminPageHeader from '../../components/admin/AdminPageHeader'
 import InputForForm from '../../components/forms/InputForForm'
 import TextAreaForForm from '../../components/forms/TextAreaForForm'
@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 function CreateResourcesPage() {
   const navigate = useNavigate()
   const [newResource, setNewResource] = useState([])
+  const fileRef = useRef()
 
   function handleCancel(){
     navigate('/teachers/resources')
@@ -34,6 +35,17 @@ function CreateResourcesPage() {
     setNewResource(prev => [{newResources, ...prev}])
     navigate('/teachers/resources')
   }
+
+  const handleFileChange = (e) => {
+  const file = e.target.files[0];
+    console.log(file);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    console.log(file);
+  };
   return (
     <div className='create-resource-page-div'>
       <div className="create-resource-page-top">
@@ -47,10 +59,15 @@ function CreateResourcesPage() {
           <div className="create-resource-wrapper-bottom">
             <InputForForm title={'Title'} placeholder={'eg. week 3 lecture note - react components'} text={newResource.text} />
             <TextAreaForForm assessmentDesc={'Description'} placeholder={'Brief description of resource'} />
-            <div className="file-page">
+              <div className="file-page"
+              onClick={() => fileRef.current.click()}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={handleDrop}
+            >
               <FiUpload className='upload-new-resource-file' />
               <p>Click to upload or drag and drop</p>
               <p className='resource-file-type'>PDF, DOC, PPT, ZIP (max 500MB) </p>
+              <input type="file" ref={fileRef} onChange={handleFileChange} id="" hidden accept="image/*,application/pdf, doc/*"/>
             </div>
           </div>
         </div>

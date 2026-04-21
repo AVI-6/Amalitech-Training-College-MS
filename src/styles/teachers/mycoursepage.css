@@ -1,7 +1,9 @@
 
 .my-courses-page-div{
-  padding: 0 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
 }
 
 .my-course-page-top-content{
@@ -15,8 +17,9 @@
 .my-course-page-top-content .page-header{
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
 
-
+.my-course-page-bottom-content{
+  padding: 0 var(--spacing-2);
+}
 

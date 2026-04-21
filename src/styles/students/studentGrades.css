@@ -96,13 +96,20 @@
   gap: 2px;
 }
 
+.average-scored-grade{
+  display: flex;
+  gap: var(--spacing-1);
+  justify-content: center;
+  align-items: center;
+}
+
 .student-grade-summary span {
   font-size: 0.72rem;
   color: #8a94a6;
 }
 
 .student-grade-summary strong {
-  font-size: 2rem;
+  font-size: var(--font-size-small);
   line-height: 1;
   color: #202939;
 }

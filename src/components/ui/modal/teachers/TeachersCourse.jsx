@@ -1,3 +1,4 @@
+import { PiGreaterThanThin } from 'react-icons/pi'
 import '../../../../styles/teachers/teachersCourses.css'
 import ButtonWithIconAfter from '../../../buttons/ButtonWithIconAfter'
 
@@ -47,7 +48,7 @@ function TeachersCourse({
             </div>
           </div>
           <div className="course-details">
-            <ButtonWithIconAfter onClick={onClick} className='course-details-btn' buttonIcon={'>'} name={buttonText} />
+            <ButtonWithIconAfter onClick={onClick} className='course-details-btn' buttonIcon={<PiGreaterThanThin />} name={buttonText} />
           </div>
         </div>
         <div className="course-page-bottom-content-2"></div>

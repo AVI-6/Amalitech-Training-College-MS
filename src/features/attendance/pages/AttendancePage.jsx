@@ -12,7 +12,7 @@ function AttendancePage() {
   return (
     <div className='attendance-page-div'>
       <div className="attnedance-page-header">
-        <AdminPageHeader title={'Take Attendance'} backTo={'/teachers/dashboard'}/>
+        <AdminPageHeader title={'Take Attendance'} backTo={()=> window.history.back()}/>
       </div>
       <div className="attnedance-page-bottom">
         <div className="attendance-bottom-top">

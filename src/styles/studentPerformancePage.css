@@ -1,8 +1,16 @@
 .student-performance-page {
-  padding: 0 10px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 88px;
+}
+
+.student-performance-div{
+  width: 100%;
+  background-color: co;
+}
+
+.student-performance-page-bottom{
+  padding: 0 var(--spacing-2);
 }
 
 .student-performance-page .admin-page-header {

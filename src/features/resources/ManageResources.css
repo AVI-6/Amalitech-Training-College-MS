@@ -1,10 +1,11 @@
 .manage-resources-page {
-  padding: 0 10px;
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
 
+.manage-resources-page-bottom{
+  padding: 0 var(--spacing-2);}
 .manage-resources-header-action {
   width: 220px;
 }
@@ -21,6 +22,7 @@
   padding: 0;
   margin-bottom: 0;
   box-shadow: none;
+  border-radius: var(--spacing-2);
 }
 
 .manage-resources-card {

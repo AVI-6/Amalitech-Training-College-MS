@@ -13,7 +13,7 @@ function MyCoursesPage() {
   return (
     <div className='my-courses-page-div'>
       <div className="my-course-page-top-content">
-        <PageHeader userName={'Hi Sarah Mitchell,'} />
+        <PageHeader userName={'My Classes'} />
       </div>
       <div className="my-course-page-bottom-content">
         <TeachersCourse active={'Active'} onClick={handleNavigate} progress={65}/>

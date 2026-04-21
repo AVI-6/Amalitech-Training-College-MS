@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import HeaderWithButton from '../../components/navigation/HeaderWithButton';
 import { BsPersonGear } from 'react-icons/bs';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import AdminPageHeader from '../../components/admin/AdminPageHeader';
 
 function AdminSettingsPage() {
   const [settings, setSettings] = React.useState({
@@ -37,7 +38,7 @@ function AdminSettingsPage() {
   return (
     <div className="admin-settings-page">
       <div className="admin-settings-header">
-        <HeaderWithButton headerText={'Settings'} headerDesc={'System and account configuration'} styles={{backgroundColor: 'transparent'}}/>
+        <AdminPageHeader title={'Settings'} subtitle={'System and account configuration'} backTo={''}/>
         <h1>Settings</h1>
         <p>System and account configuration</p>
       </div>

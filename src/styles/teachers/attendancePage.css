@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 70px;
-  padding: 0 var(--spacing-2);
 }
 
 .attendance-bottom-top{
@@ -15,6 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
+  padding: 0 var(--spacing-2);
 }
 
 .attendance-bottom-down{
@@ -59,4 +59,14 @@
 }
 .absent{
   background-color: rgba(247, 80, 58, 0.219);
+}
+
+.attendance-down-top-content input{
+  width: 100%;
+}
+
+.attendance-down-top-content{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
 }

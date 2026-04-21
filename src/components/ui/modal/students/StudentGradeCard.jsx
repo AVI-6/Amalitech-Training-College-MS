@@ -5,8 +5,10 @@ function StudentGradeCard({ course }) {
         <h2>{course.title}</h2>
         <div className="student-grade-summary">
           <span>Course Average</span>
-          <strong>{course.average}%</strong>
-          <p className={`student-grade-pill ${course.gradeTone}`}>{course.grade}</p>
+          <div className="average-scored-grade">
+            <strong>{course.average}%</strong>
+            <p className={`student-grade-pill ${course.gradeTone}`}>{course.grade}</p>
+          </div>
         </div>
       </div>
 

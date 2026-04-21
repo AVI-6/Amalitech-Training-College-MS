@@ -27,8 +27,8 @@ resource "aws_cloudwatch_event_rule" "ecs_task_state_change" {
 
 resource "aws_cloudwatch_event_target" "ecs_task_state_change_target" {
   rule      = aws_cloudwatch_event_rule.ecs_task_state_change.name
-  target_id = "send-to-sns"
-  arn       = aws_sns_topic.mail_notifications.arn
+  target_id = "send-to-lambda"
+  arn       = aws_lambda_function.ecs_notify_formatter.arn
 }
 
 # EventBridge Rule for ECS Deployment State Changes
@@ -46,24 +46,25 @@ resource "aws_cloudwatch_event_rule" "ecs_deployment_state_change" {
 
 resource "aws_cloudwatch_event_target" "ecs_deployment_state_change_target" {
   rule      = aws_cloudwatch_event_rule.ecs_deployment_state_change.name
-  target_id = "send-to-sns"
-  arn       = aws_sns_topic.mail_notifications.arn
+  target_id = "send-to-lambda"
+  arn       = aws_lambda_function.ecs_notify_formatter.arn
 }
 
 # Permission for CloudWatch Events to Publish to SNS Topic
 resource "aws_sns_topic_policy" "sns_topic_policy" {
   arn = aws_sns_topic.mail_notifications.arn
+
   policy = jsonencode({
-    Version = "2012-10-17",
+    Version = "2012-10-17"
     Statement = [
       {
-        Sid : "Allow_CloudWatch_Events",
-        Effect : "Allow",
-        Principal : {
-          Service : "events.amazonaws.com"
-        },
-        Action : ["sns:Publish"],
-        Resource : aws_sns_topic.mail_notifications.arn
+        Sid    = "Allow_Lambda_Publish"
+        Effect = "Allow"
+        Principal = {
+          AWS = aws_iam_role.ecs_notify_lambda_role.arn
+        }
+        Action   = ["sns:Publish"]
+        Resource = aws_sns_topic.mail_notifications.arn
       }
     ]
   })

@@ -1,0 +1,115 @@
+.student-courses-page {
+  padding: 0 10px;
+  min-height: 100vh;
+  background: #f4f4f5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.student-courses-page-header {
+  margin-bottom: 14px;
+}
+
+.student-courses-page-header .page-header {
+  align-items: center;
+}
+
+.student-courses-page-header .page-header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.student-courses-page-header .first-teachers-dashboard-content-h1-btn {
+  font-size: var(--font-size-h3);
+  color: #111827;
+}
+
+.student-courses-listing {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.student-courses-page .course-page-bottom-content-wrapper {
+  margin-top: 0;
+  padding: 12px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.student-courses-page .course-page-bottom-content-1 {
+  gap: 10px;
+}
+
+.student-courses-page .course-title-left-side h2 {
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  color: #111827;
+}
+
+.student-courses-page .course-title-left-side p,
+.student-courses-page .course-takers p,
+.student-courses-page .course-schedule p,
+.student-courses-page .course-venue p,
+.student-courses-page .course-progress-title p {
+  font-size: var(--font-size-h3);
+}
+
+.student-courses-page .course-title-right-side p {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: #22c55e;
+  background: #eafff2;
+}
+
+.student-courses-page .course-takers,
+.student-courses-page .course-schedule,
+.student-courses-page .course-venue,
+.student-courses-page .course-progress-title {
+  align-items: center;
+}
+
+.student-courses-page .course-takers p:last-child,
+.student-courses-page .course-schedule p:last-child,
+.student-courses-page .course-venue p:last-child,
+.student-courses-page .course-progress-title p:last-child {
+  color: #111827;
+}
+
+.student-courses-page .teachers-course-progress-div {
+  height: 4px;
+  background: #d7dce5;
+}
+
+.student-courses-page .teachers-progress {
+  background: #21345b;
+}
+
+.student-courses-page .course-details {
+  width: 30%;
+}
+
+.student-courses-page .course-details button {
+  width: 100%;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  color: #22324f;
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .student-courses-page {
+    padding: 10px 12px 24px;
+  }
+
+  .student-courses-page-header .page-header h1 {
+    font-size: 1.55rem;
+  }
+}

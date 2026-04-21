@@ -32,8 +32,18 @@
   width: 100%;
 }
 
+.page-header{
+  display: flex;
+  width: 73%;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: var(--color-background);
+}
+
 .first-teachers-dashboard-content-h1-btn{
   font-size: var(--font-size-h1);
+  
 }
 
 .first-teachers-dashboard-content-updates{

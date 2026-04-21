@@ -1,20 +1,29 @@
 import Badge from "./Badge";
 
-export default function StudentRow({ student }) {
+export default function StudentRow({ student, onReview }) {
   return (
     <div className="student-row">
-      <div>
-        <div style={{ fontWeight: 500 }}>{student.name}</div>
-        <div className="muted">{student.id}</div>
+      <div className="student-row-main">
+        <div className="student-row-title">
+          <h3>{student.name}</h3>
+          <span className="student-row-id">{student.id}</span>
+          <div className="student-row-badges">
+            {student.statuses.map((status) => (
+              <Badge key={`${student.id}-${status.label}`} label={status.label} type={status.type} />
+            ))}
+          </div>
+        </div>
+        <p className="student-row-submitted">Submitted: {student.submittedAt}</p>
       </div>
 
-      <Badge label={student.status} type={student.badgeType} />
-
-      <div style={{ fontWeight: 600, color: "var(--color-success)" }}>
-        {student.score}
+      <div className={`student-row-score ${student.score === null ? 'pending' : ''}`}>
+        <strong>{student.score === null ? '-' : student.score}</strong>
+        <span>{student.score === null ? '' : '/ 100'}</span>
       </div>
 
-      <button className="btn">Review</button>
+      <button className="student-row-review-button" type="button" onClick={() => onReview?.(student)}>
+        Review
+      </button>
     </div>
   );
 }

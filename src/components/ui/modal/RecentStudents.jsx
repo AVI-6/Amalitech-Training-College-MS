@@ -43,7 +43,7 @@ function RecentStudents() {
             {students.map((student) => {
               const statusClass = student.status ? student.status.toLowerCase() : ''
               return (
-                <tr key={student.id}>
+                <tr className='table-body' key={student.id}>
                   <td>{student.name}</td>
                   <td>{student.id}</td>
                   <td>{student.className}</td>

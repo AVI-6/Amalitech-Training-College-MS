@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 function AdminPageHeader({ title, subtitle, backTo, actions }) {
@@ -12,7 +13,7 @@ function AdminPageHeader({ title, subtitle, backTo, actions }) {
         {actions}
         {backTo ? (
           <Link className="admin-back-link" to={backTo}>
-            ← Back
+             <FaLongArrowAltLeft/>Back
           </Link>
         ) : null}
       </div>

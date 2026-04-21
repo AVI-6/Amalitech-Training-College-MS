@@ -1,0 +1,25 @@
+
+.attendance-div{
+  border-radius: 10px;
+  background-color: #E5E7EB;
+  height: 10%;
+  width: 100%;
+  display: block;
+}
+
+.attendance-progress{
+  border-radius: 10px;
+  background-color: #3B83F6;
+  height: 10%;
+}
+
+.table-body{
+  background-color: var(--color-surface);
+}
+
+.progess-table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

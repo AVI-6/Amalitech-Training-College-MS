@@ -1,5 +1,5 @@
 .student-performance-page {
-  padding: 12px 16px 32px;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -147,13 +147,22 @@
 
 .student-performance-bottom {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) minmax(280px, 1fr);
+  grid-template-columns: minmax(280px, 1fr);
   gap: 18px;
 }
 
 .attendance-log-card,
 .class-summary-card {
   padding: 14px 12px;
+}
+
+.attendance-log-card{
+  width: 30%;
+}
+
+.class-summary-card{
+  display: flex;
+  flex-direction: column;
 }
 
 .attendance-log-stats {

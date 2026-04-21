@@ -8,6 +8,8 @@ import { MdPeople } from 'react-icons/md'
 import { BiBell } from 'react-icons/bi'
 import RecentStudents from '../../components/ui/modal/RecentStudents'
 import { useNavigate } from 'react-router-dom'
+import { BsPencilSquare, BsPersonCheck, BsPlusSquare } from 'react-icons/bs'
+import { IoStatsChartSharp } from 'react-icons/io5'
 useNavigate
 
 function AdminDashBoardPage() {
@@ -51,22 +53,19 @@ function AdminDashBoardPage() {
         <div className="recent-activities">
           <h2>Recent Activities</h2>
           <div className="activities-recent">
-            <RecentActivity />
+            <RecentActivity recentIcon={<BsPersonCheck />} styles={{backgroundColor: '#22C55E1A', color: '#22c55e'}} currentTimeInMinutes={'2 minutes'} recentText={'Kofi Asante enrolled in CS-101'}/>
           </div>
           <div className="activities-recent">
-            <RecentActivity />
+            <RecentActivity recentIcon={<IoStatsChartSharp />} styles={{backgroundColor: '#3B82F61A', color: 'var(--color-info)'}} currentTimeInMinutes={'12 minutes'} recentText={'Grades updated for Math-202'} />
           </div>
           <div className="activities-recent">
-            <RecentActivity />
+            <RecentActivity recentIcon={<BsPencilSquare />} styles={{backgroundColor: '#3B82F61A', color: 'var(--color-info)'}} currentTimeInMinutes={'17 minutes'} recentText={'Ms. Adjei assigned to Web Dev 301 '} />
           </div>
           <div className="activities-recent">
-            <RecentActivity />
+            <RecentActivity recentIcon={<BsPlusSquare />} styles={{backgroundColor: '#22C55E1A', color: '#22c55e'}} currentTimeInMinutes={'1 hour'} recentText={'DS-401 class created'} />
           </div>
           <div className="activities-recent">
-            <RecentActivity />
-          </div>
-          <div className="activities-recent">
-            <RecentActivity />
+            <RecentActivity recentIcon={<IoStatsChartSharp />} styles={{backgroundColor: '#3B82F61A', color: 'var(--color-info)'}} currentTimeInMinutes={'2 hours'} recentText={'Mr Komla assigned to COM-404'} />
           </div>
         </div>
 
@@ -77,7 +76,10 @@ function AdminDashBoardPage() {
             <h2>Recent Students</h2>
             <button className='view-all-btn'>View All</button>
           </div>
-          <RecentStudents />
+          <div className="recents-div">
+
+            <RecentStudents />
+          </div>
         </div>
       </div>
     </div>

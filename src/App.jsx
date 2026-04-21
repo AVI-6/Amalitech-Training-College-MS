@@ -28,6 +28,27 @@ import ViewAnalyticsPageLayout from "./layouts/Teacher/ViewAnalyticsPageLayout.j
 import AddNewStudentLayout from "./layouts/admin/AddNewStudentLayout.jsx";
 import AssessmentDetailsLayout from "./layouts/Teacher/AssessmentDetailsLayout.jsx";
 import ClassActiveLayout from "./layouts/Teacher/ClassActiveLayout.jsx";
+import AddNewTeacherLayout from "./layouts/admin/AddNewTeacherLayout.jsx";
+import AddNewClassLayout from "./layouts/admin/AddNewClassLayout.jsx";
+import FirstSignUpLayout from "./layouts/ViewclassLayout.jsx";
+import FirstSignUp from "./features/First Sign up/FirstSignUp.jsx";
+import ViewClassLayout from "./layouts/ViewclassLayout.jsx";
+import EmptyPageComponent from './components/ui/modal/EmptyPageComponent.jsx'
+import ViewClassDetailsLayout from "./layouts/admin/ViewClassDetailsLayout.jsx";
+import SettingsLayout from './layouts/Teacher/SettingsLayout.jsx'
+import ResourcesLayout from "./layouts/Teacher/ResourcesLayout.jsx";
+import ReviewSubmissionPage from "./features/reviewSubmission/ReviewSubmissionPage.jsx";
+import ReviewLayout from "./layouts/Teacher/ReviewLayout.jsx";
+import StudentDashboardLayout from "./layouts/Students/StudentDashboardLayout.jsx";
+import StudentCoursesLayout from "./layouts/Students/StudentCoursesLayout.jsx";
+import StudentGradesLayout from "./layouts/Students/StudentGradesLayout.jsx";
+import StudentAssessmentsLayout from "./layouts/Students/StudentAssessmentsLayout.jsx";
+import StudentCourseDetailsLayout from "./layouts/Students/StudentCourseDetailsLayout.jsx";
+import StudentSettingsLayout from "./layouts/Students/StudentSettingsLayout.jsx";
+import StudentAssessmentDetailsLayout from "./layouts/Students/StudentAssessmentDetailsLayout.jsx";
+import ViewTimeTableLayout from "./layouts/Students/ViewTimeTableLayout.jsx";
+import CreateResourceLayout from "./layouts/Teacher/CreateResourceLayout.jsx";
+import AttendanceLayout from './layouts/Teacher/AttendanceLayout.jsx'
 
 function App() {
 
@@ -38,6 +59,7 @@ function App() {
           <Route path="/" element={<AuthLayout />}>
             <Route index element={<Navigate to={'/login'} replace/>} />
             <Route path="/login" element={<LoginPage/>} />
+            <Route path="/sign-up" element={<FirstSignUp/>} />
           </Route>
           <Route element={<AdminLayout/>}>
             <Route path="/admin/dashboard" element={<AdminDashBoardLayout />}></Route>
@@ -46,22 +68,45 @@ function App() {
             <Route path="/admin/students/new-student" element={<AddNewStudentLayout />} />
             <Route path="/admin/teachers" element={<AdminTeachersLayout />} />
             <Route path="/admin/teachers/:id" element={<AdminTeacherDetailsLayout />} />
-            <Route path="/admin/classes" element={<AdminClassesLayout />}>
-              <Route path="/admin/classes/new" element={<AddNewClass />} />
-              <Route path="/admin/classes/:details" element={<AddNewClass />} />
-            </Route>
+            <Route path="/admin/teachers/new-teacher" element={<AddNewTeacherLayout />} />
+            <Route path="/admin/classes" element={<AdminClassesLayout />}/>
+              <Route path="/admin/classes/new-class" element={<AddNewClassLayout />} />
+              <Route path="/admin/classes/view-class" element={<ViewClassLayout />} />
+              <Route path="/admin/classes/view-class-details" element={<ViewClassDetailsLayout />} />
             <Route path="/admin/settings" element={<AdminSettingsLayout />} />
           </Route>
           <Route element={<TeacherLayout/>}>
             <Route path="/teachers/dashboard" element={<TeachersDashboardLayout/>}/>
+            <Route path="/teachers/dashboard/attendance" element={<AttendanceLayout/>}/>
             <Route path="/teachers/courses" element={<MyCoursePageLayout />}/>
             <Route path="/teachers/courses/my-course" element={<ClassActiveLayout />}/>
             <Route path="/teachers/assessments" element={<AssessmentsPageLayout />}/>
             <Route path="/teachers/assessments/create" element={<CreateAssessmentsPageLayout />} />
             <Route path="/teachers/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
             <Route path="/teachers/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
+            <Route path="/teachers/assessments/review-submission" element={<ReviewLayout />} />
+            <Route path="/teachers/resources" element={<ResourcesLayout />} />
+            <Route path="/teachers/resources/create" element={<CreateResourceLayout />} />
+            <Route path="/teachers/settings" element={<SettingsLayout />} />
           </Route>
-          <Route path="*" element={<h1>Opps!</h1>} />
+          <Route element={<TeacherLayout/>}>
+            <Route path="/students/dashboard" element={<StudentDashboardLayout/>}/>
+            <Route path="/students/courses" element={<StudentCoursesLayout />}/>
+            <Route path="/students/courses/:courseId" element={<StudentCourseDetailsLayout />}/>
+            <Route path="/students/courses/timetable" element={<ViewTimeTableLayout />}/>
+            <Route path="/students/grades" element={<StudentGradesLayout />}/>
+            <Route path="/students/assessments" element={<StudentAssessmentsLayout />}/>
+            <Route path="/students/assessments/:assessmentId" element={<StudentAssessmentDetailsLayout />}/>
+            <Route path="/students/settings" element={<StudentSettingsLayout />}/>
+            {/* <Route path="/students/courses/my-course" element={<ClassActiveLayout />}/>
+            <Route path="/students/courses/my-course" element={<ClassActiveLayout />}/>
+            <Route path="/students/assessments/create" element={<CreateAssessmentsPageLayout />} />
+            <Route path="/students/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
+            <Route path="/students/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
+            <Route path="/students/assessments/review-submission" element={<ReviewLayout />} />
+            <Route path="/students/resources" element={<ResourcesLayout />} /> */}
+          </Route>
+          <Route path="*" element={<EmptyPageComponent />} />
         </Routes>
       </BrowserRouter>
     </>

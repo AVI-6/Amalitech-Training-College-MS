@@ -1,4 +1,7 @@
-
+.create-assessment-page-div{
+  display: flex;
+  padding: 0 10px;
+}
 
 .create-assessment{
   display: flex;

@@ -48,7 +48,7 @@ function RecentTeachers() {
                   <td>{teacher.name}</td>
                   <td>{teacher.id}</td>
                   <td>{teacher.subject}</td>
-                  <td>{teacher.classCount} Classes</td>
+                  <td className='bg-color'><p>{teacher.classCount} Classes</p></td>
                   <td>
                     <span className={`status-pill ${statusClass}`}>
                       {teacher.status}

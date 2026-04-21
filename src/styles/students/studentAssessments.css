@@ -1,0 +1,256 @@
+.student-assessments-page {
+  padding: 0 10px;
+  min-height: 100vh;
+  background: #f7f7f8;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.student-assessments-header .page-header {
+  align-items: center;
+}
+
+.student-assessments-header .page-header h1 {
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.student-assessments-header .first-teachers-dashboard-content-h1-btn {
+  font-size: 1.45rem;
+  color: #111827;
+}
+
+.student-assessments-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.student-assessments-stat-card,
+.student-assessments-toolbar,
+.student-assessment-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.student-assessments-stat-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-assessments-stat-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  color: #22324f;
+}
+
+.student-assessments-stat-card p {
+  font-size: 0.92rem;
+  color: #374151;
+}
+
+.student-assessments-stat-card h2 {
+  font-size: 2rem;
+  line-height: 1;
+  color: #22324f;
+}
+
+.student-assessments-toolbar {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-assessments-search {
+  flex: 1;
+  min-width: 220px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #b8c1cf;
+  border-radius: 6px;
+  outline: none;
+  color: #22324f;
+}
+
+.student-assessments-search::placeholder {
+  color: #8b95a7;
+}
+
+.student-assessments-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.student-assessments-filters button {
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #7b8698;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.student-assessments-filters button.is-active {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.student-assessments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-assessment-card {
+  padding: 14px 16px 16px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.student-assessment-card:hover,
+.student-assessment-card:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  outline: none;
+}
+
+.student-assessment-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.student-assessment-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.student-assessment-pill.blue {
+  color: #3b82f6;
+  background: #eff6ff;
+}
+
+.student-assessment-pill.amber {
+  color: #f59e0b;
+  background: #fff7ed;
+}
+
+.student-assessment-pill.slate {
+  color: #6b7280;
+  background: #f3f4f6;
+}
+
+.student-assessment-pill.red {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.student-assessment-pill.sky {
+  color: #3b82f6;
+  background: #eff6ff;
+}
+
+.student-assessment-pill.orange {
+  color: #f59e0b;
+  background: #fff7ed;
+}
+
+.student-assessment-pill.green {
+  color: #22c55e;
+  background: #eafff2;
+}
+
+.student-assessment-pill.mint {
+  color: #22c55e;
+  background: #ecfdf5;
+}
+
+.student-assessment-pill.gray {
+  color: #6b7280;
+  background: #f3f4f6;
+}
+
+.student-assessment-pill.rose {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.student-assessment-pill.rose-soft {
+  color: #ef4444;
+  background: #fff1f2;
+}
+
+.student-assessment-card h2 {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: #202939;
+  margin-bottom: 12px;
+}
+
+.student-assessment-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.student-assessment-meta p {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #7b8698;
+}
+
+@media (max-width: 900px) {
+  .student-assessments-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-assessments-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-assessments-page {
+    padding: 10px 12px 24px;
+    gap: 16px;
+  }
+
+  .student-assessments-header .page-header h1 {
+    font-size: 1.55rem;
+  }
+
+  .student-assessment-card {
+    padding: 12px;
+  }
+
+  .student-assessment-card h2 {
+    font-size: 1.15rem;
+  }
+
+  .student-assessment-meta {
+    gap: 10px;
+    flex-direction: column;
+  }
+}

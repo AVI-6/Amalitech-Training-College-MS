@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-      - "feature/**"
-      - "releases/**"
+      # - "feature/**"
+      # - "releases/**"
   pull_request:
     types: [opened, synchronize, reopened]
 

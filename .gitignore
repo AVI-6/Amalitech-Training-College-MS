@@ -196,3 +196,5 @@ terraform/ecs.tf
 terraform/oidc.tf
 terraform/ecs.tf
 terraform/ecr.tf
+terraform.tfstate
+terraform.tfstate.backup

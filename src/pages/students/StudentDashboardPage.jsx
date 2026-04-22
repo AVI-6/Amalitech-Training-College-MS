@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { FiBookOpen, FiCalendar, FiClock, FiFileText } from 'react-icons/fi';
 import { LuBookOpenCheck, LuClipboardCheck, LuNotebookText } from 'react-icons/lu';
 import { MdOutlineArrowForward } from 'react-icons/md';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import PageHeader from '../../components/ui/modal/teachers/PageHeader';
 import TeachersQuickActions from '../../components/ui/modal/teachers/TeachersQuickActions';
 import '../../styles/students/studentDashboard.css';
+import QuickActionPopupStudents from '../../components/ui/modal/students/QuickActionPopupStudents';
 
 const stats = [
   { id: 'courses', icon: <LuBookOpenCheck />, label: 'Enrolled Courses', value: '5' },
@@ -54,6 +55,7 @@ const overview = [
 
 function StudentDashboardPage() {
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false)
 
   const courseCards = useMemo(
     () =>
@@ -102,9 +104,11 @@ function StudentDashboardPage() {
               actionText={action.actionText}
               icon={action.icon}
               color={action.color}
-              handleclick={() => {
+              handleclick={(e) => {
+                e.preventDefault(); 
                 if (action.id === 'submit-assignment') {
-                  navigate('/students/assessments');
+                  setModalOpen(true);
+                  // navigate('/students/assessments/details');
                   return;
                 }
 
@@ -171,6 +175,7 @@ function StudentDashboardPage() {
           ))}
         </div>
       </section>
+      <QuickActionPopupStudents onClose={() => setModalOpen(false)} isOpen={modalOpen} />
     </div>
   );
 }

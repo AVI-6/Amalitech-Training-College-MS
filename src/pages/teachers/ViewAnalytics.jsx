@@ -26,7 +26,10 @@ function ViewAnalytics() {
       <div className="view-analytics-final-div">
         <h3>Students at Risk</h3>
         <div>
-          <StudentAtRisk />
+          <StudentAtRisk 
+            styles={{color: 'var(--color-error)', borderColor: 'var(--color-error)'}}
+            hoverStyles={{color: 'var(--color-error)', backgroundColor: '#ef444449'}}
+          />
         </div>
       </div>
     </div>

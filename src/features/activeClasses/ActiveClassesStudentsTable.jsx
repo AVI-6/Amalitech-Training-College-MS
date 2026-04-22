@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import studentDatabaseUrl from '../../mocked DataBase/studentDatabase.json?url'
 import '../../styles/teachers/activeClassesStudentsTable.css'
+import { useNavigate } from 'react-router-dom'
 
 const attendanceValues = [95, 92, 98, 58, 100, 89, 94]
 const gradeValues = [88, 85, 92, 79, 95, 84, 90]
@@ -20,6 +21,7 @@ function getPerformanceTone(value, type) {
 function ActiveClassesStudentsTable() {
   const [students, setStudents] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -52,8 +54,8 @@ function ActiveClassesStudentsTable() {
     <section className='active-classes-students-card'>
       <div className='active-classes-students-tabs' role='tablist' aria-label='Class records sections'>
         <button className='students-tab-button active' type='button'>Students</button>
-        <button className='students-tab-button' type='button'>Attendance</button>
-        <button className='students-tab-button' type='button'>Grades</button>
+        <button className='students-tab-button' type='button' onClick={()=> navigate('/teachers/dashboard/attendance')}>Attendance</button>
+        <button className='students-tab-button' type='button' onClick={()=> navigate('/teachers/assessments/grade')}>Grades</button>
       </div>
 
       <div className='active-classes-student-tables-div'>

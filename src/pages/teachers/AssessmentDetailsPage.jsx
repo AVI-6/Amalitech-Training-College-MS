@@ -6,6 +6,7 @@ import HeaderWithButton from "../../components/navigation/HeaderWithButton";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import '../../styles/teachers/assessmentdetails.css'
+import AdminPageHeader from "../../components/admin/AdminPageHeader";
 
 export default function AssessmentDetails() {
   const navigate = useNavigate();
@@ -65,12 +66,10 @@ export default function AssessmentDetails() {
   return (
     <div className="container">
       <div className="assessment-details-container-top">
-        <HeaderWithButton 
-          btnName={'Back'} 
-          headerText={'Assessment Details'} 
+        <AdminPageHeader 
+          title={'Assessment Details'} 
           btnIcon={<FaLongArrowAltLeft />} 
-          styles={{backgroundColor: 'transparent', color: '#E8622A'}}
-          className='container-header'
+          backTo={'/teachers/assessments'}
         />
       </div>
       <div className="assessment-details-container-bottom">

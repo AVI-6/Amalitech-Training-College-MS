@@ -6,6 +6,7 @@ import WhiteButton from '../../components/buttons/WhiteButton'
 import '../../styles/admin/addNewStudentPage.css'
 import { useNavigate } from 'react-router-dom'
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import AdminPageHeader from '../../components/admin/AdminPageHeader'
 
 function AddNewStudentPage() {
   const navigate = useNavigate()
@@ -16,13 +17,10 @@ function AddNewStudentPage() {
   return (
     <div className='add-new-student-page-div'>
       <div className="new-student-top-content">
-        <HeaderWithButton 
-          headerText={'Add New Student Now'} 
-          headerDesc={'Fill out the form to add new student'} 
-          onClick={handleAddStudent}
-          btnName={'Back'}
-          btnIcon={<FaLongArrowAltLeft />}
-          styles={{backgroundColor: 'transparent', color: '#E8622A', display: 'flex', justifyContent: 'center', alignItems: 'center',}}
+        <AdminPageHeader 
+          title={'Add New Student Now'}
+          subtitle={'Fill out the form to add new student'}
+          backTo={()=> window.history.back()}
         />
       </div>
       <div className="student-form-content">
@@ -74,7 +72,7 @@ function AddNewStudentPage() {
                     <label htmlFor="select-class">
                       Assign Class
                     </label>
-                    <select name="" id="select-class">
+                    <select  name="" id="select-class">
                       <option value="Web 200">Web 200</option>
                       <option value="Web 200">Web 390</option>
                       <option value="Web 200">Web 700</option>

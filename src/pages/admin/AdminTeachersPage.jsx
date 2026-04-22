@@ -5,6 +5,7 @@ import { BiArrowToBottom } from 'react-icons/bi'
 import RecentTeachers from '../../components/ui/modal/RecentTeachers'
 import BottomNavBar from '../../components/navigation/BottomNavBar'
 import { useNavigate } from 'react-router-dom'
+import HeaderWithButton from '../../components/navigation/HeaderWithButton'
 
 function AdminTeachersPage() {
   const [searchTerm, setSearchTerm] = React.useState('')
@@ -17,21 +18,15 @@ function AdminTeachersPage() {
     navigate('/admin/teachers/new-teacher')
   }
   return (
-    <div className='admin-student-page-div'>
-      <div className="admin-student-top-content">
-        <div className="top-content-text">
-          <h1>Manage Teachers</h1>
-          <div className="student-content">
-            <p>Review, filter and manage training college enrollments.</p>
-          </div>
-        </div>
-        <div className="add-student-btn">
-          <ButtonWithIcon 
-            name={"Add Teachers"} 
-            buttonIcon={<PiPlus />}
-            onClick={handleNewTeacher}
-          />
-        </div>
+    <div className='admin-student-page-div admin-teachers-page-div'>
+      <div className="admin-student-header-content">
+        <HeaderWithButton 
+          headerText={'Manage Teachers'}
+          headerDesc={'Review, filter and manage training college enrollments.'}
+          btnName={'Add Teachers'}
+          btnIcon={<PiPlus />}
+          onClick={handleNewTeacher}
+        />
       </div>
 
 

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function WhiteButton({name, onClick, styles}) {
+function WhiteButton({addClass, hoverStyles, name, onClick, styles}) {
+  const [isHover, setIsHover] = useState(false);
+  
   return (
     <div className='white-btn-div'>
-      <button onClick={onClick} style={styles}>{name}</button>
+      <button onClick={onClick} className={`white-btn ${addClass}`} style={isHover ? {...styles, ...hoverStyles} : styles} onMouseEnter={()=> setIsHover(true)} onMouseLeave={()=> setIsHover(false)}>{name}</button>
     </div>
   )
 }

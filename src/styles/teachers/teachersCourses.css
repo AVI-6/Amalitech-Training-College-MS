@@ -15,15 +15,18 @@
   justify-content: space-between;
   flex-direction: column;
   gap: var(--spacing-3);
+  font-size: var(--font-size-h3);
 }
 
 .course-page-bottom-content-1 p{
   color: var(--color-text-secondary);
+  font-size: 15px;
 }
 
 .course-title, .course-takers, .course-schedule, .course-venue{
   display: flex;
   justify-content: space-between;
+  font-size: var(--font-size-small);
 }
 
 .course-title-left-side h2{
@@ -35,6 +38,7 @@
   background-color: hsl(120, 100%, 85%);
   padding: 5px 15px;
   border-radius: 20px;
+  font-size: 18px;
 }
 
 /* Course progress */

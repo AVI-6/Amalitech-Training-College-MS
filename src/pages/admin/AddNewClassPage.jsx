@@ -43,32 +43,38 @@ function AddNewClassPage() {
 
   return (
     <div className="add-class-page">
-      <AdminPageHeader title="Add New Class" subtitle="Fill out the form to add a new class" backTo="/admin/classes" />
+      <div className="add-class-page-header">
 
-      <form className="add-class-form" onSubmit={handleSubmit}>
-        <AdminFormSection title="Class Information">
-          <AdminField id="className" label="Class Name" value={formData.className} onChange={handleChange} />
-          <AdminField id="classCode" label="Class Code" placeholder="Enter class code" value={formData.classCode} onChange={handleChange} />
-          <AdminField id="capacity" label="Capacity" placeholder="Maximum students" value={formData.capacity} onChange={handleChange} />
-          <AdminField id="academicYear" label="Academic Year" type="select" value={formData.academicYear} onChange={handleChange} options={yearOptions} />
-          <AdminField id="startDate" label="Start Date" type="date" value={formData.startDate} onChange={handleChange} />
-          <AdminField id="endDate" label="End Date" type="date" value={formData.endDate} onChange={handleChange} />
-          <AdminField id="description" label="Description" type="textarea" placeholder="Enter class description" value={formData.description} onChange={handleChange} className="admin-field-full" />
-        </AdminFormSection>
+        <AdminPageHeader title="Add New Class" subtitle="Fill out the form to add a new class" backTo="/admin/classes" />
+      </div>
+      <div className="add-class-page-footer">
 
-        <AdminFormSection title="Assign Teacher (Optional)">
-          <AdminField id="teacher" label="Select Teacher" type="select" value={formData.teacher} onChange={handleChange} options={teacherOptions} className="admin-field-half" />
-        </AdminFormSection>
+        <form className="add-class-form" onSubmit={handleSubmit}>
+          <AdminFormSection title="Class Information">
+            <AdminField id="className" label="Class Name" value={formData.className} onChange={handleChange} />
+            <AdminField id="classCode" label="Class Code" placeholder="Enter class code" value={formData.classCode} onChange={handleChange} />
+            <AdminField id="capacity" label="Capacity" placeholder="Maximum students" value={formData.capacity} onChange={handleChange} />
+            <AdminField id="academicYear" label="Academic Year" type="select" value={formData.academicYear} onChange={handleChange} options={yearOptions} />
+            <AdminField id="startDate" label="Start Date" type="date" value={formData.startDate} onChange={handleChange} />
+            <AdminField id="endDate" label="End Date" type="date" value={formData.endDate} onChange={handleChange} />
+            <AdminField id="description" label="Description" type="textarea" placeholder="Enter class description" value={formData.description} onChange={handleChange} className="admin-field-full" />
+          </AdminFormSection>
 
-        <div className="admin-form-actions">
-          <button className="admin-primary-button" type="submit">
-            Add Class
-          </button>
-          <button className="admin-secondary-button" type="button" onClick={() => navigate('/admin/classes')}>
-            Cancel
-          </button>
-        </div>
-      </form>
+          <AdminFormSection title="Assign Teacher (Optional)">
+            <AdminField id="teacher" label="Select Teacher" type="select" value={formData.teacher} onChange={handleChange} options={teacherOptions} className="admin-field-half" />
+          </AdminFormSection>
+
+          <div className="admin-form-actions">
+            <button className="admin-primary-button" type="submit">
+              Add Class
+            </button>
+            <button className="admin-secondary-button" type="button" onClick={() => navigate('/admin/classes')}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FiArrowLeft, FiExternalLink, FiUploadCloud } from 'react-icons/fi';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getStudentAssessmentById } from '../../data/studentAssessmentsData';
@@ -10,10 +10,22 @@ function StudentAssessmentDetailsPage() {
   const assessment = getStudentAssessmentById(assessmentId);
   const [repositoryLink, setRepositoryLink] = useState('https://github.com/username/project');
   const [comments, setComments] = useState('');
+  const fileRef = useRef()
 
   if (!assessment) {
     return <Navigate to="/students/assessments" replace />;
   }
+
+  const handleFileChange = (e) => {
+  const file = e.target.files[0];
+    console.log(file);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    console.log(file);
+  };
 
   return (
     <div className="student-assessment-details-page">
@@ -80,8 +92,13 @@ function StudentAssessmentDetailsPage() {
           </div>
         </div>
 
-        <div className="student-assessment-field">
+        <div className="student-assessment-field" 
+          onClick={() => fileRef.current.click()}
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDrop}
+        >
           <label>Upload Files (Optional)</label>
+          <input type="file" ref={fileRef} id="" onChange={handleFileChange} hidden />
           <div className="student-assessment-upload-box">
             <FiUploadCloud />
             <p>Drop files here or click to browse</p>

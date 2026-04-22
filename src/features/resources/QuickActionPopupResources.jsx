@@ -1,32 +1,32 @@
 import React from 'react'
-import Modal from "../../../components/ui/modal/Modal";
-import '../../../styles/teachers/modal.css'
+import Modal from "../../components/ui/modal/Modal";
+import '../../styles/teachers/modal.css'
 import { Link } from 'react-router-dom';
-import MyCLasses from '../../../components/ui/modal/teachers/MyCLasses';
+import MyCLasses from '../../components/ui/modal/teachers/MyCLasses';
 
-function QuickActionPopupAttendance({ isOpenAttendance, onCloseAttendance }) {
+function QuickActionPopupResources({ isOpenResource, onCloseResource }) {
   return (
     <div className='modal'>
-      <Modal className='modal-div' isOpen={isOpenAttendance} onClose={onCloseAttendance}>
-        <h2>Take Attendance</h2>
+      <Modal className='modal-div' isOpen={isOpenResource} onClose={onCloseResource}>
+        <h2>Upload Resource</h2>
 
         <div className="modal-card">
-          <Link to={'/teachers/dashboard/attendance'}>
+          <Link to={'/teachers/resources/create'}>
             <MyCLasses courseStudent={'28 students'} courseSchedule={'Next: Tuesday, 10:00 AM'} courseTitle={'Web Development'} />
           </Link>
         </div>
         <div className="modal-card">
-          <Link to={'/teachers/dashboard/attendance'}>
+          <Link to={'/teachers/resources/create'}>
           <MyCLasses courseStudent={'24 students'} courseSchedule={'Next: Wednesday, 10:00 AM'} courseTitle={'Advanced JavaScript'} />
           </Link>
         </div>
         <div className="modal-card">
-          <Link to={'/teachers/dashboard/attendance'}>
+          <Link to={'/teachers/resources/create'}>
           <MyCLasses courseStudent={'23 students'} courseSchedule={'Next: hursday, 10:00 AM'} courseTitle={'React Fundamentals'} />
           </Link>
         </div>
         <div className="modal-card">
-          <Link to={'/teachers/dashboard/attendance'}>
+          <Link to={'/teachers/resources/create'}>
           <MyCLasses courseStudent={'25 students'} courseSchedule={'Next: Friday, 10:00 AM'} courseTitle={'Web Development'} />
           </Link>
         </div>
@@ -35,4 +35,4 @@ function QuickActionPopupAttendance({ isOpenAttendance, onCloseAttendance }) {
   )
 }
 
-export default QuickActionPopupAttendance
+export default QuickActionPopupResources

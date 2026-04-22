@@ -49,6 +49,10 @@ import StudentAssessmentDetailsLayout from "./layouts/Students/StudentAssessment
 import ViewTimeTableLayout from "./layouts/Students/ViewTimeTableLayout.jsx";
 import CreateResourceLayout from "./layouts/Teacher/CreateResourceLayout.jsx";
 import AttendanceLayout from './layouts/Teacher/AttendanceLayout.jsx'
+import AnnouncementLayout from './layouts/Teacher/AnnouncementLayout.jsx'
+import GradeLayout from "./layouts/Teacher/GradeLayout.jsx";
+import StudentLayout from "./layouts/Students/StudentLayout.jsx";
+import AdminPageHeader from "./components/admin/AdminPageHeader.jsx";
 
 function App() {
 
@@ -60,6 +64,7 @@ function App() {
             <Route index element={<Navigate to={'/login'} replace/>} />
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/sign-up" element={<FirstSignUp/>} />
+            <Route path="/admin-header" element={<AdminPageHeader title={'Administrator Here'} backTo={()=>window.history.back()} />} />
           </Route>
           <Route element={<AdminLayout/>}>
             <Route path="/admin/dashboard" element={<AdminDashBoardLayout />}></Route>
@@ -78,10 +83,12 @@ function App() {
           <Route element={<TeacherLayout/>}>
             <Route path="/teachers/dashboard" element={<TeachersDashboardLayout/>}/>
             <Route path="/teachers/dashboard/attendance" element={<AttendanceLayout/>}/>
+            <Route path="/teachers/dashboard/post-announcements" element={<AnnouncementLayout/>}/>
             <Route path="/teachers/courses" element={<MyCoursePageLayout />}/>
             <Route path="/teachers/courses/my-course" element={<ClassActiveLayout />}/>
             <Route path="/teachers/assessments" element={<AssessmentsPageLayout />}/>
             <Route path="/teachers/assessments/create" element={<CreateAssessmentsPageLayout />} />
+            <Route path="/teachers/assessments/grade" element={<GradeLayout/>}/>
             <Route path="/teachers/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
             <Route path="/teachers/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
             <Route path="/teachers/assessments/review-submission" element={<ReviewLayout />} />
@@ -89,7 +96,7 @@ function App() {
             <Route path="/teachers/resources/create" element={<CreateResourceLayout />} />
             <Route path="/teachers/settings" element={<SettingsLayout />} />
           </Route>
-          <Route element={<TeacherLayout/>}>
+          <Route element={<StudentLayout/>}>
             <Route path="/students/dashboard" element={<StudentDashboardLayout/>}/>
             <Route path="/students/courses" element={<StudentCoursesLayout />}/>
             <Route path="/students/courses/:courseId" element={<StudentCourseDetailsLayout />}/>

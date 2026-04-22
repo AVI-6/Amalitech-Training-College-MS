@@ -8,12 +8,13 @@ import RecentStudents from '../../components/ui/modal/RecentStudents'
 import { FaPerson } from 'react-icons/fa6'
 import Schedule from '../../features/schedule/components/Schedule'
 import RecentStudentsAttendacnce from '../../components/ui/modal/RecentStudentsAttendacnce'
+import AdminPageHeader from '../../components/admin/AdminPageHeader'
 
 function ViewClassDetails() {
   return (
     <div className='view-class-details-div'>
       <div className="view-class-details-top-content">
-        <HeaderWithButton headerDesc={'Web Development -2500 students - Year 3'} headerText={'Web-dev 301'} btnIcon={<FaLongArrowAltLeft />} btnName={'Back'} />
+        <AdminPageHeader title={'Web Development -2500 students - Year 3'} subtitle={'Web-dev 301'} backTo={'/admin/classes'} />
       </div>
       <div className="view-class-details-bottom-content">
         <div className="class-details-class-info">

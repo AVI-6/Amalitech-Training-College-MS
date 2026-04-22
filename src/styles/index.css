@@ -177,7 +177,18 @@ body::-webkit-scrollbar{
   font-size: var(--font-size-body);
 }
 
+#password{
+  padding-right: var(--spacing-6);
+}
+
 #show-password {
+  position: absolute;
+  right: 5%;
+  top: 54%;
+  cursor: pointer;
+  color: var(--color-primary);
+}
+.show-password {
   position: absolute;
   right: 5%;
   top: 54%;
@@ -349,6 +360,10 @@ body::-webkit-scrollbar{
   }
   .title-div h1, .title-div small{
     display: none;
+  }
+
+  .login-form{
+    width: 90%;
   }
 }
 
@@ -555,7 +570,6 @@ body::-webkit-scrollbar{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
 }
 
 .update-icon{
@@ -671,7 +685,7 @@ body::-webkit-scrollbar{
 .admin-page{
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 170px;
   width: 100%;
   padding: 0 20px;
 }
@@ -681,8 +695,9 @@ body::-webkit-scrollbar{
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 1rem;
+  gap: var(--spacing-2);
   overflow-y: scroll;
+  margin-top: 30px;
 }
 
 .right-panel::-webkit-scrollbar{
@@ -691,13 +706,9 @@ body::-webkit-scrollbar{
 
 .admin-greeting-div{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 73%;
-  position: fixed;
-  background-color: var(--color-background);
-  padding-bottom: 20px;
-  height: 100px;
+  justify-content: center;
+  padding: 20px 10px;
 }
 
 .notification-icon{
@@ -851,11 +862,22 @@ body::-webkit-scrollbar{
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
 }
 
 .student-view-btn:hover{
   background-color: #eef3f8;
   border-color: #1f3553;
+}
+
+.show-row-right{
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.pending{
+  background-color: #F59E0B33;
+  color: #f59f0b;
 }
 
 @media (max-width: 768px){
@@ -877,8 +899,15 @@ body::-webkit-scrollbar{
 .admin-student-page-div{
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3);
+  gap: 100px;
   width: 100%;
+}
+
+.admin-classes-footer{
+  padding: 0 var(--spacing-2);
+}
+
+.buttom-content{
   padding: 0 10px;
 }
 
@@ -889,6 +918,12 @@ body::-webkit-scrollbar{
   width: 74%;
   background-color: var(--color-background);
   position: fixed;
+  align-items: center;
+}
+
+.admin-student-page-header-top{
+  width: 100%;
+  display: flex;
 }
 
 .top-content-text{
@@ -1292,16 +1327,20 @@ body::-webkit-scrollbar{
 }
 
 .teacher-details-page{
-  padding: 12px 16px 32px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 100px;
 }
 
 .teacher-summary-grid{
   display: grid;
   grid-template-columns:  1fr;
   gap: 24px;
+  padding: 12px 16px 32px;
+}
+
+.save-new-student{
+  margin-top: var(--spacing-4);
 }
 
 .teacher-overview-card,
@@ -1483,6 +1522,17 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+@media (max-width: 900px){
+  .layout-left-panel{
+    display: none;
+  }
+
+  .layout-right-panel{
+    width: 100%;
+  }
+}
+
+
 
 
 
@@ -1579,6 +1629,12 @@ body::-webkit-scrollbar{
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+
+@media (max-width: 900px){
+  .admin-page-header{
+    width: 90%;
+  }
 }
 
 

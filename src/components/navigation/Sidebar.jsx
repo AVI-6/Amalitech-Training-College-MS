@@ -38,7 +38,7 @@ export default function Sidebar({administrator}) {
             </NavLink>
           </div>
           <div className="sidebar-profile">
-            <NavLink to='/admin/settings' className="profile-info">
+            <NavLink to='/admin/settings' style={{backgroundColor: 'transparent'}} className="profile-info">
               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Profile Picture" width={50} height={50} className='profile-pic'/>
               <div className="profile-text">
                 <p className="profile-name">{administrator}</p>

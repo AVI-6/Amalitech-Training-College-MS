@@ -3,7 +3,7 @@ import WhiteButton from '../../../components/buttons/WhiteButton'
 
 
 // CSS is in classperformance.css
-function StudentAtRisk() {
+function StudentAtRisk({hoverStyles, styles}) {
   const [risk, setRisk] = useState([
     {
       name: 'Micheal Chen', 
@@ -50,7 +50,11 @@ function StudentAtRisk() {
             </div>
           </div>
           <div className="student-risk-bottom-content">
-            <WhiteButton name={'View Student'}/>
+            <WhiteButton 
+              styles={styles} 
+              hoverStyles={hoverStyles}
+              name={'View Student'}
+            />
           </div>
         </div>
       </div>

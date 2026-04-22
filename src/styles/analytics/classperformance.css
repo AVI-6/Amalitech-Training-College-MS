@@ -209,6 +209,12 @@
   color: var(--color-error);
 }
 
+@media (max-width: 900px){
+  .students-at-risk-wrapper{
+    flex-wrap: wrap;
+  }
+}
+
 
 
 

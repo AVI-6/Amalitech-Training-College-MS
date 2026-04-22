@@ -16,13 +16,15 @@ function AdminStudentsPage() {
   }
   return (
     <div className='admin-student-page-div'>
-      <HeaderWithButton 
-        headerText={'Manage Students'} 
-        headerDesc={'Review, filter and manage training college enrollments.'} 
-        onClick={()=>{navigate('/admin/students/new-student')}} 
-        btnName={'Add Student'}
-        btnIcon={<PiPlus />}
-      />
+      <div className="admin-student-page-header-top">
+        <HeaderWithButton 
+          headerText={'Manage Students'} 
+          headerDesc={'Review, filter and manage training college enrollments.'} 
+          onClick={()=>{navigate('/admin/students/new-student')}} 
+          btnName={'Add Student'}
+          btnIcon={<PiPlus />}
+        />
+      </div>
 
 
       <div className="buttom-content">

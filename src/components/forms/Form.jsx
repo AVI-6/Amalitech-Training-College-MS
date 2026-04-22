@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../buttons/Button'
-import { FaEyeSlash } from "react-icons/fa"
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 import { MdKey } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ function Form({ title, titleDesc, logo }) {
     email:'',
     password:''
   })
+  const [passType, setPassType] = useState("password")
   const [errorMessage, setErrorMessage] = useState('')
   const [isChecked, setIsChecked] = useState(false)
   const navigate = useNavigate()
@@ -48,6 +49,13 @@ function Form({ title, titleDesc, logo }) {
     fontSize:'23px',
     cursor: 'pointer'
   }
+
+  function showPassword(){
+    setPassType('text')
+  }
+  function hidePassword(){
+    setPassType('password')
+  }
   return (
     <div className="right-side">
 
@@ -69,8 +77,8 @@ function Form({ title, titleDesc, logo }) {
           <label htmlFor="password">
             Password
           </label>
-          <input type="password" name="password" id="password" required value={form.password} onChange={handleChange}/>
-          <FaEyeSlash id="show-password"/>
+          <input type={passType} name="password" id="password" required value={form.password} onChange={handleChange}/>
+          {passType !== 'password' ? <FaEyeSlash id="show-password" className='show-password' onClick={hidePassword}/> : <FaEye onClick={showPassword} className='show-password'/>}
         </div>
         {errorMessage && <p className="form-error-message">{errorMessage}</p>}
         <div className="remember-and-forgot-div">

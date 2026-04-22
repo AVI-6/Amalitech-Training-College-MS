@@ -10,6 +10,7 @@ import RecentStudents from '../../components/ui/modal/RecentStudents'
 import { useNavigate } from 'react-router-dom'
 import { BsPencilSquare, BsPersonCheck, BsPlusSquare } from 'react-icons/bs'
 import { IoStatsChartSharp } from 'react-icons/io5'
+import PageHeader from '../../components/ui/modal/teachers/PageHeader'
 useNavigate
 
 function AdminDashBoardPage() {
@@ -30,8 +31,7 @@ function AdminDashBoardPage() {
       <div className="right-panel">
         <div className="top-content">
           <div className="admin-greeting-div">
-            <h1>Hi, Andy Mensah</h1>
-            <BiBell className='notification-icon' />
+            <PageHeader userName={'Hi, Andy Mensah'} />
           </div>
           <div className="quick-updates">
             <div className="admin-updates-div">
@@ -74,7 +74,7 @@ function AdminDashBoardPage() {
         <div className="recent-students">
           <div className="recent-students-header">
             <h2>Recent Students</h2>
-            <button className='view-all-btn'>View All</button>
+            <button className='view-all-btn' onClick={()=>navigate('/admin/students')}>View All</button>
           </div>
           <div className="recents-div">
 

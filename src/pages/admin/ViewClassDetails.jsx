@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import HeaderWithButton from '../../components/navigation/HeaderWithButton'
 import { FaLongArrowAltLeft } from 'react-icons/fa'
 import WhiteButton from '../../components/buttons/WhiteButton'
@@ -9,12 +10,43 @@ import { FaPerson } from 'react-icons/fa6'
 import Schedule from '../../features/schedule/components/Schedule'
 import RecentStudentsAttendacnce from '../../components/ui/modal/RecentStudentsAttendacnce'
 import AdminPageHeader from '../../components/admin/AdminPageHeader'
+import classDataBaseUrl from '../../mocked DataBase/classDataBase.json?url'
 
 function ViewClassDetails() {
+  const { details: classCode } = useParams();
+  const [classDetails, setClassDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchClass = async () => {
+      try {
+        const response = await fetch(classDataBaseUrl);
+        if (!response.ok) throw new Error('Failed to fetch class details');
+        const data = await response.json();
+        const foundClass = data.find((item) => item.code === classCode);
+        setClassDetails(foundClass || null);
+      } catch (error) {
+        console.error('Error fetching class record:', error);
+        setClassDetails(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClass();
+  }, [classCode]);
+
+  if (loading) return <div>Loading...</div>;
+  if (!classDetails) return <div>Class not found</div>;
+
   return (
     <div className='view-class-details-div'>
       <div className="view-class-details-top-content">
-        <AdminPageHeader title={'Web Development -2500 students - Year 3'} subtitle={'Web-dev 301'} backTo={'/admin/classes'} />
+        <AdminPageHeader
+          title={`${classDetails.title} - ${classDetails.students} students`}
+          subtitle={classDetails.code}
+          backTo={'/admin/classes'}
+        />
       </div>
       <div className="view-class-details-bottom-content">
         <div className="class-details-class-info">
@@ -25,11 +57,11 @@ function ViewClassDetails() {
           <div className="class-info-bottom-content">
             <div className="class-id">
               <p>Class ID</p>
-              <b>Web-dev 301</b>
+              <b>{classDetails.code}</b>
             </div>
             <div className="class-desc">
               <p>Description</p>
-              <b>Introduction to modern web development covering HTML, CSS, JavaScript, and React fundamentals.</b>
+              <b>{`Introduction to ${classDetails.title} covering fundamentals, practical projects, and hands-on lessons.`}</b>
             </div>
             <div className="class-semester">
               <p>Semester</p>
@@ -59,15 +91,15 @@ function ViewClassDetails() {
             <div className="teacher-content-top">
               <div className="assigned-teacher-img"><FaPerson/></div>
               <div className="desc">
-                <b>Dr Micheal Chen</b>
-                <p>TCH001</p>
+                <b>{classDetails.instructor}</b>
+                <p>{classDetails.code}</p>
               </div>
             </div>
             <div className="teacher-mail">
-              <p>Email: MichealChen@amalitech.edu</p>
+              <p>Email: {classDetails.instructor.replace(' ', '').toLowerCase()}@amalitech.edu</p>
             </div>
             <div className="teacher-specialization">
-              <p>Specialization: Web Development</p>
+              <p>Specialization: {classDetails.title}</p>
             </div>
             <div className="reasign-div">
               <Button name={'Reassign Teacher'} styles={{backgroundColor: 'transparent', border: '1px solid #333', color: 'black'}}/>
@@ -76,12 +108,10 @@ function ViewClassDetails() {
         </div>
         <div className="class-schedule-div">
           <div className="schedule-header">
-            <h3>CLass Schedule</h3>
+            <h3>Class Schedule</h3>
           </div>
           <div className="schedules">
-            <Schedule day={'Monday'} venue={'Lab A'} time={'10:00 AM to 12:00 PM'}/>
-            <Schedule day={'Wednesday'} venue={'Lab A'} time={'12:00 AM to 2:00 PM'}/>
-            <Schedule day={'Friday'} venue={'Lab A'} time={'10:00 AM to 12:00 PM'}/>
+            <Schedule day={'Monday'} venue={'Lab A'} time={classDetails.schedule} />
           </div>
         </div>
       </div>

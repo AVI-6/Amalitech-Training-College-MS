@@ -6,6 +6,8 @@ import WhiteButton from '../../components/buttons/WhiteButton'
 import '../../styles/admin/addNewStudentPage.css'
 import { useNavigate } from 'react-router-dom'
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import AdminPageHeader from '../../components/admin/AdminPageHeader'
+import SuccessToast from '../../components/ui/feedback/SuccessToast'
 
 function AddNewTeacherPageNew() {
   const navigate = useNavigate()
@@ -32,17 +34,17 @@ function AddNewTeacherPageNew() {
 
   function handleSubmit(e){
     e.preventDefault()
+    {form ? <SuccessToast message={'Added Teacher Successfully'}/> : null}
+    navigate('/teachers/assessment')
   }
   return (
     <div className='add-new-student-page-div'>
       <div className="new-student-top-content">
-        <HeaderWithButton 
-          headerText={'Add New Teacher'} 
-          headerDesc={'Fill out the form to add new student'} 
+        <AdminPageHeader 
+          title={'Add New Teacher'} 
+          subtitle={'Fill out the form to add new student'} 
           onClick={handleAddTeacher}
-          btnName={'Back'}
-          btnIcon={<FaLongArrowAltLeft />}
-          styles={{backgroundColor: 'transparent', color: '#E8622A', display: 'flex', justifyContent: 'center', alignItems: 'center',}}
+          backTo={'/admin/teachers'}
         />
       </div>
       <div className="student-form-content">
@@ -121,7 +123,7 @@ function AddNewTeacherPageNew() {
                       <option value="Web 200">IT 700</option>
                     </select>
                   </div>
-                  <FormInput type={'text'}  placeholder={'Enter last name...'} inputID={'date-enrolled'} label={'Enrollment Date'}/>
+                  <FormInput type={'date'} styles={{display: 'flex', justifyContent: 'space-between'}} inputID={'date-enrolled'} label={'Enrollment Date'}/>
                   <FormInput type={'text'} placeholder={'Enter qualification'} inputID={'qualification'} label={'Highest Qualifications'} />
                   <FormInput type={'text'} placeholder={'eg. PhD, Masters'} inputID={'experience'} label={'Years of Experience'} />
                   <div className="select-info">
@@ -139,10 +141,10 @@ function AddNewTeacherPageNew() {
               </div>
           </div>
         </form>
-      </div>
       <div className="save-new-student">
-        <Button btnType={'submit'} name={'Add Teacher'} />
+        {form ? <Button btnType={'submit'} name={'Add Teacher'} />: null}
         <WhiteButton name={'Cancel'} onClick={handleAddTeacher}/>
+      </div>
       </div>
     </div>
   )

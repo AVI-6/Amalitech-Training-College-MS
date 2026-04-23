@@ -1,49 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import AdminPageHeader from '../../components/admin/AdminPageHeader';
 import ProgressBar from '../../components/admin/ProgressBar';
 import '../../styles/studentPerformancePage.css';
 import ReusableInfoForm from '../../components/forms/ReusableInfoForm'
-
-const performanceDataByStudent = {
-  'STU-001': {
-    name: 'Ama Owusu',
-    id: 'STU-001',
-    className: 'Math-202',
-    metrics: {
-      average: '89%',
-      attendance: '90%',
-      grade: 'A',
-    },
-    assessments: [
-      { assessment: 'Quiz 1', score: 27, max: 30, progress: 90, grade: 'A+' },
-      { assessment: 'Assignment 1', score: 18, max: 20, progress: 90, grade: 'A+' },
-      { assessment: 'Quiz 2', score: 40, max: 50, progress: 85, grade: 'A' },
-      { assessment: 'Midterm Exam', score: 50, max: 70, progress: 75, grade: 'B' },
-    ],
-    attendance: {
-      present: 45,
-      absent: 2,
-      late: 0,
-      rate: 90,
-    },
-    classSummary: {
-      title: 'Math-202',
-      subtitle: 'Mathematics -2500 students',
-      teacher: 'Mrs. Lydia Asante',
-      schedule: 'Mon, Wed, Fri - 10:00 AM',
-    },
-  },
-};
+import studentDatabaseUrl from '../../mocked DataBase/studentDatabase.json?url'
 
 function StudentPerformancePage() {
-  const { studentId  } = useParams();
+  const { Id } = useParams();
   const [searchParams] = useSearchParams();
-  const studentPerformance = performanceDataByStudent[studentId] ?? performanceDataByStudent['STU-001'];
-  const studentName = searchParams.get('name') || studentPerformance.name;
-  const className = searchParams.get('class') || studentPerformance.className;
   const navigate = useNavigate()
-  const [form, setForm] = React.useState([{
+  const [student, setStudent] = useState(null);
+  const [allStudents, setAllStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [form, setForm] = useState([{
     firstName: '',
     lastName: '', 
     dateofBirth: '',
@@ -59,6 +29,62 @@ function StudentPerformancePage() {
     yearofExperience: '',
     assignedCLass: ''
   }])
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await fetch(studentDatabaseUrl);
+        if (!response.ok) throw new Error('Failed to fetch students');
+        const data = await response.json();
+        setAllStudents(data);
+        const foundStudent = data.find(s => s.id === Id);
+        if (foundStudent) {
+          setStudent(foundStudent);
+        }
+      } catch (error) {
+        console.error('Error fetching students:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStudents();
+  }, [Id]);
+
+  if (loading) return <div>Loading...</div>;
+  if (!student) return <div>Student not found</div>;
+
+  const classStudents = allStudents.filter(s => s.className === student.className);
+  const studentPerformance = {
+    name: student.name,
+    id: student.id,
+    className: student.className,
+    metrics: {
+      average: `${(student.gpa * 25).toFixed(0)}%`, // Assuming GPA out of 4, convert to %
+      attendance: `${student.attendance}%`,
+      grade: student.gpa >= 3.7 ? 'A' : student.gpa >= 3.0 ? 'B' : student.gpa >= 2.0 ? 'C' : 'D',
+    },
+    assessments: [
+      { assessment: 'Quiz 1', score: 27, max: 30, progress: 90, grade: 'A+' },
+      { assessment: 'Assignment 1', score: 18, max: 20, progress: 90, grade: 'A+' },
+      { assessment: 'Quiz 2', score: 40, max: 50, progress: 85, grade: 'A' },
+      { assessment: 'Midterm Exam', score: 50, max: 70, progress: 75, grade: 'B' },
+    ],
+    attendance: {
+      present: Math.floor((student.attendance / 100) * 47), // Assuming 47 total sessions
+      absent: 47 - Math.floor((student.attendance / 100) * 47),
+      late: 0,
+      rate: student.attendance,
+    },
+    classSummary: {
+      title: student.className,
+      subtitle: `${student.className} - ${classStudents.length} students`,
+      teacher: 'Mrs. Lydia Asante', // Default, could be from DB if added
+      schedule: 'Mon, Wed, Fri - 10:00 AM', // Default
+    },
+  };
+
+  const studentName = searchParams.get('name') || studentPerformance.name;
+  const className = searchParams.get('class') || studentPerformance.className;
 
   const handleChange = (event) => {
     const { name, value } = event.target

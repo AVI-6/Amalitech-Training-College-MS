@@ -8,9 +8,9 @@ import teacherDatabase from '../../mocked DataBase/teacherDataBase.json'
 import ReusableInfoForm from '../../components/forms/ReusableInfoForm'
 
 function TeacherDetailsPage() {
-  const { id } = useParams()
+  const { Id } = useParams()
   const navigate = useNavigate()
-  const teacher = useMemo(() => teacherDatabase.find((item) => item.id === id), [id])
+  const teacher = useMemo(() => teacherDatabase.find((item) => item.id === Id), [Id])
   const [showToast, setShowToast] = useState(false)
   const [formData, setFormData] = useState(() => ({
     firstName: teacher?.firstName || '',

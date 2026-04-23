@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/admin/addNewStudentPage.css'
 
-function FormInput({ label, type, inputID, placeholder, inert, list, value, onChange }) {
+function FormInput({ label, type, inputID, placeholder, inert, list, value, onChange, styles }) {
   return (
     <div className='form-input'>
       <label htmlFor={inputID}>
@@ -15,6 +15,7 @@ function FormInput({ label, type, inputID, placeholder, inert, list, value, onCh
         placeholder={placeholder} 
         id={inputID}
         onChange={onChange} 
+        style={styles}
       />
     </div>
   )

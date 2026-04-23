@@ -4,13 +4,29 @@ import { MdPeopleAlt } from "react-icons/md";
 import { LuBookOpenText } from "react-icons/lu";
 import { GoGear } from "react-icons/go";
 import { IoApps } from "react-icons/io5";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useMobileSidebar } from '../../app/Providers';
 
 
 export default function Sidebar({administrator}) {
+  const location = useLocation();
+  const { isMobileSidebarOpen, closeMobileSidebar } = useMobileSidebar();
+
+  useEffect(() => {
+    closeMobileSidebar();
+  }, [location.pathname, closeMobileSidebar]);
+
   return (
-    <div className='sidebar'>
-      <div className="menu-container">
+    <>
+      <button
+        type="button"
+        className={`sidebar-overlay ${isMobileSidebarOpen ? 'is-open' : ''}`}
+        aria-label="Close sidebar menu"
+        onClick={closeMobileSidebar}
+      />
+      <div className={`sidebar ${isMobileSidebarOpen ? 'sidebar-mobile-open' : ''}`}>
+        <div className="menu-container">
         <div className="logo-sidebar">
           <img src={Logo} alt="School System Logo" width={100}/>
         </div>
@@ -49,6 +65,7 @@ export default function Sidebar({administrator}) {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

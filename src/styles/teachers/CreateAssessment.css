@@ -173,6 +173,12 @@
   width: 74%;
 }
 
+.assessment-header-title-group{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .assessment-header-div a{
   text-decoration: none;
 }

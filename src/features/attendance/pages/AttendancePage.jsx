@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AdminPageHeader from '../../../components/admin/AdminPageHeader'
 import FormInput from '../../../components/forms/FormInput'
 import StudentAttendance from '../components/StudentAttendance'
@@ -7,12 +7,16 @@ import { FaRegCircleCheck } from 'react-icons/fa6'
 import { LuCalendarClock } from 'react-icons/lu'
 import { MdOutlineCancel } from 'react-icons/md'
 import '../../../styles/teachers/attendancePage.css'
+import { useNavigate } from 'react-router-dom'
 
 function AttendancePage() {
+  const navigate = useNavigate()
+  const [searchQuery, setSearchQuery] = useState('')
+
   return (
     <div className='attendance-page-div'>
       <div className="attnedance-page-header">
-        <AdminPageHeader title={'Take Attendance'} backTo={()=> window.history.back()}/>
+        <AdminPageHeader title={'Take Attendance'} backTo={() => navigate('/teachers/dashboard')}/>
       </div>
       <div className="attnedance-page-bottom">
         <div className="attendance-bottom-top">
@@ -24,10 +28,15 @@ function AttendancePage() {
           <div className="attendance-down-top-content">
             <b>Web Development</b>
             <p>Session: April 3rd, 2026 - 10:00 AM</p>
-            <FormInput placeholder={'search by student name or id'} />
+            <FormInput 
+              type={'search'} 
+              placeholder={'search by student name or id'} 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
           <div className="attendance-down-bottom-content">
-            <StudentAttendance />
+            <StudentAttendance searchQuery={searchQuery} />
           </div>
         </div>
       </div>

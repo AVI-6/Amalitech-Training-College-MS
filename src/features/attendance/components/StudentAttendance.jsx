@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import WhiteButton from '../../../components/buttons/WhiteButton'
 import studentDatabaseUrl from '../../../mocked DataBase/studentDatabase.json?url'
+import EmptyPageComponent from '../../../components/ui/modal/EmptyPageComponent'
+import { useNavigate } from 'react-router-dom'
+import  successToast  from '../../../components/ui/feedback/SuccessToast'
 import '../../../styles/teachers/attendancePage.css'
 
-function StudentAttendance() {
+function StudentAttendance({ searchQuery }) {
+  const navigate = useNavigate()
   const [students, setStudents] = useState([])
   const [attendanceState, setAttendanceState] = useState({
     ST001: '',
@@ -15,6 +19,7 @@ function StudentAttendance() {
     ST007: '',
     ST008: '',
     ST009: '',
+    ST010: '',
   })
   useEffect(()=>{
     const fetchStudents = async () => {
@@ -35,19 +40,43 @@ function StudentAttendance() {
         fetchStudents()
   }, [])
 
-  function handleAttendanceP(){
-    setAttendanceState('present')
+  function handleAttendance(studentId, status){
+    setAttendanceState(prev => ({
+      ...prev,
+      [studentId]: status
+    }))
+    successToast('Attendance marked successfully')
   }
-  function handleAttendanceL(){
-    setAttendanceState('late')
+
+  const getButtonStyles = (studentId, buttonValue) => {
+    
+    const state = attendanceState[studentId]
+    if (state === buttonValue) {
+      if (buttonValue === 'present') {
+        return { backgroundColor: 'var(--color-success)', color: '#fff' }
+      } else if (buttonValue === 'late') {
+        return { backgroundColor: 'gold', color: '#000' }
+      } else if (buttonValue === 'absent') {
+        return { backgroundColor: 'var(--color-error)', color: '#fff' }
+      }
+    }
+    return state ? { opacity: '0.5', cursor: 'not-allowed' } : {}
   }
-  function handleAttendanceA(){
-    setAttendanceState('absent')
-  }
+
+  const buttons = [
+    { name: 'Present', value: 'present' },
+    { name: 'Late', value: 'late' },
+    { name: 'Absent', value: 'absent' },
+  ]
+
+  const filteredStudents = students.filter(student => 
+    student.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    student.id.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <div className='student-attendance-component-div'>
-      {students.map(s => {
+      {filteredStudents.length === 0 ? <EmptyPageComponent emptyPageTitle={'students'} emptyPageButtonTitle={'Go Back'} onClick={() => navigate(-1)}/> : filteredStudents.map(s => {
         const state = attendanceState[s.id]
         return (
           <div className={`current-attendance ${state || ''}`} key={s.id} >
@@ -56,9 +85,16 @@ function StudentAttendance() {
               <p> {s.id} </p>
             </div>
             <div className={`current-attendance-right`}>
-              <WhiteButton name={'Present'} onClick={handleAttendanceP} />
-              <WhiteButton name={'Late'} onClick={handleAttendanceL} />
-              <WhiteButton name={'Absent'} onClick={handleAttendanceA} />
+              {buttons.map((button, index) => (
+                <WhiteButton
+                  key={index}
+                  styles={getButtonStyles(s.id, button.value)}
+                  name={button.name}
+                  onClick={() => handleAttendance(s.id, button.value)}
+                  value={button.value}
+                  disabled={state && state !== button.value}
+                />
+              ))}
             </div>
           </div>
         )

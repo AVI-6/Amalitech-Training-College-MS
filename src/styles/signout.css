@@ -35,3 +35,13 @@
   color: var(--color-surface);
   background-color: #ef444477;
 }
+
+@media (max-width: 500px) {
+  .signout-btn-div button{
+    width: 100%;
+  }
+
+  .sign-out-div{
+    padding: 0 16px;
+  }
+}

@@ -84,10 +84,10 @@ function AddNewStudentPage() {
               </div>
           </div>
         </form>
-      </div>
       <div className="save-new-student">
         <Button name={'Add Student'} />
         <WhiteButton name={'Cancel'} onClick={handleAddStudent}/>
+      </div>
       </div>
     </div>
   )

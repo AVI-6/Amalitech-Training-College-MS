@@ -29,11 +29,7 @@
   position: fixed;
 }
 
-.first-teachers-dashboard-content-h1 div{
-  display: flex;
-  justify-content: space-between;
-  width: 74%;
-}
+
 
 .page-header{
   display: flex;
@@ -44,6 +40,16 @@
   background-color: var(--color-background);
   padding: 0 var(--spacing-1);
   top: 0;
+}
+
+.page-header-title-group,
+.page-header-actions{
+  display: flex;
+  align-items: center;
+}
+
+.page-header-title-group{
+  gap: 12px;
 }
 
 .first-teachers-dashboard-content-h1-btn{
@@ -186,4 +192,13 @@
 
 .teachers-dashboard-content-top-div h1{
   font-size: var(--font-size-h2);
+}
+
+
+
+@media (max-width: 900px){
+  .page-header{
+    width: 100%;
+  }
+  
 }

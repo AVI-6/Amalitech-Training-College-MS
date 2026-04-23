@@ -68,5 +68,36 @@
     "email": "sophia.garcia@gmail.com",
     "attendance": 50,
     "gpa": 3.5
+  },
+  {
+    "name": "Daniel Lee",
+    "id": "STU-008",
+    "className": "Data Science 201",
+    "gender": "Male",
+    "status": "Active",
+    "email": "daniel.lee@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
+  },
+  {
+    "name": "Emily Davis",
+    "id": "STU-009",
+    "className": "UI/UX Design 101",
+    "gender": "Female",
+    "status": "Active",
+    "email": "emily.davis@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
+  },
+  {
+    "name": "Christopher Wilson",
+    "id": "STU-010",
+    "className": "Mobile Dev 202",
+    "gender": "Male",
+    "status": "Active",
+    "email": "christopher.wilson@gmail.com",
+    "attendance": 50,
+    "gpa": 3.5
   }
+
 ]

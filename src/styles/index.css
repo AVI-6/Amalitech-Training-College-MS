@@ -383,6 +383,11 @@ body::-webkit-scrollbar{
   color: var(--color-surface);
 }
 
+.sidebar-profile .active{
+    background-color: transparent;
+    margin-top: 20px;
+  }
+
 .menu-container{
   display: flex;
   flex-direction: column;

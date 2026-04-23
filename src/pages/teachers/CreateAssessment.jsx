@@ -67,10 +67,10 @@ function CreateAssessment() {
 
               <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
               <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
-              <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
-              <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
-              <AssessmentType assessmentTitle={'Quiz'} assessmentDesc={'Short assessment with multiple questions'} />
-              <AssessmentType assessmentTitle={'Assignment'} assessmentDesc={'Homework or project for students to complete'} />
+              <AssessmentType assessmentTitle={'Midterm'} assessmentDesc={'Midsemester examination'} />
+              <AssessmentType assessmentTitle={'Final Exam'} assessmentDesc={'Comprehensive examination at the end of the semester'} />
+              <AssessmentType assessmentTitle={'Project'} assessmentDesc={'Long-term project or research work'} />
+              <AssessmentType assessmentTitle={'Lab Work'} assessmentDesc={'Practical laboratory assignment'} />
             </div>
           </div>
           <div className="assessment-title-div">

@@ -14,6 +14,7 @@ import classDataBaseUrl from '../../mocked DataBase/classDataBase.json?url'
 
 function ViewClassDetails() {
   const { details: classCode } = useParams();
+  console.log(classCode);
   const [classDetails, setClassDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 

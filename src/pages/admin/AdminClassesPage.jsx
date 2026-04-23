@@ -25,7 +25,7 @@ function AdminClassesPage() {
           headerText={'Manage Classes'}
           headerDesc={'Review, filter and manage training college enrollments.'}
           btnIcon={<PiPlus />}
-          btnName={'Add CLasses'}
+          btnName={'Add Classes'}
           onClick={() => navigate('/admin/classes/new-class')}
         />
       </div>

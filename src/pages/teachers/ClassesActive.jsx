@@ -7,6 +7,7 @@ import ActiveClassesStudentsTable from '../../features/activeClasses/ActiveClass
 import '../../styles/teachers/classesactive.css'
 import HeaderWithButton from '../../components/navigation/HeaderWithButton'
 import { useNavigate } from 'react-router-dom'
+import AdminPageHeader from '../../components/admin/AdminPageHeader'
 
 function ClassesActive() {
   const navigate = useNavigate()
@@ -17,7 +18,7 @@ function ClassesActive() {
   return (
     <div className='classes-active-div'>
       <div className="active-header">
-        <HeaderWithButton btnName={'Back'} styles={{width: 'fit-content', backgroundColor: 'transparent', color: 'var(--color-accent)'}} btnIcon={<FaLongArrowAltLeft />} onClick={handleNavigate} headerText={'Web Development'}/>
+        <AdminPageHeader title={'Web Development'} backTo={()=> window.history.back()}/>
       </div>
       <div className="active-classes-top">
         <AdminUpdates text={'Total Students'} value={'85'} icon={<SlGraduation />} />

@@ -55,6 +55,7 @@ import StudentLayout from "./layouts/Students/StudentLayout.jsx";
 import AdminPageHeader from "./components/admin/AdminPageHeader.jsx";
 import { Providers } from "./app/Providers";
 import ProtectedRoute from "./utils/ProtectedRoutes";
+import ClassActiveDetailsLayout from "./layouts/Teacher/ClassActiveDetailsLayout.jsx";
 
 function App() {
 
@@ -89,6 +90,7 @@ function App() {
             <Route path="dashboard/post-announcements" element={<AnnouncementLayout/>}/>
             <Route path="courses" element={<MyCoursePageLayout />}/>
             <Route path="courses/my-course" element={<ClassActiveLayout />}/>
+            <Route path="courses/my-course/:cdetails" element={<ClassActiveDetailsLayout />}/>
             <Route path="assessments" element={<AssessmentsPageLayout />}/>
             <Route path="assessments/create" element={<CreateAssessmentsPageLayout />} />
             <Route path="assessments/grade" element={<GradeLayout/>}/>

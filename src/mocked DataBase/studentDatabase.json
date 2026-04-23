@@ -4,100 +4,375 @@
     "id": "STU-001",
     "className": "Web-Dev 301",
     "gender": "Female",
+    "dateOfBirth": "2004-04-05",
     "status": "Active",
     "email": "emma.johnson@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Web Dev 301",
+        "code": "Web Dev 301",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Web Dev 301",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      },
+      {
+        "course": "Data Science 201",
+        "grade": "B+",
+        "value": 85,
+        "semester": "Fall 2023"
+      },
+      {
+        "course": "UI/UX Design 101",
+        "grade": "A-",
+        "value": 65,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Main St, Anytown",
+    "region": "North Kaneshie, Ghana",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 10
   },
   {
     "name": "Michael Chen",
     "id": "STU-002",
     "className": "Data Science 201",
     "gender": "Male",
+    "dateOfBirth": "2000-01-01",
     "status": "Active",
     "email": "michael.chen@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Data Science 201",
+        "code": "Data Science 201",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Data Science 201",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      },
+      {
+        "course": "Web Dev 301",
+        "grade": "B+",
+        "value": 85,
+        "semester": "Fall 2023"
+      },
+      {
+        "course": "Cybersecurity 205",
+        "grade": "A-",
+        "value": 65,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 987-6543",
+    "address": "456 Elm St, Othertown, USA",
+    "region": "Othertown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 20
   },
   {
     "name": "Sarah Williams",
     "id": "STU-003",
     "className": "UI/UX Design 101",
     "gender": "Female",
+    "dateOfBirth": "2000-01-01",
     "status": "Active",
     "email": "sarah.williams@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "UI/UX Design 101",
+        "code": "UI-UX Design 101",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "UI/UX Design 101",
+        "grade": "A-",
+        "value": 65,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 555-1234",
+    "address": "789 Oak St, Sometown, USA",
+    "region": "Sometown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 100
   },
   {
     "name": "James Anderson",
     "id": "STU-004",
     "className": "Mobile Dev 202",
     "gender": "Male",
+    "dateOfBirth": "2000-01-01",
     "status": "Inactive",
     "email": "james.anderson@gmail.com",
-    "attendance": 80,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Mobile Dev 202",
+        "code": "Mobile Dev 202",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Mobile Dev 202",
+        "grade": "A",
+        "value": 70
+      }
+    ],
+    "phone": "+1 (555) 987-6543",
+    "address": "456 Elm St, Othertown, USA",
+    "region": "Othertown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 120
   },
   {
     "name": "Olivia Martinez",
     "id": "STU-005",
     "className": "Web Dev 301",
     "gender": "Female",
+    "dateOfBirth": "2002-08-01",
     "status": "Active",
     "email": "olivia.martinez@gmail.com",
-    "attendance": 65,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Web Dev 301",
+        "code": "Web Dev 301",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Web Dev 301",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Main St, Anytown, USA",
+    "region": "Anytown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 90
   },
   {
     "name": "David Thompson",
     "id": "STU-006",
     "className": "Cloud Computing 303",
     "gender": "Male",
+    "dateOfBirth": "2020-01-01",
     "status": "Active",
     "email": "david.thompson@gmail.com",
-    "attendance": 90,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Cloud Computing 303",
+        "code": "Cloud Computing 303",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Cloud Computing 303",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 555-1234",
+    "address": "789 Oak St, Sometown, USA",
+    "region": "Sometown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 60
   },
   {
     "name": "Sophia Garcia",
     "id": "STU-007",
     "className": "Cybersecurity 205",
     "gender": "Female",
+    "dateOfBirth": "2000-01-01",
     "status": "Active",
     "email": "sophia.garcia@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Cybersecurity 205",
+        "code": "Cybersecurity 205",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Cybersecurity 205",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 987-6543",
+    "address": "456 Elm St, Othertown, USA",
+    "region": "Othertown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 120
   },
   {
     "name": "Daniel Lee",
     "id": "STU-008",
     "className": "Data Science 201",
     "gender": "Male",
+    "dateOfBirth":"2000-01-01",
     "status": "Active",
     "email": "daniel.lee@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Data Science 201",
+        "code": "Data Science 201",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Data Science 201",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 555-1234",
+    "address": "789 Oak St, Sometown, USA",
+    "region": "Sometown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 120
   },
   {
     "name": "Emily Davis",
     "id": "STU-009",
     "className": "UI/UX Design 101",
     "gender": "Female",
+    "dateOfBirth": "2000-01-01",
     "status": "Active",
     "email": "emily.davis@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "UI/UX Design 101",
+        "code": "UI/UX Design 101",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "UI/UX Design 101",
+        "grade": "A-",
+        "value": 65,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 987-6543",
+    "address": "456 Elm St, Othertown, USA",
+    "region": "Othertown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 120
   },
   {
     "name": "Christopher Wilson",
     "id": "STU-010",
     "className": "Mobile Dev 202",
     "gender": "Male",
+    "dateOfBirth": "2000-01-01",
     "status": "Active",
     "email": "christopher.wilson@gmail.com",
-    "attendance": 50,
-    "gpa": 3.5
+    "attendance": [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1],
+    "gpa": 3.5,
+    "courses": [
+      {
+        "title": "Mobile Dev 202",
+        "code": "Mobile Dev 202",
+        "instructor": "Sir Alex Ferguson",
+        "schedule": "Mon, Wed, Fri - 10:00 AM",
+        "students": 260
+      }
+    ],
+    "grades": [
+      {
+        "course": "Mobile Dev 202",
+        "grade": "A",
+        "value": 70,
+        "semester": "Fall 2023"
+      },
+      {
+        "course": "Web Dev 301",
+        "grade": "B+",
+        "value": 85,
+        "semester": "Fall 2023"
+      },
+      {
+        "course": "Cybersecurity 205",
+        "grade": "A-",
+        "value": 65,
+        "semester": "Fall 2023"
+      }
+    ],
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Main St, Anytown, USA",
+    "region": "Anytown, USA",
+    "enrollmentDate": "2022-08-15",
+    "graduationDate": "2024-05-30",
+    "credits": 120
   }
 
 ]

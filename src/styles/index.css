@@ -81,10 +81,28 @@ body::-webkit-scrollbar{
 }
 
 .error{
-  position: absolute;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-2);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+.error p{
+  position: relative;
   top: 0;
   color: var(--color-error);
+  background-color: #EF444433;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
   z-index: 1000;
+  border-radius: var(--spacing-2);
+  transition: background-color 0.3s ease;
 }
 
 .btn-div{

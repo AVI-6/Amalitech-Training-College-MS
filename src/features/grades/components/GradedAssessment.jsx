@@ -5,78 +5,24 @@ import { FiBookOpen, FiClock } from 'react-icons/fi';
 import { RxPeople } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom';
 
-function GradedAssessment() {
+function GradedAssessment({ coursework, searchParams, activeFilter }) {
   const navigate = useNavigate()
-  const coursework = [
-  {
-    id: 1,
-    type: "Assignment",
-    status: "Pending",
-    title: "Introduction to React Hooks",
-    course: "Web Development",
-    dueDate: "Apr 15, 2026",
-    submissions: 28,
-    grading: {
-      scored: 12,
-      total: 28,
-    },
-  },
-  {
-    id: 2,
-    type: "Project",
-    status: "Pending",
-    title: "Final Project - Portfolio Website",
-    course: "Web Development",
-    dueDate: "Apr 20, 2026",
-    submissions: 15,
-    grading: {
-      scored: 3,
-      total: 15,
-    },
-  },
-  {
-    id: 3,
-    type: "Lab",
-    status: "Pending",
-    title: "Database Design Lab",
-    course: "Database Systems",
-    dueDate: "Apr 12, 2026",
-    submissions: 18,
-    grading: {
-      scored: 10,
-      total: 18,
-    },
-  },
-  {
-    id: 4,
-    type: "Midterm",
-    status: "Pending",
-    title: "Midterm Exam - JavaScript Fundamentals",
-    course: "Web Development",
-    dueDate: "Apr 10, 2026",
-    submissions: 30,
-    grading: {
-      scored: 25,
-      total: 30,
-    },
-  },
-  {
-    id: 5,
-    type: "Quiz",
-    status: "All Graded",
-    title: "CSS Grid and Flexbox Quiz",
-    course: "Advanced CSS",
-    dueDate: "Apr 8, 2026",
-    submissions: 22,
-    grading: {
-      scored: 22,
-      total: 22,
-    },
-  },
-];
+
+  const filteredCoursework = coursework.filter(c => {
+    const normalizedFilter = activeFilter === 'Graded' ? 'All Graded' : activeFilter
+    const matchesFilter = normalizedFilter === 'All' || c.status === normalizedFilter
+    const matchesSearch =
+      searchParams === '' ||
+      c.course.toLowerCase().includes(searchParams.toLowerCase()) ||
+      c.title.toLowerCase().includes(searchParams.toLowerCase()) ||
+      c.status.toLowerCase().includes(searchParams.toLowerCase())
+
+    return matchesFilter && matchesSearch
+  })
+
   return (
     <div className='graded-assessment-div'>
-      {coursework.map(c=>{
+      {filteredCoursework.map(c=>{
         return(
           <div className='graded-wrapper' onClick={()=> navigate('/teachers/assessments/assessment-details')} key={c.id}>
             <div className="graded-left">

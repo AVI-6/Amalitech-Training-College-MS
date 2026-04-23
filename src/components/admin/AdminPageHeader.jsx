@@ -25,7 +25,7 @@ function AdminPageHeader({ title, subtitle, backTo, actions }) {
       <div className="admin-page-header-actions">
         {actions}
         {backTo ? (
-          <Link className="admin-back-link" to={backTo}>
+          <Link className="admin-back-link" onClick={backTo} to={backTo}>
              <FaLongArrowAltLeft/>Back
           </Link>
         ) : null}

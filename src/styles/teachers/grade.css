@@ -29,8 +29,10 @@
   gap: var(--spacing-1);
 }
 
-.active{
-  background-color: var(--color-accent);
+.white-btn-div .active{
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  border: none;
 }
 
 .grade-left-text{

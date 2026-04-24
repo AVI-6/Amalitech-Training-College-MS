@@ -4,6 +4,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"
 import { MdKey } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import { supabase } from '../../lib/supabaseClient'
+import { getDashboardPathForRole, getUserRole } from '../../utils/authRouting'
+
 
 
 function Form({ title, titleDesc, logo }) {
@@ -25,24 +28,77 @@ function Form({ title, titleDesc, logo }) {
     setIsChecked({ ...form, [e.target.name]: e.target.value });
   }
 
-  async function handleSubmit(e){
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      const user = await login({ email: form.email, password: form.password });
-      if (user.role === 'admin') {
-        navigate('/admin/dashboard');
-      } else if (user.role === 'teacher') {
-        navigate('/teachers/dashboard');
-      } else if (user.role === 'student') {
-        navigate('/students/dashboard');
-      }
-    } catch (error) {
-      setErrorMessage(error.message);
-    } finally {
-      setIsLoading(false);
-    }
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   setIsLoading(false);
+  //   if(!form.email && form.password <6){
+  //     setErrorMessage('Enter valid email and password')
+  //   }
+  //   if(form.email === 'admin@school.com' && form.password === 'admin@2026'){
+  //     navigate('/admin/dashboard')
+  //     setIsLoading(false)
+  //   }
+  //   if(form.email === 'teacher@school.com' && form.password === 'teacher@2026'){
+  //     navigate('/teachers/dashboard')
+  //     setIsLoading(false)
+  //   }
+  //   if(form.email === 'student@school.com' && form.password === 'student@2026'){
+  //     navigate('/students/dashboard')
+  //     setIsLoading(false)
+  //   }
+  //   setErrorMessage("");
+  // }
+
+async function handleSubmit(e) {
+  e.preventDefault()
+  setIsLoading(true)
+  setErrorMessage('')
+
+  const email = form.email.trim()
+  const password = form.password
+
+  if (!email || password.length < 6) {
+    setErrorMessage('Enter a valid email and password')
+    setIsLoading(false)
+    return
   }
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+
+  if (error) {
+    setErrorMessage(error.message)
+    setIsLoading(false)
+    return
+  }
+
+  const user = data?.user
+  const passwordSet = user?.user_metadata?.password_set === true
+
+  if (!passwordSet) {
+    await supabase.auth.signOut()
+    setErrorMessage('Complete first-time activation from your email magic link before logging in with password.')
+    setIsLoading(false)
+    return
+  }
+
+  const role = getUserRole(user)
+  const dashboardPath = getDashboardPathForRole(role)
+
+  if (!dashboardPath) {
+    await supabase.auth.signOut()
+    setErrorMessage('Your account role is missing or invalid. Please contact an administrator.')
+    setIsLoading(false)
+    return
+  }
+
+  navigate(dashboardPath)
+
+  setIsLoading(false)
+}
+
 
   const BtnStyles = {
     color: "white",
@@ -87,7 +143,7 @@ function Form({ title, titleDesc, logo }) {
             <label htmlFor="remember-me">Remember me</label>
           </div>
           <div className="forgot-password-div">
-            <a href=''>Forgot Password </a>
+            <Link to="/forgot-password">Forgot Password</Link>
           </div>
         </div>
         <div className="submit-form-div">

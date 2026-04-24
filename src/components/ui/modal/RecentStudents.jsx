@@ -24,16 +24,19 @@ function RecentStudents({searchTerm}) {
     fetchStudents()
   }, [])
 
-  const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.className.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredStudents = students.filter((student) =>{
+    return (
+      (student.name).toLowerCase().includes((searchTerm).toLowerCase()) ||
+      (student.id).toLowerCase().includes(searchTerm) ||
+      (student.className).toLowerCase().includes(searchTerm)
+    )
+  }
   )
 
   return (
     <div className='recent-students-table-div'>
       <div className='recent-students-table-wrapper'>
-        <table className='recent-students-table'>
+        {filteredStudents ? <table className='recent-students-table'>
           <thead>
             <tr>
               <th>Name</th>
@@ -46,7 +49,7 @@ function RecentStudents({searchTerm}) {
             </tr>
           </thead>
           <tbody>
-            { filteredStudents.length > 0 ? filteredStudents.map((student) => {
+            {filteredStudents.length > 0 && filteredStudents.map((student) => {
               const statusClass = student.status ? student.status.toLowerCase() : ''
               return (
                 <tr className='table-body' key={student.id}>
@@ -65,9 +68,9 @@ function RecentStudents({searchTerm}) {
                   </td>
                 </tr>
               )
-            }) : <div className="recent-students-table">No students found. Search either by name, ID, or class.</div>}
+            }) }
           </tbody>
-        </table>
+        </table> : <div className="recent-students-table">No students found. Search either by name, ID, or class.</div>}
       </div>
     </div>
   )

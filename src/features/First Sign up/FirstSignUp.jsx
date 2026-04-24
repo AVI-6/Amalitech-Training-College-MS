@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaRegMessage } from 'react-icons/fa6'
 import FormInput from '../../components/forms/FormInput'
 import ButtonWithIcon from '../../components/buttons/ButtonWithIcon'
 import { Link, useNavigate } from 'react-router-dom'
 import '../../styles/firstsignup.css'
 import LoginSideBar from '../login/LoginSideBar'
+import useAuth from '../../hooks/useAuth'
 
 function FirstSignUp() {
   const navigate = useNavigate()
+  const auth = useAuth()
 
   function handleNavigate(){
-    navigate('/admin/dashboard')
+    const user = auth.user
+    console.log(user.email)
+    if (user.email === 'admin@school.com') {
+      navigate('/admin/dashboard')
+    }
   }
   return (
     <div className='first-sign-up'>

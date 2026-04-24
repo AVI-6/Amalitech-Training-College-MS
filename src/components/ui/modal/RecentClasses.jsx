@@ -37,8 +37,8 @@ function RecentClasses({searchTerm}) {
   })
 
   return (
-    <>
-      {filteredClasses ? filteredClasses.map((classItem, index) => (
+    <div className="recent-classes-div-wrapper">
+      {filteredClasses.length > 0 ? filteredClasses.map((classItem, index) => (
         <div
           className="recent-classes-div"
           key={`${classItem.code}-${classItem.title}-${index}`}
@@ -70,7 +70,7 @@ function RecentClasses({searchTerm}) {
           </div>
         </div>
       )) : <div className="recent-classes-div">No classes found.</div>}
-    </>
+    </div >
   );
 }
 

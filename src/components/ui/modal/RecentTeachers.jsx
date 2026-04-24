@@ -34,7 +34,7 @@ function RecentTeachers({ searchTerm }) {
   return (
     <div className='recent-students-table-div'>
       <div className='recent-students-table-wrapper'>
-        <table className='recent-students-table'>
+        {filteredTeachers.length > 0 ? <table className='recent-students-table'>
           <thead>
             <tr>
               <th>Name</th>
@@ -47,7 +47,7 @@ function RecentTeachers({ searchTerm }) {
             </tr>
           </thead>
           <tbody>
-            { filteredTeachers.length > 0 ? filteredTeachers.map((teacher) => {
+            {filteredTeachers.length > 0 && filteredTeachers.map((teacher) => {
               const statusClass = teacher.status ? teacher.status.toLowerCase() : ''
               return (
                 <tr key={teacher.id}>
@@ -66,9 +66,9 @@ function RecentTeachers({ searchTerm }) {
                   </td>
                 </tr>
               )
-            }) : <div className="recent-students-table">No teachers found. Search either by name, ID, or subject.</div>}
+            }) }
           </tbody>
-        </table>
+        </table>: <div className="recent-students-table">No teachers found. Search either by name, ID, or subject.</div>}
       </div>
     </div>
   )

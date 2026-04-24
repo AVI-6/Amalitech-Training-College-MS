@@ -1,3 +1,100 @@
+# name: Build and Deploy to Amazon ECS
+# on:
+#   push:
+#     branches:
+#       - main
+#       # - "feature/**"
+#       - "releases/**"
+#       - "realease/test-merge"
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+
+# permissions:
+#   contents: read
+#   id-token: write
+# jobs:
+#   build_and_deploy_to_ecs:
+#     permissions:
+#       contents: read
+#       id-token: write
+#       pull-requests: read
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v6
+
+#       - name: Configure AWS Credentials
+#         uses: aws-actions/configure-aws-credentials@5e19c1aa7acd2e02c5110eaf77eacd29039cca28
+#         with:
+#           aws-region: ${{vars.AWSREGION}}
+#           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActions
+#           role-session-name: github-actions
+#           #role-session-name: github-actions-${{ github.run_id }} for auditing purpose on cloudtrial   IAM session lists, and audit logs and helps identify which runs/agents created temporary credentials.
+
+#       - name: Login to Amazon ECR
+#         id: login-ecr
+#         uses: aws-actions/amazon-ecr-login@062b18b96a7aff071d4dc91bc00c4c1a7945b076
+
+#       - name: Build image
+#         id: build-image
+#         env:
+#           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#           ECR_REPOSITORY: avi-school-ms 
+#           IMAGE_TAG: ${{ github.sha }}
+#         run: |
+#           IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+#           docker build -t $IMAGE_URI .
+#           docker push $IMAGE_URI 
+#           echo "image=$IMAGE_URI" >> $GITHUB_OUTPUT
+
+
+#       - name: Scan image with Trivy
+#         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
+#         with:
+#           image-ref: ${{ steps.build-image.outputs.image }}
+#           format: table
+#           exit-code: 1
+#           ignore-unfixed: true
+#           vuln-type: os,library
+#           severity: CRITICAL,HIGH
+
+
+#       - name: Download task definition
+#         run: |
+#           aws ecs describe-task-definition \
+#           --task-definition avi-ecs-task \
+#           --query taskDefinition \
+#           --output json > task-definition.json
+
+#       - name: Clean task definition file
+#         run: |
+#           cat task-definition.json | jq 'del(
+#           .taskDefinitionArn,
+#           .revision,
+#           .status,
+#           .requiresAttributes,
+#           .compatibilities,
+#           .registeredAt,
+#           .registeredBy
+#           )' > cleaned-task-definition.json
+
+#       - name: Fill in the new image ID in the Amazon ECS task definition
+#         id: task-def
+#         uses: aws-actions/amazon-ecs-render-task-definition@6b89923a897d41e9ad789181d8865b532ecf973c
+#         with:
+#           task-definition: cleaned-task-definition.json
+#           container-name: "avi-school-ecs-container"
+#           image: ${{ steps.build-image.outputs.image }}
+
+#       - name: Deploy Amazon ECS task definition
+#         uses: aws-actions/amazon-ecs-deploy-task-definition@fc8fc60f3a60ffd500fcb13b209c59d221ac8c8c
+#         with:
+#           task-definition: ${{ steps.task-def.outputs.task-definition }}
+#           service: avi-ecs-service
+#           cluster: avi-school
+#           wait-for-service-stability: true
+
+
 name: Build and Deploy to Amazon ECS
 on:
   push:
@@ -12,6 +109,7 @@ on:
 permissions:
   contents: read
   id-token: write
+
 jobs:
   build_and_deploy_to_ecs:
     permissions:
@@ -26,10 +124,10 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@5e19c1aa7acd2e02c5110eaf77eacd29039cca28
         with:
-          aws-region: ${{vars.AWSREGION}}
+          aws-region: ${{ vars.AWSREGION }}
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActions
           role-session-name: github-actions
-          #role-session-name: github-actions-${{ github.run_id }} for auditing purpose on cloudtrial   IAM session lists, and audit logs and helps identify which runs/agents created temporary credentials.
+          # role-session-name: github-actions-${{ github.run_id }} for auditing purpose on cloudtrail IAM session lists, and audit logs and helps identify which runs/agents created temporary credentials.
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -39,14 +137,18 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: avi-school-ms 
+          ECR_REPOSITORY: avi-school-ms
           IMAGE_TAG: ${{ github.sha }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: |
           IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker build -t $IMAGE_URI .
-          docker push $IMAGE_URI 
+          docker build \
+            --build-arg VITE_SUPABASE_URL="$VITE_SUPABASE_URL" \
+            --build-arg VITE_SUPABASE_PUBLISHABLE_KEY="$VITE_SUPABASE_PUBLISHABLE_KEY" \
+            -t $IMAGE_URI .
+          docker push $IMAGE_URI
           echo "image=$IMAGE_URI" >> $GITHUB_OUTPUT
-
 
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
@@ -57,7 +159,6 @@ jobs:
           ignore-unfixed: true
           vuln-type: os,library
           severity: CRITICAL,HIGH
-
 
       - name: Download task definition
         run: |

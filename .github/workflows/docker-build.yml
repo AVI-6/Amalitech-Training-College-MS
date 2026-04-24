@@ -5,6 +5,7 @@ on:
       - main
       # - "feature/**"
       - "releases/**"
+      - "realease/test-merge"
   pull_request:
     types: [opened, synchronize, reopened]
 

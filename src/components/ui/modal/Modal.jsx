@@ -12,7 +12,6 @@ export default function Modal({ isOpen, onClose, children }) {
     return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
-  console.log(children)
 
   if (!isOpen) return null;
 

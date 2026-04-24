@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AdminUpdates from '../../components/ui/modal/AdminUpdates'
 import { FaRegFilePdf, FaRegFolder } from "react-icons/fa6";
 import { BiBell, BiBookAdd } from 'react-icons/bi';
 import '../../styles/teachers/teachersdashboardpage.css'
 import ButtonWithIconAfter from '../../components/buttons/ButtonWithIconAfter';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { LuClipboardCheck, LuClock3, LuFileText } from "react-icons/lu";
+import { LuBookOpenText, LuClipboardCheck, LuClock3, LuFileText } from "react-icons/lu";
 import { RiHomeGearLine } from "react-icons/ri";
 import PageHeader from '../../components/ui/modal/teachers/PageHeader';
 import TeachersQuickActions from '../../components/ui/modal/teachers/TeachersQuickActions';
@@ -19,6 +19,7 @@ import QuickActionPopupAttendance from '../../features/attendance/components/Qui
 import QuickActionPopupAnnouncement from '../../features/announcement/components/QuickActionPopupAnnouncement';
 import QuickActionPopupGrade from '../../features/grades/components/QuickActionPopupGrade';
 import QuickActionPopupResources from '../../features/resources/QuickActionPopupResources';
+import TeacherDataBaseUrl from '../../mocked DataBase/teacherDataBase.json?url'
 
 
 
@@ -28,7 +29,29 @@ function TeachersDashboardPage() {
   const [modalAnOpen, setModalAnOpen] = useState(false);
   const [modalGOpen, setModalGOpen] = useState(false);
   const [modalROpen, setModalROpen] = useState(false);
+  const [teacherData, setTeacherData] = useState(null);
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    const fetchTeacherData = async () => {
+      try {
+        const response = await fetch(TeacherDataBaseUrl);
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error('Failed to fetch teacher data');
+        }
+        const foundTeacher = data.find(teacher => teacher.id === "TEA-001");
+
+        if(foundTeacher){
+          setTeacherData(foundTeacher);
+        }
+      } catch (error) {
+        console.error('Error fetching teacher data:', error);
+      }
+    };
+
+    fetchTeacherData();
+  },[])
 
   function handleView(){
     navigate('/teachers/courses')
@@ -41,12 +64,16 @@ function TeachersDashboardPage() {
     <div className='teachers-dashboard-page-div'>
       <div className="first-teachers-dashboard-content">
         <div className="first-teachers-dashboard-content-h1">
-          <PageHeader userName={'Hi Sarah Mitchell,'}/>
+          {teacherData && <PageHeader userName={`Hi ${teacherData.firstName} ${teacherData.lastName},`}/>}
         </div>
         <div className="first-teachers-dashboard-content-updates">
-          <AdminUpdates text={'Total Teachers'} value={'85'} icon={<BiBookAdd/>} />
-          <AdminUpdates text={'Total Teachers'} value={'85'} icon={<BiBookAdd/>} />
-          <AdminUpdates text={'Total Teachers'} value={'85'} icon={<BiBookAdd/>} />
+          {teacherData ? (
+            <>
+              <AdminUpdates text={'Total Classes'} value={teacherData.classesTaught.length} icon={<BiBookAdd/>} />
+              <AdminUpdates text={'Total Students'} value={teacherData.studentsCount} icon={<LuBookOpenText />} />
+              <AdminUpdates text={"Today's Sessions"} value={teacherData.todaySchedule.length} icon={<BiBookAdd/>} />
+            </>
+          ): <AdminUpdates text={'Loading...'} value={0} icon={<BiBookAdd/>} />}
         </div>
       </div>
       <div className="first-teachers-dashboard-content-bottom">
@@ -81,10 +108,15 @@ function TeachersDashboardPage() {
               </div>
             </div>
             <div className="third-teachers-dashboard-content-h1-courses-div">
-              <MyCLasses onClick={handleMyCourse} courseStudent={'28 students'} courseSchedule={'Next: Tuesday, 10:00 AM'} courseTitle={'Web Development'} />
-              <MyCLasses onClick={handleMyCourse} courseStudent={'24 students'} courseSchedule={'Next: Wednesday, 10:00 AM'} courseTitle={'Advanced JavaScript'} />
-              <MyCLasses onClick={handleMyCourse} courseStudent={'23 students'} courseSchedule={'Next: hursday, 10:00 AM'} courseTitle={'React Fundamentals'} />
-              <MyCLasses onClick={handleMyCourse} courseStudent={'25 students'} courseSchedule={'Next: Friday, 10:00 AM'} courseTitle={'Web Development'} />
+             {teacherData && teacherData.classesTaught.map((course, index) => (
+                <MyCLasses
+                  key={index + course.title}
+                  onClick={handleMyCourse}
+                  courseStudent={`${course.students} students`}
+                  courseSchedule={`Next: ${course.schedule}`}
+                  courseTitle={course.title}
+                />
+              ))}
             </div>
             
           </div>

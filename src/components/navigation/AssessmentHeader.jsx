@@ -5,7 +5,7 @@ import '../../styles/teachers/CreateAssessment.css'
 import { Link } from 'react-router-dom';
 import { useMobileSidebar } from '../../app/Providers';
 
-function AssessmentHeader({assessmentTitle, setPath}) {
+function AssessmentHeader({assessmentTitle, onClick, setPath}) {
   const { toggleMobileSidebar } = useMobileSidebar();
 
   return (
@@ -21,7 +21,7 @@ function AssessmentHeader({assessmentTitle, setPath}) {
         </button>
         <h1> {assessmentTitle} </h1>
       </div>
-      <Link to={`${setPath}`}><p><FaArrowLeftLong /> Back</p></Link>
+      <Link onClick={onClick} to={`${setPath}`}><p><FaArrowLeftLong /> Back</p></Link>
     </div>
   )
 }

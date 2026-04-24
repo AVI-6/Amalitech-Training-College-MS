@@ -23,6 +23,14 @@
       {"title": "Web Development", "schedule": "Mon, Wed, Fri - 10:00 AM", "students": 28},
       {"title": "Advanced JavaScript", "schedule": "Tue, Thu - 2:00 PM", "students": 22},
       {"title": "React Fundamentals", "schedule": "Fri - 11:00 AM", "students": 25}
+    ],
+    "createdAssessment": [
+      {"title": "Web Development Final Project", "dueDate": "2024-12-15", "totalMarks": 100},
+      {"title": "JavaScript Midterm Exam", "dueDate": "2024-10-01", "totalMarks": 50}
+    ],
+    "todaySchedule": [
+      {"title": "Web Development", "schedule": "Mon, Wed, Fri - 10:00 AM", "students": 28},
+      {"title": "Advanced JavaScript", "schedule": "Tue, Thu - 2:00 PM", "students": 22}
     ]
   },
   {
@@ -48,7 +56,12 @@
     "classesTaught": [
       {"title": "Data Science Fundamentals", "schedule": "Mon, Wed - 9:00 AM", "students": 26},
       {"title": "Statistics for Data", "schedule": "Tue, Thu - 11:00 AM", "students": 26}
-    ]
+    ],
+    "createdAssessment": [
+      {"title": "Data Science Project", "dueDate": "2024-11-30", "totalMarks": 100},
+      {"title": "Statistics Quiz", "dueDate": "2024-10-15", "totalMarks": 30}
+    ],
+    "todaySchedule": []
   },
   {
     "name": "Jennifer Lee",
@@ -72,7 +85,9 @@
     "experience": 4,
     "classesTaught": [
       {"title": "UI/UX Design 101", "schedule": "Wed, Fri - 1:00 PM", "students": 24}
-    ]
+    ],
+    "createdAssessment": [],
+    "todaySchedule": []
   },
   {
     "name": "Michael Brown",
@@ -97,7 +112,9 @@
     "classesTaught": [
       {"title": "Mobile App Development", "schedule": "Mon, Thu - 10:00 AM", "students": 18},
       {"title": "Cross Platform Apps", "schedule": "Tue, Fri - 3:00 PM", "students": 22}
-    ]
+    ],
+    "createdAssessment": [],
+    "todaySchedule": []
   },
   {
     "name": "Amanda Davis",
@@ -123,6 +140,13 @@
       {"title": "Cloud Infrastructure", "schedule": "Mon, Wed - 2:00 PM", "students": 21},
       {"title": "AWS Fundamentals", "schedule": "Tue, Thu - 9:00 AM", "students": 22},
       {"title": "Cloud Deployment", "schedule": "Fri - 1:00 PM", "students": 20}
+    ],
+    "createdAssessment": [
+      {"title": "Cloud Computing Exam", "dueDate": "2024-12-01", "totalMarks": 100},
+      {"title": "AWS Project", "dueDate": "2024-11-15", "totalMarks": 50}
+    ],
+    "todaySchedule": [
+      {"title": "Cloud Infrastructure", "schedule": "Mon, Wed - 2:00 PM", "students": 21}
     ]
   },
   {
@@ -148,7 +172,9 @@
     "classesTaught": [
       {"title": "Cybersecurity 101", "schedule": "Mon, Wed - 11:00 AM", "students": 28},
       {"title": "Network Defense", "schedule": "Tue, Thu - 4:00 PM", "students": 26}
-    ]
+    ],
+    "createdAssessment": [],
+    "todaySchedule": []
   },
   {
     "name": "Lisa Anderson",
@@ -173,6 +199,8 @@
     "classesTaught": [
       {"title": "Machine Learning Basics", "schedule": "Mon, Wed - 1:00 PM", "students": 24},
       {"title": "AI Systems", "schedule": "Tue, Thu - 3:00 PM", "students": 24}
-    ]
+    ],
+    "createdAssessment": [],
+    "todaySchedule": []
   }
 ]

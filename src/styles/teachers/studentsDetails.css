@@ -24,7 +24,7 @@
   display: flex;
   gap: var(--spacing-2);
   padding: var(--spacing-2);
-  border-bottom: 1px solid var(--color-text-secondary);
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .student-details-top-left svg{

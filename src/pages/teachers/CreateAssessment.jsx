@@ -53,7 +53,7 @@ function CreateAssessment() {
   return (
     <div className='create-assessment-page-div'>
       <div className="create-assessment-header">
-        <AssessmentHeader setPath={'/teachers/assessments'} assessmentTitle={'Create Assessment'}/>
+        <AssessmentHeader onClick={()=> window.history.back()} setPath={'/teachers/assessments'} assessmentTitle={'Create Assessment'}/>
       </div>
       <div className="create-assessment-bottom">
 

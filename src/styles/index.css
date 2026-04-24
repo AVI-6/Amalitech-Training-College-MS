@@ -167,7 +167,7 @@ body::-webkit-scrollbar{
   font-weight: var(--font-weight-medium);
 }
 
-#email, #password{
+#email, #password, #confirmPassword{
   width: 100%;
   background-color: transparent;
   border: 2px solid var(--color-text-secondary);
@@ -177,7 +177,7 @@ body::-webkit-scrollbar{
   font-size: var(--font-size-body);
 }
 
-#password{
+#password, #confirmPassword{
   padding-right: var(--spacing-6);
 }
 
@@ -1636,7 +1636,6 @@ body::-webkit-scrollbar{
     width: 90%;
   }
 }
-
 
 
 

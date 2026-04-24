@@ -53,6 +53,11 @@ import AnnouncementLayout from './layouts/Teacher/AnnouncementLayout.jsx'
 import GradeLayout from "./layouts/Teacher/GradeLayout.jsx";
 import StudentLayout from "./layouts/Students/StudentLayout.jsx";
 import AdminPageHeader from "./components/admin/AdminPageHeader.jsx";
+import AuthConfirmPage from "./pages/AuthConfirmPage.jsx";
+import SetPasswordPage from "./pages/SetPasswordPage.jsx";
+import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
+
 
 function App() {
 
@@ -64,54 +69,63 @@ function App() {
             <Route index element={<Navigate to={'/login'} replace/>} />
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/sign-up" element={<FirstSignUp/>} />
+            <Route path="/auth/confirm/*" element={<AuthConfirmPage />} />
+            <Route path="/set-password" element={<SetPasswordPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/admin-header" element={<AdminPageHeader title={'Administrator Here'} backTo={()=>window.history.back()} />} />
           </Route>
-          <Route element={<AdminLayout/>}>
-            <Route path="/admin/dashboard" element={<AdminDashBoardLayout />}></Route>
-            <Route path="/admin/students" element={<AdminStudentsLayout />} />
-            <Route path="/admin/students/:id" element={<AdminStudentsDetailsLayout />} />
-            <Route path="/admin/students/new-student" element={<AddNewStudentLayout />} />
-            <Route path="/admin/teachers" element={<AdminTeachersLayout />} />
-            <Route path="/admin/teachers/:id" element={<AdminTeacherDetailsLayout />} />
-            <Route path="/admin/teachers/new-teacher" element={<AddNewTeacherLayout />} />
-            <Route path="/admin/classes" element={<AdminClassesLayout />}/>
-              <Route path="/admin/classes/new-class" element={<AddNewClassLayout />} />
-              <Route path="/admin/classes/view-class" element={<ViewClassLayout />} />
-              <Route path="/admin/classes/view-class-details" element={<ViewClassDetailsLayout />} />
-            <Route path="/admin/settings" element={<AdminSettingsLayout />} />
+          <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
+            <Route element={<AdminLayout/>}>
+              <Route path="/admin/dashboard" element={<AdminDashBoardLayout />}></Route>
+              <Route path="/admin/students" element={<AdminStudentsLayout />} />
+              <Route path="/admin/students/:id" element={<AdminStudentsDetailsLayout />} />
+              <Route path="/admin/students/new-student" element={<AddNewStudentLayout />} />
+              <Route path="/admin/teachers" element={<AdminTeachersLayout />} />
+              <Route path="/admin/teachers/:id" element={<AdminTeacherDetailsLayout />} />
+              <Route path="/admin/teachers/new-teacher" element={<AddNewTeacherLayout />} />
+              <Route path="/admin/classes" element={<AdminClassesLayout />}/>
+                <Route path="/admin/classes/new-class" element={<AddNewClassLayout />} />
+                <Route path="/admin/classes/view-class" element={<ViewClassLayout />} />
+                <Route path="/admin/classes/view-class-details" element={<ViewClassDetailsLayout />} />
+              <Route path="/admin/settings" element={<AdminSettingsLayout />} />
+            </Route>
           </Route>
-          <Route element={<TeacherLayout/>}>
-            <Route path="/teachers/dashboard" element={<TeachersDashboardLayout/>}/>
-            <Route path="/teachers/dashboard/attendance" element={<AttendanceLayout/>}/>
-            <Route path="/teachers/dashboard/post-announcements" element={<AnnouncementLayout/>}/>
-            <Route path="/teachers/courses" element={<MyCoursePageLayout />}/>
-            <Route path="/teachers/courses/my-course" element={<ClassActiveLayout />}/>
-            <Route path="/teachers/assessments" element={<AssessmentsPageLayout />}/>
-            <Route path="/teachers/assessments/create" element={<CreateAssessmentsPageLayout />} />
-            <Route path="/teachers/assessments/grade" element={<GradeLayout/>}/>
-            <Route path="/teachers/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
-            <Route path="/teachers/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
-            <Route path="/teachers/assessments/review-submission" element={<ReviewLayout />} />
-            <Route path="/teachers/resources" element={<ResourcesLayout />} />
-            <Route path="/teachers/resources/create" element={<CreateResourceLayout />} />
-            <Route path="/teachers/settings" element={<SettingsLayout />} />
+          <Route element={<ProtectedRoute allowedRoles={['teacher']} />}>
+            <Route element={<TeacherLayout/>}>
+              <Route path="/teachers/dashboard" element={<TeachersDashboardLayout/>}/>
+              <Route path="/teachers/dashboard/attendance" element={<AttendanceLayout/>}/>
+              <Route path="/teachers/dashboard/post-announcements" element={<AnnouncementLayout/>}/>
+              <Route path="/teachers/courses" element={<MyCoursePageLayout />}/>
+              <Route path="/teachers/courses/my-course" element={<ClassActiveLayout />}/>
+              <Route path="/teachers/assessments" element={<AssessmentsPageLayout />}/>
+              <Route path="/teachers/assessments/create" element={<CreateAssessmentsPageLayout />} />
+              <Route path="/teachers/assessments/grade" element={<GradeLayout/>}/>
+              <Route path="/teachers/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
+              <Route path="/teachers/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
+              <Route path="/teachers/assessments/review-submission" element={<ReviewLayout />} />
+              <Route path="/teachers/resources" element={<ResourcesLayout />} />
+              <Route path="/teachers/resources/create" element={<CreateResourceLayout />} />
+              <Route path="/teachers/settings" element={<SettingsLayout />} />
+            </Route>
           </Route>
-          <Route element={<StudentLayout/>}>
-            <Route path="/students/dashboard" element={<StudentDashboardLayout/>}/>
-            <Route path="/students/courses" element={<StudentCoursesLayout />}/>
-            <Route path="/students/courses/:courseId" element={<StudentCourseDetailsLayout />}/>
-            <Route path="/students/courses/timetable" element={<ViewTimeTableLayout />}/>
-            <Route path="/students/grades" element={<StudentGradesLayout />}/>
-            <Route path="/students/assessments" element={<StudentAssessmentsLayout />}/>
-            <Route path="/students/assessments/:assessmentId" element={<StudentAssessmentDetailsLayout />}/>
-            <Route path="/students/settings" element={<StudentSettingsLayout />}/>
-            {/* <Route path="/students/courses/my-course" element={<ClassActiveLayout />}/>
-            <Route path="/students/courses/my-course" element={<ClassActiveLayout />}/>
-            <Route path="/students/assessments/create" element={<CreateAssessmentsPageLayout />} />
-            <Route path="/students/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
-            <Route path="/students/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
-            <Route path="/students/assessments/review-submission" element={<ReviewLayout />} />
-            <Route path="/students/resources" element={<ResourcesLayout />} /> */}
+          <Route element={<ProtectedRoute allowedRoles={['student']} />}>
+            <Route element={<StudentLayout/>}>
+              <Route path="/students/dashboard" element={<StudentDashboardLayout/>}/>
+              <Route path="/students/courses" element={<StudentCoursesLayout />}/>
+              <Route path="/students/courses/:courseId" element={<StudentCourseDetailsLayout />}/>
+              <Route path="/students/courses/timetable" element={<ViewTimeTableLayout />}/>
+              <Route path="/students/grades" element={<StudentGradesLayout />}/>
+              <Route path="/students/assessments" element={<StudentAssessmentsLayout />}/>
+              <Route path="/students/assessments/:assessmentId" element={<StudentAssessmentDetailsLayout />}/>
+              <Route path="/students/settings" element={<StudentSettingsLayout />}/>
+              {/* <Route path="/students/courses/my-course" element={<ClassActiveLayout />}/>
+              <Route path="/students/courses/my-course" element={<ClassActiveLayout />}/>
+              <Route path="/students/assessments/create" element={<CreateAssessmentsPageLayout />} />
+              <Route path="/students/assessments/view-analytics" element={<ViewAnalyticsPageLayout />} />
+              <Route path="/students/assessments/assessment-details" element={<AssessmentDetailsLayout />} />
+              <Route path="/students/assessments/review-submission" element={<ReviewLayout />} />
+              <Route path="/students/resources" element={<ResourcesLayout />} /> */}
+            </Route>
           </Route>
           <Route path="*" element={<EmptyPageComponent />} />
         </Routes>

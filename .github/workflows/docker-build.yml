@@ -4,7 +4,7 @@ on:
     branches:
       - main
       # - "feature/**"
-      # - "releases/**"
+      - "releases/**"
   pull_request:
     types: [opened, synchronize, reopened]
 

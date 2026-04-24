@@ -80,7 +80,7 @@ function Form({ title, titleDesc, logo }) {
           <input type={passType} name="password" id="password" required value={form.password} onChange={handleChange}/>
           {passType !== 'password' ? <FaEyeSlash id="show-password" className='show-password' onClick={hidePassword}/> : <FaEye onClick={showPassword} className='show-password'/>}
         </div>
-        {errorMessage && <p className="form-error-message">{errorMessage}</p>}
+        {errorMessage && <p className="form-error-message" style={{color: 'red'}}>{errorMessage}</p>}
         <div className="remember-and-forgot-div">
           <div className="remember-me-div">
             <input type="checkbox" name="remember" id="remember-me" value={isChecked} onChange={handleRemember}/>

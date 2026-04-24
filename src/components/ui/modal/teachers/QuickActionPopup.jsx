@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Modal from "../../modal/Modal";
 import '../../../../styles/teachers/modal.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import MyCLasses from '../teachers/MyCLasses';
 import TeacherDataBaseUrl from '../../../../mocked DataBase/teacherDataBase.json?url'
 
 function QuickActionPopup({ isOpen, onClose }) {
-  const navigate = useNavigate()
+  
   const [teacherData, setTeacherData] = useState(null);
 
   useEffect(()=>{
@@ -38,7 +38,7 @@ function QuickActionPopup({ isOpen, onClose }) {
           return (
             <div className="modal-card" key={index + course.title}>
               <Link to={'/teachers/assessments/create'}>
-                <MyCLasses courseStudent={`${teacherData.studentsCount} students`} courseSchedule={course.schedule} courseTitle={course.title} />
+                <MyCLasses courseStudent={`${course.students} students`} courseSchedule={course.schedule} courseTitle={course.title} />
               </Link>
             </div>
             )

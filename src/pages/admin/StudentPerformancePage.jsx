@@ -116,7 +116,7 @@ function StudentPerformancePage() {
               <span>Average</span>
             </div>
             <div className="metric-attendance">
-              <strong>{studentPerformance.metrics.attendance}</strong>
+              <strong>{((studentPerformance.metrics.attendance).length)/100 * 100}%</strong>
               <span>Attendance</span>
             </div>
             <div className="metric-grade">

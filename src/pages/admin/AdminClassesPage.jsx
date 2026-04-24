@@ -18,6 +18,7 @@ function AdminClassesPage() {
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value)
   }
+  
   return (
     <div className='admin-student-page-div'>
       <div className="admin-student-header-content">
@@ -66,7 +67,7 @@ function AdminClassesPage() {
         <div className="buttom-content">
           <div className="classes-scheduling-content">
             <div className="recent-class-scheduling">
-              <RecentClasses />
+              {searchTerm === '' ? <RecentClasses searchTerm={searchTerm}/> : <RecentClasses searchTerm={searchTerm}/>}
             </div>
           </div>
           <div className="bottom-navbar">

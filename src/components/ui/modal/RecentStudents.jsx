@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import studentDatabaseUrl from '../../../mocked DataBase/studentDatabase.json?url'
 import { Link } from 'react-router-dom'
 
-function RecentStudents() {
+function RecentStudents({searchTerm}) {
   const [students, setStudents] = useState([])
 
   useEffect(() => {
@@ -24,6 +24,12 @@ function RecentStudents() {
     fetchStudents()
   }, [])
 
+  const filteredStudents = students.filter((student) =>
+    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    student.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    student.className.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   return (
     <div className='recent-students-table-div'>
       <div className='recent-students-table-wrapper'>
@@ -40,7 +46,7 @@ function RecentStudents() {
             </tr>
           </thead>
           <tbody>
-            {students.map((student) => {
+            { filteredStudents.length > 0 ? filteredStudents.map((student) => {
               const statusClass = student.status ? student.status.toLowerCase() : ''
               return (
                 <tr className='table-body' key={student.id}>
@@ -59,7 +65,7 @@ function RecentStudents() {
                   </td>
                 </tr>
               )
-            })}
+            }) : <div className="recent-students-table">No students found. Search either by name, ID, or class.</div>}
           </tbody>
         </table>
       </div>

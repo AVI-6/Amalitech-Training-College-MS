@@ -6,7 +6,7 @@ import { BsPeople } from "react-icons/bs";
 import classDataBaseUrl from "../../../mocked DataBase/classDataBase.json?url";
 import { Link } from "react-router-dom";
 
-function RecentClasses() {
+function RecentClasses({searchTerm}) {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
@@ -28,9 +28,17 @@ function RecentClasses() {
     fetchClasses();
   }, []);
 
+  const filteredClasses = classes.filter((classItem) =>{
+    return (
+      classItem.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      classItem.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      classItem.instructor.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  })
+
   return (
-    <>
-      {classes.map((classItem, index) => (
+    <div className="recent-classes-div-wrapper">
+      {filteredClasses.length > 0 ? filteredClasses.map((classItem, index) => (
         <div
           className="recent-classes-div"
           key={`${classItem.code}-${classItem.title}-${index}`}
@@ -56,13 +64,13 @@ function RecentClasses() {
             </div>
           </div>
           <div className="recent-class-btn">
-            <Link to={`/admin/classes/view-class-details`}>
+            <Link to={`/admin/classes/${classItem.code}`} className="view-class-link">
               View Class <FaArrowRight />
             </Link>
           </div>
         </div>
-      ))}
-    </>
+      )) : <div className="recent-classes-div">No classes found.</div>}
+    </div >
   );
 }
 

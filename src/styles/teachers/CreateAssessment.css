@@ -173,6 +173,12 @@
   width: 74%;
 }
 
+.assessment-header-title-group{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .assessment-header-div a{
   text-decoration: none;
 }
@@ -197,8 +203,24 @@
   width: 50%;
   justify-content: space-between;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .save-assessment-div{
   padding: 0 10px;
+}
+
+
+@media (max-width: 900px){
+  .assessment-header-div{
+    width: 100%;
+    font-size: var(--font-size-xs);
+  }
+  .assessment-header-title-group{
+    gap: 8px;
+  }
+  .save-assessment-div{
+    width: 100%;
+    flex-direction: column;
+  }
 }

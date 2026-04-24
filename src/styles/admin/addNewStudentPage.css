@@ -62,6 +62,8 @@
 
 
 
+
+
 .select-info{
   width: 100%;
   display: flex;
@@ -91,4 +93,20 @@
 
 
 
-
+@media (max-width: 768px){
+  .student-form-content form{
+    display: flex;
+    width: 100%;
+  }
+  .info-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .save-new-student{
+    width: 100%;
+  }
+  .delet-button{
+    width: 100%;
+    width: 300px;
+  }
+}

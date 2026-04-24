@@ -2,7 +2,7 @@ import ButtonWithIcon from '../../buttons/ButtonWithIcon'
 import { PiPlus } from 'react-icons/pi'
 import EmptyPageImage from '../../../assets/notification.png'
 
-function EmptyPageComponent({ emptyPageTitle, emptyPageButtonTitle, EmptyPageImageText}) {
+function EmptyPageComponent({ emptyPageTitle, emptyPageButtonTitle, onClick }) {
   return (
     <div className='empty-page-component-div'>
       <div className="admin-student-top-content empty-page-component">
@@ -13,7 +13,7 @@ function EmptyPageComponent({ emptyPageTitle, emptyPageButtonTitle, EmptyPageIma
           </div>
         </div>
         <div className="add-student-btn">
-          <ButtonWithIcon name={`${emptyPageButtonTitle}`} buttonIcon={<PiPlus />}/>
+          <ButtonWithIcon onClick={onClick} name={`${emptyPageButtonTitle}`} buttonIcon={<PiPlus />}/>
         </div>
       </div>
       <div className="empty-wrapper">
@@ -21,8 +21,8 @@ function EmptyPageComponent({ emptyPageTitle, emptyPageButtonTitle, EmptyPageIma
         <div className="empty-page-image-div">
           <img src={EmptyPageImage} alt="Nothing Here" className='empty-page-image' />
           <div className="empty-page-text">
-            <h2>No {EmptyPageImageText} at this time</h2>
-            <p>{EmptyPageImageText} will appear here after you add them  </p>
+            <h2>No {emptyPageTitle} at this time</h2>
+            <p>{emptyPageTitle} will appear here after you add them  </p>
           </div>
         </div>
       </div>

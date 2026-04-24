@@ -64,3 +64,24 @@
 .second-teachers-dashboard-content-actions-div:hover .modal{
   display: flex;
 }
+
+@media (max-width: 900px){
+  .page-header{
+    width: 100%;
+  }
+  .page-header-title-group h1{
+    font-size: var(--font-size-h3);
+    display: flex;
+  }
+  .first-teachers-dashboard-content-h1 div{
+    width: 100%;
+  }
+  .second-teachers-dashboard-content-actions{
+    display: grid;
+    grid-template-columns: 1fr;
+     gap: var(--spacing-3);
+  }
+  .second-teachers-dashboard-content-actions-div{
+    width: 100%;
+  }
+}

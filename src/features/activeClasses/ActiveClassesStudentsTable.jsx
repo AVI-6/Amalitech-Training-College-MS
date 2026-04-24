@@ -101,7 +101,11 @@ function ActiveClassesStudentsTable() {
                         </span>
                       </td>
                       <td>
-                        <button className='students-view-button' type='button'>View</button>
+                        <button 
+                          className='students-view-button'
+                          type='button'
+                          onClick={() => navigate(`/teachers/courses/my-course/${student.id}`)}
+                        >View</button>
                       </td>
                     </tr>
                   )

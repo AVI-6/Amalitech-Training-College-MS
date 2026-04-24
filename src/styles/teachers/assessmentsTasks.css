@@ -24,10 +24,11 @@
 
 .assessments-task-1{
   display: flex;
-  gap: var(--spacing-h2);
+  gap: var(--spacing-2);
   width: 55%;
   justify-content: space-around;
   align-items: center;
+  max-width: fit-content;
 }
 
 .assessments-task-1 .course-type{
@@ -73,7 +74,7 @@
 .assessments-task-6 .due-date-progress{
   width: 60%;
   height: 10px;
-  background-color: var(--color-primary);
+  background-color: var(--color-info);
   border-radius: 20px;
 }
 
@@ -93,8 +94,8 @@
   width: 100%;
   background-color: transparent;
   cursor: pointer;
-  color: #1A2B4A;
-  background-color: #1a2b4a33;
+  color: #3B82F6;
+  background-color: #3B82F633;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +103,7 @@
 }
 
 .assessments-task-7 button:hover{
-  background-color: #1a2b4a98;
+  background-color: #3b83f64d;
 }
 
 .assessments-task-7-2{

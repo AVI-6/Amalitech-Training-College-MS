@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import '../../styles/teachers/CreateAssessment.css'
 
 function InputForForm({ handleText, title, placeholder, text, type='text', styles }) {

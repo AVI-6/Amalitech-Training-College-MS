@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import teacherDatabaseUrl from '../../../mocked DataBase/teacherDataBase.json?url'
 
-function RecentTeachers() {
+function RecentTeachers({ searchTerm }) {
   const [teachers, setTeachers] = useState([])
   
 
@@ -25,10 +25,16 @@ function RecentTeachers() {
     fetchTeachers()
   }, [])
 
+  const filteredTeachers = teachers.filter((teacher) =>
+    teacher.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    teacher.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    teacher.subject.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   return (
     <div className='recent-students-table-div'>
       <div className='recent-students-table-wrapper'>
-        <table className='recent-students-table'>
+        {filteredTeachers.length > 0 ? <table className='recent-students-table'>
           <thead>
             <tr>
               <th>Name</th>
@@ -41,7 +47,7 @@ function RecentTeachers() {
             </tr>
           </thead>
           <tbody>
-            {teachers.map((teacher) => {
+            {filteredTeachers.length > 0 && filteredTeachers.map((teacher) => {
               const statusClass = teacher.status ? teacher.status.toLowerCase() : ''
               return (
                 <tr key={teacher.id}>
@@ -60,9 +66,9 @@ function RecentTeachers() {
                   </td>
                 </tr>
               )
-            })}
+            }) }
           </tbody>
-        </table>
+        </table>: <div className="recent-students-table">No teachers found. Search either by name, ID, or subject.</div>}
       </div>
     </div>
   )

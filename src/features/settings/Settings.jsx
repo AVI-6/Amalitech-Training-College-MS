@@ -26,6 +26,7 @@ function AdminSettingsPage({
     enrollmentDate: '06/06/2025',
     ...initialSettings,
   });
+  const fileInputRef = React.useRef(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -67,7 +68,17 @@ function AdminSettingsPage({
                   <div className="admin-profile-name">{profileName || pageTitle}</div>
                   <div className="admin-profile-role">{role} </div>
                 </div>
-                <button type="button" className="change-photo-button">Change Photo</button>
+                <button type="button" className="change-photo-button"
+                  onClick={() => fileInputRef.current?.click()}>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    name="profilePhoto"
+                    id="profilePhoto"
+                    style={{ display: 'none' }}
+                    onChange={handleChange}
+                  />
+                  Change Photo</button>
               </div>
             </div>
 

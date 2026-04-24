@@ -57,7 +57,7 @@ function AdminTeachersPage() {
         </div>
         <div className="students-table">
           <div className="recent-students-table">
-            <RecentTeachers />
+            <RecentTeachers searchTerm={searchTerm} />
           </div>
           <div className="bottom-navbar">
             <BottomNavBar totalPages={100}/>

@@ -3,9 +3,11 @@ import Button from '../buttons/Button'
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 import { MdKey } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 
 function Form({ title, titleDesc, logo }) {
+  const { login } = useAuth();
   const [isLoading, setIsLoading] = useState(false)
   const [form, setForm] = useState({
     email:'',
@@ -23,25 +25,23 @@ function Form({ title, titleDesc, logo }) {
     setIsChecked({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault();
-    setIsLoading(false);
-    if(!form.email && form.password <6){
-      setErrorMessage('Enter valid email and password')
+    setIsLoading(true);
+    try {
+      const user = await login({ email: form.email, password: form.password });
+      if (user.role === 'admin') {
+        navigate('/admin/dashboard');
+      } else if (user.role === 'teacher') {
+        navigate('/teachers/dashboard');
+      } else if (user.role === 'student') {
+        navigate('/students/dashboard');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setIsLoading(false);
     }
-    if(form.email === 'admin@school.com' && form.password === 'admin@2026'){
-      navigate('/admin/dashboard')
-      setIsLoading(false)
-    }
-    if(form.email === 'teacher@school.com' && form.password === 'teacher@2026'){
-      navigate('/teachers/dashboard')
-      setIsLoading(false)
-    }
-    if(form.email === 'student@school.com' && form.password === 'student@2026'){
-      navigate('/students/dashboard')
-      setIsLoading(false)
-    }
-    setErrorMessage("");
   }
 
   const BtnStyles = {
@@ -58,7 +58,7 @@ function Form({ title, titleDesc, logo }) {
   }
   return (
     <div className="right-side">
-
+      
       <form onSubmit={handleSubmit} className='login-form'>
         <div className="title-div">
           <h1>{ title }</h1>
@@ -80,7 +80,7 @@ function Form({ title, titleDesc, logo }) {
           <input type={passType} name="password" id="password" required value={form.password} onChange={handleChange}/>
           {passType !== 'password' ? <FaEyeSlash id="show-password" className='show-password' onClick={hidePassword}/> : <FaEye onClick={showPassword} className='show-password'/>}
         </div>
-        {errorMessage && <p className="form-error-message">{errorMessage}</p>}
+        {errorMessage && <p className="form-error-message" style={{color: 'red'}}>{errorMessage}</p>}
         <div className="remember-and-forgot-div">
           <div className="remember-me-div">
             <input type="checkbox" name="remember" id="remember-me" value={isChecked} onChange={handleRemember}/>

@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@5e19c1aa7acd2e02c5110eaf77eacd29039cca28
+        uses: aws-actions/configure-aws-credentials@d4a9acd8d3a85678bd2eb9e0a2225949c8ce00f0
         with:
           aws-region: ${{vars.AWSREGION}}
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActions
